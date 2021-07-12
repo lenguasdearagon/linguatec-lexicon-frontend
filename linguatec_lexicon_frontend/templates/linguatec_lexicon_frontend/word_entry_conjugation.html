@@ -76,7 +76,10 @@
 {% block extrascript %}
 <script>
 
+
+
 url = "https://softaragones.org/conchugador/?verbo={{verb}}&grafia=DGPL&sin_menu=true&sin_titol=true&sin_estilo=true";
+init_default_options();
 load_conjugation(url);
 
 function load_conjugation(url){
@@ -95,7 +98,22 @@ function load_conjugation(url){
   });
 }
 
-$(".fa-caret-left").css('visibility', 'hidden');
+function init_default_options(){
+  $(".fa-caret-left").css('visibility', 'hidden');
+  select_option("#id_grafia_0");
+  select_option("#id_participio_0");
+  select_option("#id_tiempo_pasau_2");
+  select_option("#id_primer_plural_0");
+  select_option("#id_cherundio_0");
+  $("#id_auxiliar_ser").prop("checked", true);
+  $("#id_incoativo").prop("checked", true);
+}
+
+function select_option(id){
+  $(id).prop("checked", true);
+  $(id).parent().parent().parent().find('.fa-caret-left').css('visibility', 'visible');
+}
+
 $('.rg-conjugator-options').click(function() {
   $(this).parent().find(".fa-caret-left").css('visibility', 'hidden');
   $(this).find(".fa-caret-left").css('visibility', 'visible');
