@@ -7,62 +7,67 @@
   <div class="row">
     <div>Conjugación de <strong>{{ verb }}</strong></div>
   </div>
-  <div class="row">
-    <div class="col-10 rg-conjugator-options-header">Opciones</div>
-  </div>
-  <div class="row">
-    <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.grafia.label }}</div>
-    <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
-    <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
-    <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
-    <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
-  </div>
-  <div class="row">
-    <div class="conjugator-select col-2 px-0">
-      {% for value in conjugator_form.grafia %}
-        <div class="rg-conjugator-options">
-          <div class='d-none'>{{value}}</div>{{value.choice_label}}
-          <i class="fas fa-caret-left float-right pr-3"></i>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="conjugator-select col-2 px-0">
-      {% for value in conjugator_form.participio %}
-        <div class="rg-conjugator-options">
-          <div class='d-none'>{{value}}</div>{{value.choice_label}}
-          <i class="fas fa-caret-left float-right pr-3"></i>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="conjugator-select col-2 px-0">
-      {% for value in conjugator_form.tiempo_pasau %}
-        <div class="rg-conjugator-options">
-          <div class='d-none'>{{value}}</div>{{value.choice_label}}
-          <i class="fas fa-caret-left float-right pr-3"></i>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="conjugator-select col-2 px-0">
-      {% for value in conjugator_form.primer_plural %}
-        <div class="rg-conjugator-options">
-          <div class='d-none'>{{value}}</div>{{value.choice_label}}
-          <i class="fas fa-caret-left float-right pr-3"></i>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="conjugator-select col-2 px-0">
-      {% for value in conjugator_form.cherundio %}
-        <div class="rg-conjugator-options">
-          <div class='d-none'>{{value}}</div>{{value.choice_label}}
-          <i class="fas fa-caret-left float-right pr-3"></i>
-        </div>
-      {% endfor %}
+  <div id="options-button" class="row">
+    <div class="col-10 rg-conjugator-options-header">
+      <span class="h5 font-weight-bolder align-middle">Opciones</span>
+      <i class="fas fa-chevron-up fa-2x ml-3 align-middle"></i>
     </div>
   </div>
+  <div id="options-form">
+    <div class="row">
+      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.grafia.label }}</div>
+      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
+      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
+      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
+      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
+    </div>
+    <div class="row">
+      <div class="conjugator-select col-2 px-0">
+        {% for value in conjugator_form.grafia %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-2 px-0">
+        {% for value in conjugator_form.participio %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-2 px-0">
+        {% for value in conjugator_form.tiempo_pasau %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-2 px-0">
+        {% for value in conjugator_form.primer_plural %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-2 px-0">
+        {% for value in conjugator_form.cherundio %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
 
-  <div class="row mt-3">
-    <div class="mr-2">{{ conjugator_form.auxiliar_ser }}</div> {{ conjugator_form.auxiliar_ser.label }}
-    <div class="mr-2 ml-5">{{ conjugator_form.incoativo }}</div> {{ conjugator_form.incoativo.label }}
+    <div class="row mt-3">
+      <div class="mr-2">{{ conjugator_form.auxiliar_ser }}</div> {{ conjugator_form.auxiliar_ser.label }}
+      <div class="mr-2 ml-5">{{ conjugator_form.incoativo }}</div> {{ conjugator_form.incoativo.label }}
+    </div>
   </div>
 
   <div class="row">
@@ -117,6 +122,7 @@ function load_conjugation(url){
 }
 
 function init_default_options(){
+  $("#options-form").hide();
   $(".fa-caret-left").css('visibility', 'hidden');
   select_option("id_grafia_0");
   select_option("id_participio_0");
@@ -150,6 +156,11 @@ $('.rg-conjugator-options').click(function() {
 
 $('input[type=checkbox]').click(function() {
   load_conjugation(build_url());
+});
+
+$("#options-button").click(function() {
+  $(this).find("i").toggleClass("fa-chevron-up fa-chevron-down");
+  $("#options-form").slideToggle("slow");
 });
 
 </script>
