@@ -436,6 +436,10 @@ footer.rg-footer {
     border-bottom-width: 0px;
 }
 
+#options-form{
+    color: #707070;
+}
+
 .fa-caret-left{
     color: #FC565B;
 }

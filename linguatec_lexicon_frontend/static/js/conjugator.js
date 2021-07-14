@@ -54,6 +54,8 @@ function select_option(id){
     id = "#" + id;
     $(id).prop("checked", true);
     $(id).closest(".rg-conjugator-options").find('.fa-caret-left').css('visibility', 'visible');
+    $(id).closest(".conjugator-select").find(".rg-conjugator-options").css('font-weight', 'normal');
+    $(id).closest(".rg-conjugator-options").css('font-weight', 'bold');
 }
 
 function unselect_options(id){
