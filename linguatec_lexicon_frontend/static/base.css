@@ -440,6 +440,27 @@ footer.rg-footer {
     color: #FC565B;
 }
 
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border:1px solid #c8c8c8;
+}
+input[type='checkbox']:checked:before {
+    width:30px;
+    height:30px;
+    font-family: 'FontAwesome';
+    color:#707070;
+    padding-left: 8px;
+    content: "\f00c";
+}
+
+.checkbox-wrapper{
+    width:30px;
+    height:30px;
+}
+
 /*** end conjugator options ***/
 
 .near-words a {
