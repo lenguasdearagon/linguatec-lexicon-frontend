@@ -2,12 +2,6 @@ from django import forms
 
 
 class ConjugatorForm(forms.Form):
-    GRAFIA_CHOICES = (
-        ('DGPL', 'DGPL 2017'),
-        ('EFA', 'EFA 2010'),
-        ('SLA', 'SLA 2006'),
-        ('CFA', 'CFA 1987')
-    )
     REMATANZA_CHOICES = (
         ('au', '-au / -iu'),
         ('ato', '-ato / -ito')
@@ -26,9 +20,6 @@ class ConjugatorForm(forms.Form):
         ('apocopada', 'apocopada (no rematada en -o)')
     )
 
-    grafia = forms.ChoiceField(
-        label="Grafía", choices=GRAFIA_CHOICES, widget=forms.RadioSelect
-    )
     participio = forms.ChoiceField(
         label="Rematanza d'os participios", choices=REMATANZA_CHOICES, widget=forms.RadioSelect
     )

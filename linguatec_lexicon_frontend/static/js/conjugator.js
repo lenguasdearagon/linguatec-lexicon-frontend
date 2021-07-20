@@ -1,7 +1,6 @@
 function build_url(){
     base_url = "https://softaragones.org/conchugador/?sin_menu=true&sin_titol=true&sin_estilo=true"
     verbo = $('#js-data').data('verb');
-    grafia = $("input[name=grafia]:checked").val();
     participio = $("input[name=participio]:checked").val();
     tiempo_pasau = $("input[name=tiempo_pasau]:checked").val();
     primer_plural = $("input[name=primer_plural]:checked").val();
@@ -9,7 +8,7 @@ function build_url(){
     auxiliar_ser = $("input[name=auxiliar_ser]").prop('checked');
     incoativo = $("input[name=incoativo]").prop('checked');
 
-    params = "&verbo=" + verbo +"&grafia=" + grafia + "&participio=" + participio + "&tiempo_pasau=" + tiempo_pasau +
+    params = "&verbo=" + verbo +"&grafia=DGPL&participio=" + participio + "&tiempo_pasau=" + tiempo_pasau +
                 "&primerPlural=" + primer_plural + "&cherundio=" + cherundio
 
     if (auxiliar_ser){
@@ -28,7 +27,7 @@ function load_conjugation(url){
         $("#conjugation").html(conjugation_table);
         $("tfoot").remove();
         $("#conjugation").css("margin-top", "20px");
-        $("table").css("width", "84%");
+        $("table").css("width", "67%");
         $("table").css("border-spacing", 5);
         $("table").css("border-collapse", "separate");
         $("th").css("background-color","#c8c8c8");
@@ -41,7 +40,6 @@ function load_conjugation(url){
 function init_default_options(){
     $("#options-form").hide();
     $(".fa-caret-left").css('visibility', 'hidden');
-    select_option("id_grafia_0");
     select_option("id_participio_0");
     select_option("id_tiempo_pasau_2");
     select_option("id_primer_plural_0");
