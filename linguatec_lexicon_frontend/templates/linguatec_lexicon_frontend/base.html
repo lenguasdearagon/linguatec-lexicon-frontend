@@ -112,7 +112,7 @@
         {% block content %}
         <div class="row">
           <div class="col-12 col-md-9 col-lg-8 col-xl-7 ml-md-5">
-              {% include "linguatec_lexicon_frontend/components/search-tools.html" with selector_inline=True %}
+              {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
           </div>
         </div>
         {% endblock %}
@@ -196,6 +196,31 @@
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script>
         $(function () {
+
+            init_dictionary_button();
+
+            function init_dictionary_button(){
+                selected_dictionary = $("#selected_lex").val();
+                if (selected_dictionary == 'es-ar'){
+                    $("#button-dictionary-change").removeClass('ar-es');
+                    $("#button-dictionary-change").addClass('es-ar');
+                    $("#button-dictionary-change").data("dictionary", "to-ar-es");
+                    $('#input-search').attr('placeholder', 'castellano-aragonés');
+                } else {
+                    $("#button-dictionary-change").removeClass('es-ar');
+                    $("#button-dictionary-change").addClass('ar-es');
+                    $("#button-dictionary-change").data("dictionary", "to-es-ar");
+                    $('#input-search').attr('placeholder', 'aragonés-castellano');
+                }
+            }
+
+            $("#button-dictionary-change").click(function() {
+                console.log($(this).data("dictionary"));
+                selected_dictionary = $(this).data("dictionary").replace("to-","");
+                $('#selected_lex option[value="' + selected_dictionary + '"]').prop('selected', true);
+                init_dictionary_button();
+            });
+
             $("#input-search").autocomplete({
                 source: function (request, response) {
                     $.getJSON({
