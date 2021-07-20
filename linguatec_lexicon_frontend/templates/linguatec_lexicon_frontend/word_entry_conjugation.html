@@ -66,8 +66,18 @@
     </div>
 
     <div class="row mt-3">
-      <div class="mr-2 checkbox-wrapper">{{ conjugator_form.auxiliar_ser }}</div> {{ conjugator_form.auxiliar_ser.label }}
-      <div class="mr-2 ml-5 checkbox-wrapper">{{ conjugator_form.incoativo }}</div> {{ conjugator_form.incoativo.label }}
+      <div class="mr-5">
+      <label class="checkbox-container">{{ conjugator_form.auxiliar_ser.label }}
+          {{ conjugator_form.auxiliar_ser }}
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div>
+        <label class="checkbox-container">{{ conjugator_form.incoativo.label }}
+          {{ conjugator_form.incoativo }}
+          <span class="checkmark"></span>
+        </label>
+      </div>
     </div>
   </div>
 
