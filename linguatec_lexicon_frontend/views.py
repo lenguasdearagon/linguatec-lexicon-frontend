@@ -11,6 +11,7 @@ from django.urls import resolve
 
 import coreapi
 from linguatec_lexicon_frontend import utils
+from linguatec_lexicon_frontend.forms import ConjugatorForm
 
 
 def get_lexicons():
@@ -234,11 +235,13 @@ class ConjugationDetailView(LinguatecBaseView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         verb = kwargs.get('verb')
+        conjugator_form = ConjugatorForm()
 
         context.update({
             "verb": verb,
             "lexicons": get_lexicons(),
             "selected_lexicon": 'es-ar',  # keep UI behaviour: set default lexicon 'es-ar'
+            "conjugator_form": conjugator_form
         })
 
         return context

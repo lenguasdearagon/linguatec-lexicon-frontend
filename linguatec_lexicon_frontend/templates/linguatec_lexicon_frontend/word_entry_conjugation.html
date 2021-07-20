@@ -1,33 +1,88 @@
 {% extends "linguatec_lexicon_frontend/base_site.html" %}
+{% load static %}
+
 {% block content %}
 {{ block.super }}
 
-<div class="row">
-  <div class="col-12 rg-search-results">
-    Conjugación de <strong>{{ verb }}</strong>
-    <div id="conjugation">
-
+<div class="rg-search-results ml-3">
+  <div class="row">
+    <div>Conjugación de <strong>{{ verb }}</strong></div>
+  </div>
+  <div id="options-button" class="row">
+    <div class="col-12 rg-conjugator-options-header">
+      <span class="h5 font-weight-bolder align-middle">Opciones</span>
+      <i class="fas fa-chevron-up fa-2x ml-3 align-middle"></i>
     </div>
-    <div class="pl-1 mt-5 mb-3">Fuente: conjugador desarrollado por <strong>Chorche Pérez</strong></div>
+  </div>
+  <div id="options-form">
+    <div class="row">
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
+    </div>
+    <div class="row">
+      <div class="conjugator-select col-3 px-0">
+        {% for value in conjugator_form.participio %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-3 px-0">
+        {% for value in conjugator_form.tiempo_pasau %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-3 px-0">
+        {% for value in conjugator_form.primer_plural %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="conjugator-select col-3 px-0">
+        {% for value in conjugator_form.cherundio %}
+          <div class="rg-conjugator-options">
+            <div class='d-none'>{{value}}</div>{{value.choice_label}}
+            <i class="fas fa-caret-left float-right pr-3"></i>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="mr-5">
+      <label class="checkbox-container">{{ conjugator_form.auxiliar_ser.label }}
+          {{ conjugator_form.auxiliar_ser }}
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div>
+        <label class="checkbox-container">{{ conjugator_form.incoativo.label }}
+          {{ conjugator_form.incoativo }}
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 px-0" id="conjugation">
+    </div>
+    <div class="col-12 pl-1 mt-5 mb-3">Fuente: conjugador desarrollado por <strong>Chorche Pérez</strong></div>
   </div>
 </div>
+
+<div id="js-data" class="d-none" data-verb="{{ verb }}"></div>
+
 {% endblock %}
 
 {% block extrascript %}
-<script>
-
-url = "https://softaragones.org/conchugador/?verbo={{verb}}&grafia=DGPL&sin_menu=true&sin_titol=true&sin_estilo=true";
-$.get( url, function( data ) {
-  conjugation_table = $.parseHTML(data)[8];
-  $("#conjugation").html(conjugation_table);
-  $("tfoot").remove();
-  $("#conjugation").css("margin-top", "20px");
-  $("table").css("border-spacing", 5);
-  $("table").css("border-collapse", "separate");
-  $("th").css("background-color","#c8c8c8");
-  $("td, th").css("margin","5px");
-  $("td, th").css("padding","5px");
-  $("td").css("background-color", "#f0f0f0");
-});
-</script>
+  <script src="{% static 'js/conjugator.js' %}"></script>>
 {% endblock %}
