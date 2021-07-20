@@ -21,7 +21,7 @@ class ConjugatorForm(forms.Form):
     )
 
     participio = forms.ChoiceField(
-        label="Rematanza d'os participios", choices=REMATANZA_CHOICES, widget=forms.RadioSelect
+        label="Rematanza d'os partizipios", choices=REMATANZA_CHOICES, widget=forms.RadioSelect
     )
     tiempo_pasau = forms.ChoiceField(
         label="Tiempos d'os pasaus perfecto simple y anterior", choices=PASAUS_CHOICES, widget=forms.RadioSelect
@@ -34,4 +34,3 @@ class ConjugatorForm(forms.Form):
     )
     auxiliar_ser = forms.BooleanField(label="Conchugar con o verbo estar como auxiliar si ye posible")
     incoativo = forms.BooleanField(label="Conchugar con a forma incoativa si ye posible")
-
