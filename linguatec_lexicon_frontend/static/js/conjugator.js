@@ -27,7 +27,7 @@ function load_conjugation(url){
         $("#conjugation").html(conjugation_table);
         $("tfoot").remove();
         $("#conjugation").css("margin-top", "20px");
-        $("table").css("width", "67%");
+        $("table").css("width", "100%");
         $("table").css("border-spacing", 5);
         $("table").css("border-collapse", "separate");
         $("th").css("background-color","#c8c8c8");

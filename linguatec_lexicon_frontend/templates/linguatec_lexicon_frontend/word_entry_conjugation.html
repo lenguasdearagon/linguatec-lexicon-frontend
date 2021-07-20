@@ -9,20 +9,20 @@
     <div>Conjugación de <strong>{{ verb }}</strong></div>
   </div>
   <div id="options-button" class="row">
-    <div class="col-8 rg-conjugator-options-header">
+    <div class="col-12 rg-conjugator-options-header">
       <span class="h5 font-weight-bolder align-middle">Opciones</span>
       <i class="fas fa-chevron-up fa-2x ml-3 align-middle"></i>
     </div>
   </div>
   <div id="options-form">
     <div class="row">
-      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
-      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
-      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
-      <div class="col-2 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
+      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
     </div>
     <div class="row">
-      <div class="conjugator-select col-2 px-0">
+      <div class="conjugator-select col-3 px-0">
         {% for value in conjugator_form.participio %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
@@ -30,7 +30,7 @@
           </div>
         {% endfor %}
       </div>
-      <div class="conjugator-select col-2 px-0">
+      <div class="conjugator-select col-3 px-0">
         {% for value in conjugator_form.tiempo_pasau %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
@@ -38,7 +38,7 @@
           </div>
         {% endfor %}
       </div>
-      <div class="conjugator-select col-2 px-0">
+      <div class="conjugator-select col-3 px-0">
         {% for value in conjugator_form.primer_plural %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
@@ -46,7 +46,7 @@
           </div>
         {% endfor %}
       </div>
-      <div class="conjugator-select col-2 px-0">
+      <div class="conjugator-select col-3 px-0">
         {% for value in conjugator_form.cherundio %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
