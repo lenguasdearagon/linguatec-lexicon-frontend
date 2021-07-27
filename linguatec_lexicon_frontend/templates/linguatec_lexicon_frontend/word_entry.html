@@ -10,9 +10,9 @@
     </div>
     {% endifchanged %}
 
-    <div id="translated_word">
+    <div id="word_{{entry.id}}">
         {{ entry.translation|render_entry }}
-        {% include "linguatec_lexicon_frontend/components/speaker-player.html" %}
+        {% include "linguatec_lexicon_frontend/components/speaker-player.html" with wordid=entry.id %}
     </div>
 
     {# <!-- examples --> #}
