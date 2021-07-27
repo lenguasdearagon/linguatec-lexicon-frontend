@@ -2,6 +2,7 @@
 Templatetags helpers to render lexicon content.
 """
 import coreapi
+import re
 import urllib.parse
 
 from django import template
@@ -34,7 +35,15 @@ def render_entry(value):
         abbr, title = gramcat['abbreviation'], gramcat['title']
         value = value.replace(
             abbr, "<span class='rg-gramcat' title='{0}'>{1}</span>".format(title, abbr))
+
+    # Replace <trans> mark with links to wrapped words
+    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\w+)</trans>', build_link, value)
+
     return mark_safe(value)
+
+
+def build_link(matchobj):
+    return '<a href="/search/?q=' + matchobj.group(2) + '&l=' + matchobj.group(1) + '">' + matchobj.group(2) + '</a>'
 
 
 # TODO unused???
