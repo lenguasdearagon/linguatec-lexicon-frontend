@@ -6,7 +6,10 @@
 
 <div class="rg-search-results ml-3">
   <div class="row">
-    <div>Conjugación de <strong>{{ verb }}</strong></div>
+    <div>
+      Conjugación de <strong id="translated_word">{{ verb }}</strong>
+      {% include "linguatec_lexicon_frontend/components/speaker-player.html" %}
+    </div>
   </div>
   <div id="options-button" class="row">
     <div class="col-12 rg-conjugator-options-header">
