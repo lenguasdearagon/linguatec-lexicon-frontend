@@ -1,10 +1,16 @@
 {% extends "linguatec_lexicon_frontend/base_site.html" %}
 {% load static %}
 
+{% block menu-dictionary-change %}
+<span class="navbar-toggler btn btn-outline-secondary ml-auto es-ar button-dictionary-change"
+      data-dictionary="to-ar-es">
+</span>
+{% endblock %}
+
 {% block content %}
 {{ block.super }}
 
-<div class="rg-search-results ml-3">
+<div class="rg-search-results conjugation-block">
   <div class="row">
     <div>Conjugación de <strong>{{ verb }}</strong></div>
   </div>
@@ -16,13 +22,8 @@
   </div>
   <div id="options-form">
     <div class="row">
-      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
-      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
-      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
-      <div class="col-3 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
-    </div>
-    <div class="row">
-      <div class="conjugator-select col-3 px-0">
+      <div class="col-12 col-sm-3 order-sm-1 rg-conjugator-options-header">{{ conjugator_form.participio.label }}</div>
+      <div class="conjugator-select col-12 col-sm-3 order-sm-5 px-0">
         {% for value in conjugator_form.participio %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
@@ -30,7 +31,8 @@
           </div>
         {% endfor %}
       </div>
-      <div class="conjugator-select col-3 px-0">
+      <div class="col-12 col-sm-3 order-sm-2 rg-conjugator-options-header">{{ conjugator_form.tiempo_pasau.label }}</div>
+      <div class="conjugator-select col-12 col-sm-3 order-sm-6 px-0">
         {% for value in conjugator_form.tiempo_pasau %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
@@ -38,7 +40,8 @@
           </div>
         {% endfor %}
       </div>
-      <div class="conjugator-select col-3 px-0">
+      <div class="col-12 col-sm-3 order-sm-3 rg-conjugator-options-header">{{ conjugator_form.primer_plural.label }}</div>
+      <div class="conjugator-select col-12 col-sm-3 order-sm-7  px-0">
         {% for value in conjugator_form.primer_plural %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}
@@ -46,7 +49,8 @@
           </div>
         {% endfor %}
       </div>
-      <div class="conjugator-select col-3 px-0">
+      <div class="col-12 col-sm-3 order-sm-4 rg-conjugator-options-header">{{ conjugator_form.cherundio.label }}</div>
+      <div class="conjugator-select col-12 col-sm-3 order-sm-8 px-0">
         {% for value in conjugator_form.cherundio %}
           <div class="rg-conjugator-options">
             <div class='d-none'>{{value}}</div>{{value.choice_label}}

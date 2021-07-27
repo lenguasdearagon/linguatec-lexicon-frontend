@@ -318,7 +318,6 @@ footer.rg-footer {
 
 .rg-search-results {
     margin-top: 1rem;
-    margin-right: 20rem;
 }
 
 .rg-search-results .rg-word {
@@ -587,6 +586,11 @@ a.ref-external::after {
         padding-left: 2rem;
     }
 
+    .conjugation-block{
+        padding-left: 1rem;
+        margin-right: 1rem;
+    }
+
 }
 
 /** sm and smaller devices **/
@@ -624,6 +628,11 @@ a.ref-external::after {
     }
     .rg-search-results {
         padding-left: 2rem;
+        margin-right: 5rem;
+    }
+    .conjugation-block{
+        padding-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
@@ -680,6 +689,7 @@ a.ref-external::after {
 
     .rg-search {
         margin-top: 0px;
+        margin-right: 10rem;
     }
 
     .home .rg-main .rg-search #input-search {
@@ -718,6 +728,11 @@ a.ref-external::after {
 
     .rg-search-results {
         padding-left: 6rem;
+        margin-right: 3rem;
+    }
+
+    .conjugation-block{
+        padding-left: 4rem;
     }
 
     .home .rg-navbar-separator {
@@ -847,5 +862,9 @@ a.ref-external::after {
 
     .rg-header-bottom {
         background-position-x: 121px;
+    }
+
+    .rg-search-results{
+        margin-right: 20rem;
     }
 }
