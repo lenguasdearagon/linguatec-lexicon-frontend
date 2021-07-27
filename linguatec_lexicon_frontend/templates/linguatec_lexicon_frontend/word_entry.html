@@ -10,7 +10,13 @@
     </div>
     {% endifchanged %}
 
-    {{ entry.translation|render_entry }}
+    <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+        <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Escucha esta p&aacute;gina utilizando ReadSpeaker webReader" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=11263&amp;lang=es_es&amp;readid=translated_word&amp;url={{ request.build_absolute_uri|urlencode }}">
+            <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Escuchar</span></span></span>
+            <span class="rsbtn_right rsimg rsplay rspart"></span>
+        </a>
+    </div>
+    <div id="translated_word">{{ entry.translation|render_entry }}</div>
 
     {# <!-- examples --> #}
     {% if entry.examples %}
