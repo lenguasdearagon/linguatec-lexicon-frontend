@@ -3,7 +3,7 @@ $(function () {
     init_dictionary_button();
 
     function init_dictionary_button(){
-        selected_dictionary = $("#selected_lex").val();
+        var selected_dictionary = $("#selected_lex").val();
         if (selected_dictionary == 'es-ar'){
             $(".button-dictionary-change").removeClass('ar-es');
             $(".button-dictionary-change").addClass('es-ar');
@@ -18,8 +18,7 @@ $(function () {
     }
 
     $(".button-dictionary-change").click(function() {
-        console.log($(this).data("dictionary"));
-        selected_dictionary = $(this).data("dictionary").replace("to-","");
+        var selected_dictionary = $(this).data("dictionary").replace("to-","");
         $('#selected_lex option[value="' + selected_dictionary + '"]').prop('selected', true);
         init_dictionary_button();
     });
