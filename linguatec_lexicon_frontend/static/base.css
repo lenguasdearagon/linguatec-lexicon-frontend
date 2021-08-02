@@ -309,11 +309,11 @@ footer.rg-footer {
 }
 
 .ar-es{
-    background-image: url('simboloboton-a-c-color.svg');
+    background-image: url('lexicon-button-a-c-colour.svg');
 }
 
 .es-ar{
-    background-image: url('simboloboton-c-a-color.svg');
+    background-image: url('lexicon-button-c-a-colour.svg');
 }
 
 .rg-search-results {
@@ -610,11 +610,11 @@ a.ref-external::after {
     }
 
     .home .rg-main .rg-search .ar-es{
-        background-image: url('simboloboton-a-c-gris.svg');
+        background-image: url('lexicon-button-a-c-grey.svg');
     }
 
     .home .rg-main .rg-search .es-ar{
-        background-image: url('simboloboton-c-a-gris.svg');
+        background-image: url('lexicon-button-c-a-grey.svg');
     }
 }
 
@@ -640,12 +640,12 @@ a.ref-external::after {
 @media (max-width: 991.98px ) {
     .navbar .ar-es{
         height: 32px;
-        background-image: url('simboloboton-a-c-gris.svg');
+        background-image: url('lexicon-button-a-c-grey.svg');
     }
 
     .navbar .es-ar{
         height: 32px;
-        background-image: url('simboloboton-c-a-gris.svg');
+        background-image: url('lexicon-button-c-a-grey.svg');
     }
 
     #baseSearch .button-dictionary-change{
