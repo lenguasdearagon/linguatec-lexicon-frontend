@@ -12,7 +12,9 @@
 
     <div id="word_{{entry.id}}">
         {{ entry.translation|render_entry }}
-        {% include "linguatec_lexicon_frontend/components/speaker-player.html" with wordid=entry.id %}
+        {% if selected_lexicon == "es-ar" %}
+            {% include "linguatec_lexicon_frontend/components/speaker-player.html" with wordid=entry.id %}
+        {% endif %}
     </div>
 
     {# <!-- examples --> #}
