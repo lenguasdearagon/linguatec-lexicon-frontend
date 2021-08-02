@@ -27,7 +27,7 @@ $(function () {
     $("#input-search").autocomplete({
         source: function (request, response) {
             $.getJSON({
-                url: "{{ autocomplete_api_url }}",
+                url: autocomplete_api_url,
                 data: {
                     q: request.term,
                     l: $("#selected_lex :selected").val(),

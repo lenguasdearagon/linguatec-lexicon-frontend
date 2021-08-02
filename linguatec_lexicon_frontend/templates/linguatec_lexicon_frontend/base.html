@@ -196,6 +196,11 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <script>
+      // define variable globally to be accessible on JS scripts
+      var autocomplete_api_url = "{{ autocomplete_api_url }}";
+    </script>
     <script src="{% static 'js/base.js' %}"></script>
 
     {% block extrascript %}{% endblock %}
