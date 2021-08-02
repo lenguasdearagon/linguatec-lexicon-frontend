@@ -277,11 +277,6 @@ footer.rg-footer {
     height: 62px;
 }
 
-.rg-search #selected_lex {
-    background: gainsboro;
-    border: 0px;
-}
-
 .home .rg-main .rg-search #button-search {
     background: #333333;
     color: white;
@@ -572,10 +567,6 @@ a.ref-external::after {
 
     .rg-search #input-search {
         height: 52px;
-    }
-
-    .rg-search #selected_lex {
-        font-size: smaller;
     }
 
     .rg-main .rg-search #button-search {

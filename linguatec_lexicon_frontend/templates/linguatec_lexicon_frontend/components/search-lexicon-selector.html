@@ -1,5 +1,0 @@
-<select id="selected_lex" name="l" class="{{ select_class }} d-none">
-  {% for lex in lexicons %}
-      <option value="{{ lex.code }}" {% if lex.code == selected_lexicon %}selected{% endif %}>{{ lex.name }}</option>
-  {% endfor %}
-</select>

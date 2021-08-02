@@ -7,19 +7,17 @@ $(function () {
         if (selected_dictionary == 'es-ar'){
             $(".button-dictionary-change").removeClass('ar-es');
             $(".button-dictionary-change").addClass('es-ar');
-            $(".button-dictionary-change").data("dictionary", "to-ar-es");
             $('#input-search').attr('placeholder', 'castellano-aragonés');
         } else {
             $(".button-dictionary-change").removeClass('es-ar');
             $(".button-dictionary-change").addClass('ar-es');
-            $(".button-dictionary-change").data("dictionary", "to-es-ar");
             $('#input-search').attr('placeholder', 'aragonés-castellano');
         }
     }
 
     $(".button-dictionary-change").click(function() {
-        var selected_dictionary = $(this).data("dictionary").replace("to-","");
-        $('#selected_lex option[value="' + selected_dictionary + '"]').prop('selected', true);
+        var current_lexicon = $("#selected_lex").val();
+        $("#selected_lex").val(current_lexicon == 'es-ar' ? 'ar-es' : 'es-ar');
         init_dictionary_button();
     });
 
@@ -29,7 +27,7 @@ $(function () {
                 url: autocomplete_api_url,
                 data: {
                     q: request.term,
-                    l: $("#selected_lex :selected").val(),
+                    l: $("#selected_lex").val(),
                     limit: 5
                 },
                 success: function (json) {
