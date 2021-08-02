@@ -858,4 +858,8 @@ a.ref-external::after {
     .rg-search-results{
         margin-right: 20rem;
     }
+
+    #conjugation table{
+        display: table;
+    }
 }
