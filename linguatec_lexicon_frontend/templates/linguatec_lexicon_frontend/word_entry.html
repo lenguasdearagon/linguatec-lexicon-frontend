@@ -10,8 +10,8 @@
     </div>
     {% endifchanged %}
 
-    <div id="word_{{entry.id}}">
-        {{ entry.translation|render_entry }}
+    <div>
+        {{ entry|render_entry }}
         {% if selected_lexicon == "es-ar" %}
             {% include "linguatec_lexicon_frontend/components/speaker-player.html" with wordid=entry.id %}
         {% endif %}

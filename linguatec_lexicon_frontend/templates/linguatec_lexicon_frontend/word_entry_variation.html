@@ -6,7 +6,7 @@
     {% for entry in variation_entries %}
     <span class="rg-entry-translation">
         {# <!-- BE CAREFUL HERE WITH WHITESPACES! Affects final HTML render -->#}
-        {{ entry.translation|render_entry }}{% if not forloop.last %}<span>, </span>{% endif %}
+        {{ entry|render_entry }}{% if not forloop.last %}<span>, </span>{% endif %}
     </span>
     {% endfor %}
 </div>
