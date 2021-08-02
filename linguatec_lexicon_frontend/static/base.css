@@ -292,7 +292,7 @@ footer.rg-footer {
     border-radius: 0;
     border-width: 0;
     color: white;
-    min-width: 62px;
+    width: 62px;
 }
 
 .button-dictionary-change {
