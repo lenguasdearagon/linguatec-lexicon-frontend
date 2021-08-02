@@ -290,7 +290,7 @@ footer.rg-footer {
     width: 62px;
 }
 
-.button-dictionary-change {
+.button-lexicon-change {
     margin: 0;
     padding: 0;
     border-radius: 0;
@@ -639,7 +639,7 @@ a.ref-external::after {
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 
-    #baseSearch .button-dictionary-change{
+    #baseSearch .button-lexicon-change{
         display: none;
     }
 }
