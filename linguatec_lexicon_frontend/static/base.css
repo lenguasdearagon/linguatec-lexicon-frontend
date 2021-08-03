@@ -105,6 +105,7 @@ header.rg-header {
 
 .rg-header-content {
     background: #FC565B;
+    padding-top: 1.5rem;
 }
 
 .rg-header-bottom {
@@ -190,6 +191,7 @@ header.rg-header .navbar-toggler .fa-bars {
 
 .rg-main {
     margin-bottom: calc(42px + 2rem); /** fixed footer height (42px) + real margin */
+    padding-left: 4rem;
 }
 
 .home .rg-main #aragonarioLogo img {
@@ -561,6 +563,14 @@ a.ref-external::after {
         min-width: 420px;
     }
 
+    header.rg-header {
+        margin-bottom: 0;
+    }
+
+    .rg-header-bottom {
+        background-position-x: 68px
+    }
+
     .rg-search {
         padding-bottom: 14px;
     }
@@ -582,6 +592,13 @@ a.ref-external::after {
         margin-right: 1rem;
     }
 
+}
+
+/** only sm rules **/
+@media (min-width: 576px) and (max-width: 767.98px ) {
+    .rg-header-bottom {
+        background-position-x: 85px
+    }
 }
 
 /** sm and smaller devices **/
@@ -614,9 +631,6 @@ a.ref-external::after {
     .rg-header .navbar-brand .navbar-brand-logo {
         width: 282px;
     }
-    .rg-header-bottom {
-        background-position-x: 50px;
-    }
     .rg-search-results {
         padding-left: 2rem;
         margin-right: 5rem;
@@ -642,6 +656,7 @@ a.ref-external::after {
     #baseSearch .button-lexicon-change{
         display: none;
     }
+
 }
 
 /** only md rules **/
@@ -675,7 +690,7 @@ a.ref-external::after {
     }
 
     .rg-header-bottom {
-        background-position-x: 80px;
+        background-position-x: 125px;
     }
 
     .rg-search {
@@ -849,14 +864,21 @@ a.ref-external::after {
     }
 }
 
+@media (max-width: 1200px) {
+    .rg-main {
+        padding-left: 1rem;
+    }
+}
+
 /** xl rules **/
 @media (min-width: 1200px) {
     .rg-header .navbar-brand .navbar-brand-logo {
-        width: 528px;
+        width: 250px;
+        vertical-align: bottom;
     }
 
     .rg-header-bottom {
-        background-position-x: 121px;
+        background-position-x: 90px;
     }
 
     .rg-search-results{
