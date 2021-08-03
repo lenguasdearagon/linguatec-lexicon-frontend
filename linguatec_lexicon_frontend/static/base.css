@@ -791,6 +791,10 @@ a.ref-external::after {
         padding-left: 0;
     }
 
+    .conjugation-block{
+        padding-left: 6rem;
+    }
+
     /** footer **/
     footer.rg-footer {
         box-shadow: none;
