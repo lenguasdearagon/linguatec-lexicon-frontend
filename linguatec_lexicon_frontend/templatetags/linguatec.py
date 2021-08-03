@@ -28,8 +28,7 @@ def render_entry(entry):
         return "<span id='word_" + str(entry['id']) + "'>" + value + "</span>"
 
     # mark content outside parenthesis to be read by readspeaker
-    value = re.sub(r"(\(.+\))(.+)", r"\1<span id='word_" + str(entry['id']) + r"'>\2</span>", value)
-    value = re.sub(r"(.+)(\(.+\))", r"<span id='word_" + str(entry['id']) + r"'>\1</span>\2", value)
+    value = re.sub(r"(\(.+\))?([^\(]+)(\(.+\))?", r"\1<span id='word_" + str(entry['id']) + r"'>\2</span>\3", value)
 
     # mark content in parenthesis
     value = value.replace("(", "<span class='rg-usecase-comment'>(")
