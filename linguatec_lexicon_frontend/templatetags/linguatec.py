@@ -37,7 +37,7 @@ def render_entry(value):
             abbr, "<span class='rg-gramcat' title='{0}'>{1}</span>".format(title, abbr))
 
     # Replace <trans> mark with links to wrapped words
-    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\w+)</trans>', build_link, value)
+    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
 
     return mark_safe(value)
 
