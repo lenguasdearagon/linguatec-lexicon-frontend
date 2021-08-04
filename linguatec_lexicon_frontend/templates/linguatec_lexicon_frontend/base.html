@@ -194,19 +194,23 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="//cdn1.readspeaker.com/script/11263/webReader/webReader.js?pids=wr&notools=1" type="text/javascript" id="rs_req_Init"></script>
-    <script type="text/javascript">
-        <!--
-            window.rsConf = {
-                general: {
-                    usePost: true
-                },
-                settings: {
-                    hl: 'word',
-                    hlword: '#f0f0f0'
-	            }
+    <script src="//cdn1.readspeaker.com/script/11263/webReader/webReader.js?pids=wr" type="text/javascript" id="rs_req_Init"></script>
+    <script>
+        window.rsConf = {
+            general: {
+                usePost: true
+            },
+            settings: {
+                hl: 'word',
+                hlword: '#f0f0f0',
+            },
+            ui: {
+                tools: {
+                  dictionary: false,
+                  translation: false
+                }
+            }
 		    };
-        //-->
     </script>
     <script>
         $(function () {
