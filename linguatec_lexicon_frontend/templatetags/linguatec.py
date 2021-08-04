@@ -18,15 +18,19 @@ register = template.Library()
 
 
 @register.filter
-@stringfilter
-def render_entry(value):
+def render_entry(entry):
     """Parse entry content to apply weight to content."""
-    # mark content in parenthesis
+    value = entry['translation']
+
     try:
         validators.validate_balanced_parenthesis(value)
     except ValidationError:
-        return value
+        return "<span id='word_" + str(entry['id']) + "'>" + value + "</span>"
 
+    # mark content outside parenthesis to be read by readspeaker
+    value = re.sub(r"(\(.+\))?([^\(]+)(\(.+\))?", r"\1<span id='word_" + str(entry['id']) + r"'>\2</span>\3", value)
+
+    # mark content in parenthesis
     value = value.replace("(", "<span class='rg-usecase-comment'>(")
     value = value.replace(")", ")</span>")
 

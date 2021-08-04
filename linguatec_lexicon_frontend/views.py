@@ -215,10 +215,7 @@ class WordDetailView(LinguatecBaseView):
         self.groupby_word_entries(word)
 
         lexicons = get_lexicons()
-        selected_lexicon = ''
-        for lex in lexicons:
-            if word['lexicon'] == lex['id']:
-                selected_lexicon = lex['code']
+        selected_lexicon = word['lexicon']
 
         context.update({
             'results': [word],

@@ -1,5 +1,5 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -67,6 +67,8 @@
                     <div class="navbar-brand">
                         {% block branding %}{% endblock %}
                     </div>
+                    {% block menu-lexicon-change %}
+                    {% endblock %}
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -111,8 +113,8 @@
     <main class="{% block mainclass %}container-fluid{% endblock %} rg-main">
         {% block content %}
         <div class="row">
-          <div class="col-12 col-md-9 col-lg-8 col-xl-7 ml-md-5">
-              {% include "linguatec_lexicon_frontend/components/search-tools.html" with selector_inline=True %}
+          <div class="col-12 col-md-9 col-lg-8 col-xl-7 ml-md-5" id="baseSearch">
+              {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
           </div>
         </div>
         {% endblock %}
@@ -194,35 +196,24 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="//cdn1.readspeaker.com/script/11263/webReader/webReader.js?pids=wr" type="text/javascript" id="rs_req_Init"></script>
     <script>
-        $(function () {
-            $("#input-search").autocomplete({
-                source: function (request, response) {
-                    $.getJSON({
-                        url: "{{ autocomplete_api_url }}",
-                        data: {
-                            q: request.term,
-                            l: $("#selected_lex :selected").val(),
-                            limit: 5
-                        },
-                        success: function (json) {
-                            const data = $.map(
-                                json["results"],
-                                word => word["term"]
-                            );
-                            response(data);
-                        }
-                    });
-                },
-                minLength: 1,
-                // on select update input value and submit form
-                select: function (event, ui) {
-                    $(this).val(ui.item.value);
-                    $(this).closest('form').trigger('submit');
-                }
-            });
-        });
+        window.rsConf = {
+            general: {
+                usePost: true
+            },
+            settings: {
+                hl: 'word',
+                hlword: '#f0f0f0',
+                hlicon: "iconoff",
+            },
+        };
+
+        // define variable globally to be accessible on JS scripts
+        var autocomplete_api_url = "{{ autocomplete_api_url }}";
     </script>
+    <script src="{% static 'js/base.js' %}"></script>
+
     {% block extrascript %}{% endblock %}
 </body>
 

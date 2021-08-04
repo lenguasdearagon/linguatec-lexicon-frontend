@@ -2,7 +2,11 @@
 
 <article>
     <header class="rg-word">
-        <h2>{{ word.term }}
+        <h2>
+          <span id="word_{{ word.id }}">{{ word.term }}</span>
+          {% if selected_lexicon == "ar-es" %}
+            {% include "linguatec_lexicon_frontend/components/speaker-player.html" with wordid=word.id %}
+          {% endif %}
           {% if word.is_regular_verb %}<a class="btn btn-outline-secondary ml-3" href="{% url 'word-conjugation' word.term %}">Conjugar</a>{% endif %}
           {% if word.admin_panel_url %}<a href= {{ word.admin_panel_url }}> (edit) </a>{% endif %}
         </h2>

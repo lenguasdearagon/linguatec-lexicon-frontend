@@ -1,18 +1,14 @@
+{% load static %}
 <form action="{% url 'search' %}">
     <div class="input-group rg-search">
         <label class="sr-only" for="input-search">Término a buscar</label>
         <input id="input-search" class="ui-widget form-control" name="q" type="text" value="{{ query }}">
-        {% if selector_inline %}
-          {% include "linguatec_lexicon_frontend/components/search-lexicon-selector.html" with select_class="pl-2 pr-2" %}
-        {% endif %}
         <div class="input-group-append pl-2">
             <button class="btn btn-outline-secondary" type="submit" id="button-search"><i
                     class="{{ fa_class }} fa-search fa-2x" aria-hidden="true"></i></button>
+            <span class="btn btn-outline-secondary ml-2 es-ar button-lexicon-change">
+            </span>
+            <input id="selected_lex" name="l" type="hidden" value="{{selected_lexicon}}" />
         </div>
     </div>
-    {% if not selector_inline %}
-    <div class="mt-1 mb-5 pl-md-5">
-        {% include "linguatec_lexicon_frontend/components/search-lexicon-selector.html" with select_class="p-2" %}
-    </div>
-    {% endif %}
 </form>
