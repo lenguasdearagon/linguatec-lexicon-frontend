@@ -105,7 +105,6 @@ header.rg-header {
 
 .rg-header-content {
     background: #FC565B;
-    padding-top: 1.5rem;
 }
 
 .rg-header-bottom {
@@ -584,18 +583,14 @@ a.ref-external::after {
         margin-bottom: 0;
     }
 
-    header.rg-header .navbar-toggler {
-        padding-right: 1.5rem;
-    }
-
     .rg-header-bottom {
         background-position-x: 68px
     }
 
     .rg-search {
         padding-bottom: 14px;
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
         background-position: 36px bottom;
     }
 
@@ -772,6 +767,10 @@ a.ref-external::after {
 
 /** lg rules **/
 @media (min-width: 992px) {
+    .rg-header-content {
+        padding-top: 0.5rem;
+    }
+
     .rg-header .navbar-light .navbar-nav .nav-link {
         color: white;
         font-size: 1rem;
