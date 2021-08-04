@@ -23,7 +23,8 @@ function build_url(){
 
 function load_conjugation(url){
     $.get( url, function( data ) {
-        conjugation_table = $.parseHTML(data)[8];
+        let data_html = $.parseHTML(data);
+        let conjugation_table = $(data_html).filter('table');
         $("#conjugation").html(conjugation_table);
         $("tfoot").remove();
         $("#conjugation").css("margin-top", "20px");
