@@ -440,18 +440,21 @@ footer.rg-footer {
 .rg-conjugator-options-header {
     background: #FC565B;
     color: #ffffff;
-    font-weight: bold;
-    font-size: large;
     text-align: center;
     border: solid 3px white;
+    padding-bottom: 3px;
 }
 
-.rg-conjugator-options{
+.rg-conjugator-options {
     background:#e8e8e8;
     text-align: center;
     border: solid 3px white;
     border-top-width: 1px;
     border-bottom-width: 0px;
+}
+
+.rg-conjugator-options i.fas {
+    line-height: 1.5rem;
 }
 
 #options-form{
