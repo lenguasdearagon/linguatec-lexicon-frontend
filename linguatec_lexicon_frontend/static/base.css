@@ -190,6 +190,7 @@ header.rg-header .navbar-toggler .fa-bars {
 
 .rg-main {
     margin-bottom: calc(42px + 2rem); /** fixed footer height (42px) + real margin */
+    padding-left: 4rem;
 }
 
 .home .rg-main #aragonarioLogo img {
@@ -277,11 +278,6 @@ footer.rg-footer {
     height: 62px;
 }
 
-.rg-search #selected_lex {
-    background: gainsboro;
-    border: 0px;
-}
-
 .home .rg-main .rg-search #button-search {
     background: #333333;
     color: white;
@@ -295,9 +291,30 @@ footer.rg-footer {
     width: 62px;
 }
 
-.rg-search-results {
+.button-lexicon-change {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    border-width: 0;
+    min-width: 62px;
+}
+
+.ar-es, .es-ar{
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ar-es{
+    background-image: url('lexicon-button-a-c-colour.svg');
+}
+
+.es-ar{
+    background-image: url('lexicon-button-c-a-colour.svg');
+}
+
+.rg-search-results,
+.conjugation-block {
     margin-top: 1rem;
-    margin-right: 20rem;
 }
 
 .rg-search-results .rg-word {
@@ -423,18 +440,19 @@ footer.rg-footer {
 .rg-conjugator-options-header {
     background: #FC565B;
     color: #ffffff;
-    font-weight: bold;
-    font-size: large;
     text-align: center;
-    border: solid 3px white;
+    margin-top: 5px;
+    padding-bottom: 3px;
 }
 
-.rg-conjugator-options{
+.rg-conjugator-options {
     background:#e8e8e8;
     text-align: center;
-    border: solid 3px white;
-    border-top-width: 1px;
-    border-bottom-width: 0px;
+    margin-bottom: 1px;
+}
+
+.rg-conjugator-options i.fas {
+    line-height: 1.5rem;
 }
 
 #options-form{
@@ -546,16 +564,37 @@ a.ref-external::after {
         min-width: 420px;
     }
 
+    #aragonarioLogo {
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .home .rg-main #aragonarioLogo img {
+        height: auto;
+        width: 360px;
+    }
+
+    .external-links {
+        padding-top: 10rem;
+    }
+
+    header.rg-header {
+        margin-bottom: 0;
+    }
+
+    .rg-header-bottom {
+        background-position-x: 68px
+    }
+
     .rg-search {
         padding-bottom: 14px;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        background-position: 36px bottom;
     }
 
     .rg-search #input-search {
         height: 52px;
-    }
-
-    .rg-search #selected_lex {
-        font-size: smaller;
     }
 
     .rg-main .rg-search #button-search {
@@ -563,7 +602,20 @@ a.ref-external::after {
     }
 
     .rg-search-results {
-        padding-left: 2rem;
+        padding-left: 2.5rem;
+    }
+
+    .conjugation-block {
+        padding-left: 1rem;
+        margin-right: 0.5rem;
+    }
+
+}
+
+/** only sm rules **/
+@media (min-width: 576px) and (max-width: 767.98px ) {
+    .rg-header-bottom {
+        background-position-x: 85px
     }
 }
 
@@ -582,6 +634,14 @@ a.ref-external::after {
         background: white;
         margin-right: 0;
     }
+
+    .home .rg-main .rg-search .ar-es{
+        background-image: url('lexicon-button-a-c-grey.svg');
+    }
+
+    .home .rg-main .rg-search .es-ar{
+        background-image: url('lexicon-button-c-a-grey.svg');
+    }
 }
 
 /** sm rules **/
@@ -589,12 +649,32 @@ a.ref-external::after {
     .rg-header .navbar-brand .navbar-brand-logo {
         width: 282px;
     }
-    .rg-header-bottom {
-        background-position-x: 50px;
-    }
     .rg-search-results {
         padding-left: 2rem;
+        margin-right: 5rem;
     }
+    .conjugation-block{
+        padding-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+/** md rules and smaller **/
+@media (max-width: 991.98px ) {
+    .navbar .ar-es{
+        height: 32px;
+        background-image: url('lexicon-button-a-c-grey.svg');
+    }
+
+    .navbar .es-ar{
+        height: 32px;
+        background-image: url('lexicon-button-c-a-grey.svg');
+    }
+
+    #baseSearch .button-lexicon-change{
+        display: none;
+    }
+
 }
 
 /** only md rules **/
@@ -628,11 +708,12 @@ a.ref-external::after {
     }
 
     .rg-header-bottom {
-        background-position-x: 80px;
+        background-position-x: 125px;
     }
 
     .rg-search {
         margin-top: 0px;
+        margin-right: 10rem;
     }
 
     .home .rg-main .rg-search #input-search {
@@ -671,6 +752,11 @@ a.ref-external::after {
 
     .rg-search-results {
         padding-left: 6rem;
+        margin-right: 3rem;
+    }
+
+    .conjugation-block{
+        padding-left: 4rem;
     }
 
     .home .rg-navbar-separator {
@@ -680,6 +766,10 @@ a.ref-external::after {
 
 /** lg rules **/
 @media (min-width: 992px) {
+    .rg-header-content {
+        padding-top: 0.5rem;
+    }
+
     .rg-header .navbar-light .navbar-nav .nav-link {
         color: white;
         font-size: 1rem;
@@ -708,7 +798,8 @@ a.ref-external::after {
         z-index: 1050;
     }
 
-    .rg-search-results {
+    .rg-search-results,
+    .conjugation-block {
         padding-bottom: 5rem;
     }
 
@@ -736,6 +827,10 @@ a.ref-external::after {
     .rg-variation-content .rg-variation-entries .rg-entry {
         margin-bottom: 0;
         padding-left: 0;
+    }
+
+    .conjugation-block{
+        padding-left: 5rem;
     }
 
     /** footer **/
@@ -792,13 +887,28 @@ a.ref-external::after {
     }
 }
 
+@media (max-width: 1200px) {
+    .rg-main {
+        padding-left: 1rem;
+    }
+}
+
 /** xl rules **/
 @media (min-width: 1200px) {
     .rg-header .navbar-brand .navbar-brand-logo {
-        width: 528px;
+        width: 250px;
+        vertical-align: bottom;
     }
 
     .rg-header-bottom {
-        background-position-x: 121px;
+        background-position-x: 90px;
+    }
+
+    .rg-search-results{
+        margin-right: 20rem;
+    }
+
+    #conjugation table{
+        display: table;
     }
 }

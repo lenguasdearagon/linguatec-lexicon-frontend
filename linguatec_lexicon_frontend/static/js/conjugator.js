@@ -27,6 +27,7 @@ function load_conjugation(url){
         $("#conjugation").html(conjugation_table);
         $("tfoot").remove();
         $("#conjugation").css("margin-top", "20px");
+        $("table").addClass("table-responsive");
         $("table").css("width", "100%");
         $("table").css("border-spacing", 5);
         $("table").css("border-collapse", "separate");
@@ -45,7 +46,7 @@ function init_default_options(){
     select_option("id_primer_plural_0");
     select_option("id_cherundio_0");
     $("#id_auxiliar_ser").prop("checked", true);
-$("#id_incoativo").prop("checked", true);
+    $("#id_incoativo").prop("checked", true);
 }
 
 function select_option(id){
