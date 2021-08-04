@@ -566,8 +566,26 @@ a.ref-external::after {
         min-width: 420px;
     }
 
+    #aragonarioLogo {
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .home .rg-main #aragonarioLogo img {
+        height: auto;
+        width: 360px;
+    }
+
+    .external-links {
+        padding-top: 10rem;
+    }
+
     header.rg-header {
         margin-bottom: 0;
+    }
+
+    header.rg-header .navbar-toggler {
+        padding-right: 1.5rem;
     }
 
     .rg-header-bottom {
@@ -576,6 +594,9 @@ a.ref-external::after {
 
     .rg-search {
         padding-bottom: 14px;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        background-position: 36px bottom;
     }
 
     .rg-search #input-search {
@@ -587,7 +608,7 @@ a.ref-external::after {
     }
 
     .rg-search-results {
-        padding-left: 2rem;
+        padding-left: 2.5rem;
     }
 
     .conjugation-block{
