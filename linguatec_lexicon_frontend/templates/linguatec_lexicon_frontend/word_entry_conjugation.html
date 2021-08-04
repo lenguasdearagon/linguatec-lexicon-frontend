@@ -21,12 +21,10 @@
   </div>
   <div id="options-form">
     <div class="row">
-      <div class="col-12 col-sm-3 order-sm-1">
+      <div class="col-12 col-sm-3 pr-sm-1">
         <div class="rg-conjugator-options-header">
           {{ conjugator_form.participio.label }}
         </div>
-      </div>
-      <div class="col-12 col-sm-3 order-sm-5">
         <div class="conjugator-select">
         {% for value in conjugator_form.participio %}
           <div class="rg-conjugator-options">
@@ -36,12 +34,10 @@
         {% endfor %}
         </div>
       </div>
-      <div class="col-12 col-sm-3 order-sm-2">
+      <div class="col-12 col-sm-3 px-sm-1">
         <div class="rg-conjugator-options-header">
           {{ conjugator_form.tiempo_pasau.label }}
         </div>
-      </div>
-      <div class="col-12 col-sm-3 order-sm-6">
         <div class="conjugator-select">
         {% for value in conjugator_form.tiempo_pasau %}
           <div class="rg-conjugator-options">
@@ -51,12 +47,10 @@
         {% endfor %}
         </div>
       </div>
-      <div class="col-12 col-sm-3 order-sm-3">
+      <div class="col-12 col-sm-3 px-sm-1">
         <div class="rg-conjugator-options-header">
           {{ conjugator_form.primer_plural.label }}
         </div>
-      </div>
-      <div class="col-12 col-sm-3 order-sm-7">
         <div class="conjugator-select">
         {% for value in conjugator_form.primer_plural %}
           <div class="rg-conjugator-options">
@@ -66,12 +60,10 @@
         {% endfor %}
         </div>
       </div>
-      <div class="col-12 col-sm-3 order-sm-4">
+      <div class="col-12 col-sm-3 pl-sm-1">
         <div class="rg-conjugator-options-header">
           {{ conjugator_form.cherundio.label }}
         </div>
-      </div>
-      <div class="col-12 col-sm-3 order-sm-8">
         <div class="conjugator-select">
         {% for value in conjugator_form.cherundio %}
           <div class="rg-conjugator-options">
@@ -83,14 +75,14 @@
       </div>
     </div>
 
-    <div class="mt-3">
-      <div class="mr-5">
-      <label class="checkbox-container">{{ conjugator_form.auxiliar_ser.label }}
+    <div class="row mt-3">
+      <div class="col-12 col-md-6">
+        <label class="checkbox-container">{{ conjugator_form.auxiliar_ser.label }}
           {{ conjugator_form.auxiliar_ser }}
           <span class="checkmark"></span>
         </label>
       </div>
-      <div>
+      <div class="col-12 col-md-6">
         <label class="checkbox-container">{{ conjugator_form.incoativo.label }}
           {{ conjugator_form.incoativo }}
           <span class="checkmark"></span>

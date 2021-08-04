@@ -449,6 +449,7 @@ footer.rg-footer {
     background:#e8e8e8;
     text-align: center;
     margin-bottom: 1px;
+    overflow: overlay;
 }
 
 .rg-conjugator-options i.fas {
