@@ -1,14 +1,14 @@
 function build_url(){
-    base_url = "https://softaragones.org/conchugador/?sin_menu=true&sin_titol=true&sin_estilo=true"
-    verbo = $('#js-data').data('verb');
-    participio = $("input[name=participio]:checked").val();
-    tiempo_pasau = $("input[name=tiempo_pasau]:checked").val();
-    primer_plural = $("input[name=primer_plural]:checked").val();
-    cherundio = $("input[name=cherundio]:checked").val();
-    auxiliar_ser = $("input[name=auxiliar_ser]").prop('checked');
-    incoativo = $("input[name=incoativo]").prop('checked');
+    let base_url = "https://softaragones.org/conchugador/?sin_menu=true&sin_titol=true&sin_estilo=true"
+    let verbo = $('#js-data').data('verb');
+    let participio = $("input[name=participio]:checked").val();
+    let tiempo_pasau = $("input[name=tiempo_pasau]:checked").val();
+    let primer_plural = $("input[name=primer_plural]:checked").val();
+    let cherundio = $("input[name=cherundio]:checked").val();
+    let auxiliar_ser = $("input[name=auxiliar_ser]").prop('checked');
+    let incoativo = $("input[name=incoativo]").prop('checked');
 
-    params = "&verbo=" + verbo +"&grafia=DGPL&participio=" + participio + "&tiempo_pasau=" + tiempo_pasau +
+    let params = "&verbo=" + verbo +"&grafia=DGPL&participio=" + participio + "&tiempo_pasau=" + tiempo_pasau +
                 "&primerPlural=" + primer_plural + "&cherundio=" + cherundio
 
     if (auxiliar_ser){
