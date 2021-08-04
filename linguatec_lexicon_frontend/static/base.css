@@ -312,7 +312,8 @@ footer.rg-footer {
     background-image: url('lexicon-button-c-a-colour.svg');
 }
 
-.rg-search-results {
+.rg-search-results,
+.conjugation-block {
     margin-top: 1rem;
 }
 
@@ -440,16 +441,14 @@ footer.rg-footer {
     background: #FC565B;
     color: #ffffff;
     text-align: center;
-    border: solid 3px white;
+    margin-top: 5px;
     padding-bottom: 3px;
 }
 
 .rg-conjugator-options {
     background:#e8e8e8;
     text-align: center;
-    border: solid 3px white;
-    border-top-width: 1px;
-    border-bottom-width: 0px;
+    margin-bottom: 1px;
 }
 
 .rg-conjugator-options i.fas {
@@ -606,9 +605,9 @@ a.ref-external::after {
         padding-left: 2.5rem;
     }
 
-    .conjugation-block{
+    .conjugation-block {
         padding-left: 1rem;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
     }
 
 }
@@ -799,7 +798,8 @@ a.ref-external::after {
         z-index: 1050;
     }
 
-    .rg-search-results {
+    .rg-search-results,
+    .conjugation-block {
         padding-bottom: 5rem;
     }
 
@@ -830,7 +830,7 @@ a.ref-external::after {
     }
 
     .conjugation-block{
-        padding-left: 6rem;
+        padding-left: 5rem;
     }
 
     /** footer **/
