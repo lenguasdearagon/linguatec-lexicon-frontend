@@ -14,21 +14,29 @@ class RenderEntryTestCase(unittest.TestCase):
     @mock.patch('linguatec_lexicon_frontend.utils.retrieve_gramcats')
     def test_render(self, retrieve_gramcats):
         retrieve_gramcats.return_value = []
-        value = "boira (lorem ipsum)"
-        html = linguatec.render_entry(value)
+        entry = {}
+        entry['id'] = 1
+        entry['translation'] = "boira (lorem ipsum)"
+        html = linguatec.render_entry(entry)
         self.assertIn("<span class='rg-usecase-comment'>(lorem ipsum)</span>", html)
+        self.assertIn("<span id='word_1'>boira </span>", html)
 
     @mock.patch('linguatec_lexicon_frontend.utils.retrieve_gramcats')
     def test_render_begin(self, retrieve_gramcats):
         retrieve_gramcats.return_value = []
-        value = "(foo) boira grasa"
-        html = linguatec.render_entry(value)
+        entry = {}
+        entry['id'] = 1
+        entry['translation'] = "(foo) boira grasa"
+        html = linguatec.render_entry(entry)
         self.assertIn("<span class='rg-usecase-comment'>(foo)</span>", html)
+        self.assertIn("<span id='word_1'> boira grasa</span>", html)
 
     def test_render_unbalanced_parenthesis(self):
-        value = "(foo)) invalid"
-        html = linguatec.render_entry(value)
-        self.assertEqual(value, html)
+        entry = {}
+        entry['id'] = 1
+        entry['translation'] = "(foo)) invalid"
+        html = linguatec.render_entry(entry)
+        self.assertEqual("<span id='word_1'>(foo)) invalid</span>", html)
 
 
 class IsRegularVerbTestCase(unittest.TestCase):

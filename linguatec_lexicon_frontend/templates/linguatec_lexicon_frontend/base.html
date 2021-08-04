@@ -196,10 +196,21 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-
+    <script src="//cdn1.readspeaker.com/script/11263/webReader/webReader.js?pids=wr" type="text/javascript" id="rs_req_Init"></script>
     <script>
-      // define variable globally to be accessible on JS scripts
-      var autocomplete_api_url = "{{ autocomplete_api_url }}";
+        window.rsConf = {
+            general: {
+                usePost: true
+            },
+            settings: {
+                hl: 'word',
+                hlword: '#f0f0f0',
+                hlicon: "iconoff",
+            },
+        };
+
+        // define variable globally to be accessible on JS scripts
+        var autocomplete_api_url = "{{ autocomplete_api_url }}";
     </script>
     <script src="{% static 'js/base.js' %}"></script>
 
