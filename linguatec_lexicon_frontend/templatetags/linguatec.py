@@ -47,7 +47,7 @@ def render_entry(entry):
 
 
 def build_link(matchobj):
-    return '<a href="/search/?q=' + matchobj.group(2) + '&l=' + matchobj.group(1) + '">' + matchobj.group(2) + '</a>'
+    return "<a href='/search/?q=" + matchobj.group(2) + '&l=' + matchobj.group(1) + "'>" + matchobj.group(2) + "</a>"
 
 
 # TODO unused???
