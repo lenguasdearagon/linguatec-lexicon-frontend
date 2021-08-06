@@ -47,7 +47,11 @@ def render_entry(entry):
 
 
 def build_link(matchobj):
-    return "<a href='/search/?q=" + matchobj.group(2) + '&l=' + matchobj.group(1) + "'>" + matchobj.group(2) + "</a>"
+    return "<a class='{class}' href='/search/?q={word}&l={lexicon}'>{word}</a>".format_map({
+        'class': "rg-linked-word",
+        'lexicon': matchobj.group(1),
+        'word': matchobj.group(2),
+    })
 
 
 # TODO unused???
