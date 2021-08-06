@@ -20,7 +20,7 @@ register = template.Library()
 @register.filter
 def render_entry(entry):
     """Parse entry content to apply weight to content."""
-    value = entry['marked_translation'] or entry['translation']
+    value = entry.get('marked_translation') or entry['translation']
 
     try:
         validators.validate_balanced_parenthesis(value)
