@@ -20,7 +20,7 @@ register = template.Library()
 @register.filter
 def render_entry(entry):
     """Parse entry content to apply weight to content."""
-    value = entry['translation']
+    value = entry.get('marked_translation') or entry['translation']
 
     try:
         validators.validate_balanced_parenthesis(value)
@@ -39,7 +39,19 @@ def render_entry(entry):
         abbr, title = gramcat['abbreviation'], gramcat['title']
         value = value.replace(
             abbr, "<span class='rg-gramcat' title='{0}'>{1}</span>".format(title, abbr))
+
+    # Replace <trans> mark with links to wrapped words
+    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
+
     return mark_safe(value)
+
+
+def build_link(matchobj):
+    return "<a class='{class}' href='/search/?q={word}&l={lexicon}'>{word}</a>".format_map({
+        'class': "rg-linked-word",
+        'lexicon': matchobj.group(1),
+        'word': matchobj.group(2),
+    })
 
 
 # TODO unused???

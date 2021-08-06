@@ -334,6 +334,11 @@ footer.rg-footer {
     font-style: italic;
 }
 
+.rg-search-results .rg-entries a,
+.rg-search-results .rg-entries a.rg-linked-word {
+    color: #333333;
+}
+
 .rg-search-results .rg-entries .rg-entry {
     color: #333333;
     font-weight: bold;
