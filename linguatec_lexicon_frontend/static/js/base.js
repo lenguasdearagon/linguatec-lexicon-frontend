@@ -48,3 +48,18 @@ $(function () {
         }
     });
 });
+
+
+function specialReadText(url, player_id) {
+  // clear selected text to avoid be read by speaker
+  var sel = window.getSelection ? window.getSelection() : document.selection;
+  if (sel) {
+      if (sel.removeAllRanges) {
+          sel.removeAllRanges();
+      } else if (sel.empty) {
+          sel.empty();
+      }
+  }
+  // ugly hack because timing affects player behaviour
+  setTimeout(() => { readpage(url, player_id); }, 200);
+}
