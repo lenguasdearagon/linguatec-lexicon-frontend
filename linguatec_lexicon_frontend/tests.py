@@ -20,7 +20,8 @@ class RenderEntryTestCase(unittest.TestCase):
         entry['marked_translation'] = "<trans lex=ar-es>boira</trans> (lorem ipsum)"
         html = linguatec.render_entry(entry)
         self.assertIn("<span class='rg-usecase-comment'>(lorem ipsum)</span>", html)
-        self.assertIn("<span id='word_1'><a href='/search/?q=boira&l=ar-es'>boira</a> </span>", html)
+        self.assertIn(
+            "<span id='word_1'><a class='rg-linked-word' href='/search/?q=boira&l=ar-es'>boira</a> </span>", html)
 
     @mock.patch('linguatec_lexicon_frontend.utils.retrieve_gramcats')
     def test_render_begin(self, retrieve_gramcats):
@@ -32,8 +33,8 @@ class RenderEntryTestCase(unittest.TestCase):
         html = linguatec.render_entry(entry)
         self.assertIn("<span class='rg-usecase-comment'>(foo)</span>", html)
         self.assertIn(
-            "<span id='word_1'> <a href='/search/?q=boira&l=ar-es'>boira</a> "
-            "<a href='/search/?q=grasa&l=ar-es'>grasa</a></span>",
+            "<span id='word_1'> <a class='rg-linked-word' href='/search/?q=boira&l=ar-es'>boira</a> "
+            "<a class='rg-linked-word' href='/search/?q=grasa&l=ar-es'>grasa</a></span>",
             html
         )
 
