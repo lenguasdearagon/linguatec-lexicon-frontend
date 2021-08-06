@@ -2,7 +2,7 @@
 
 <div id="speaker_player_{{ wordid }}" class="rs_skip rsbtn rs_preserve d-none">
     <a rel="nofollow" class="rsbtn_play" accesskey="L"
-       title="Escucha esta p&aacute;gina utilizando ReadSpeaker webReader"
+       title="ReadSpeaker webReader"
        href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=11263&amp;lang=es_es&amp;readid=word_{{ wordid }}&amp;url={{ request.build_absolute_uri|urlencode }}">
         <span class="rsbtn_left rsimg rspart">
             <span class="rsbtn_text">
@@ -14,7 +14,7 @@
 </div>
 <sup class="rs_skip rs_preserve rs_href">
     <a href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=11263&amp;lang=es_es&amp;readid=word_{{ wordid }}&amp;url={{ request.build_absolute_uri|urlencode }}"
-       onclick="readpage(this.href, 'speaker_player_{{ wordid }}'); return false;">
-        <img src="{% static 'speaker.svg' %}" alt="Listen with ReadSpeaker" width="16">
+       onclick="specialReadText(this.href, 'speaker_player_{{ wordid }}'); return false;">
+        <img src="{% static 'speaker.svg' %}" alt="Escuchar" width="16">
     </a>
 </sup>
