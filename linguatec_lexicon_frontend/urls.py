@@ -24,4 +24,6 @@ urlpatterns = [
          RedirectView.as_view(url='https://traduze.aragon.es'), name='traductor'),
     path('external/aragon-recursos-en-linea/',
          RedirectView.as_view(url='http://aragon.lenguasdearagon.org/'), name='aragon-recursos'),
+    path('external/repositorio/',
+         RedirectView.as_view(url='https://github.com/lenguasdearagon/'), name='repositorio')
 ]
