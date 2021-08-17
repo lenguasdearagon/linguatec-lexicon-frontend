@@ -35,15 +35,42 @@ def render_entry(entry):
     value = value.replace(")", ")</span>")
 
     # mark keywords (inline gramcat)
-    for gramcat in utils.retrieve_gramcats():
-        abbr, title = gramcat['abbreviation'], gramcat['title']
-        value = value.replace(
-            abbr, "<span class='rg-gramcat' title='{0}'>{1}</span>".format(title, abbr))
+    value = highlight_gramcats_inline(value)
 
     # Replace <trans> mark with links to wrapped words
     value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
 
     return mark_safe(value)
+
+
+def highlight_gramcats_inline(value):
+    """
+    Highlight inline gramcats abbreviations & add related title
+    """
+    gramcats = utils.retrieve_gramcats()
+    gramcats.sort(key=sort_by_abbr_len, reverse=True)
+    abbr_replaced = []
+    for gramcat in gramcats:
+        abbr, title = gramcat['abbreviation'], gramcat['title']
+
+        # avoid double highlight for abbreviations that are a subset of another
+        # e.g. 's.' is a subset of 's. m.'
+        abbr_subset = False
+        for replaced in abbr_replaced:
+            if replaced.startswith(abbr):
+                abbr_subset = True
+                break
+
+        if not abbr_subset and abbr in value:
+            abbr_replaced.append(abbr)
+            value = value.replace(
+                abbr, "<span class='rg-gramcat' title='{0}'>{1}</span>".format(title, abbr))
+
+    return value
+
+
+def sort_by_abbr_len(gramcat):
+    return len(gramcat['abbreviation'])
 
 
 def build_link(matchobj):
