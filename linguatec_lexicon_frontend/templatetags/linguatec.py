@@ -22,16 +22,16 @@ def render_entry(entry):
     """Parse entry content to apply weight to content."""
     value = entry.get('marked_translation') or entry['translation']
 
+    # [readspeaker] wrap & identify entry to be read
+    value = "<span id='word_" + str(entry['id']) + "'>" + value + "</span>"
+
     try:
         validators.validate_balanced_parenthesis(value)
     except ValidationError:
-        return "<span id='word_" + str(entry['id']) + "'>" + value + "</span>"
+        return value
 
-    # mark content outside parenthesis to be read by readspeaker
-    value = re.sub(r"(\(.+\))?([^\(]+)(\(.+\))?", r"\1<span id='word_" + str(entry['id']) + r"'>\2</span>\3", value)
-
-    # mark content in parenthesis
-    value = value.replace("(", "<span class='rg-usecase-comment'>(")
+    # mark content in parenthesis & skip it to be read by readspeaker
+    value = value.replace("(", "<span class='rg-usecase-comment rs_skip'>(")
     value = value.replace(")", ")</span>")
 
     # mark keywords (inline gramcat)
