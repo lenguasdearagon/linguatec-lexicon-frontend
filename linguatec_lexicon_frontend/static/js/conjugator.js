@@ -67,7 +67,7 @@ init_default_options();
 load_conjugation(build_url());
 
 $('.rg-conjugator-options').click(function() {
-    id = $(this).find("input")[0].id;
+    let id = $(this).find("input")[0].id;
     unselect_options(id);
     select_option(id);
     load_conjugation(build_url());
