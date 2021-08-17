@@ -78,6 +78,9 @@ $('input[type=checkbox]').click(function() {
 });
 
 $("#options-button").click(function() {
-    $(this).find("i").toggleClass("fa-chevron-up fa-chevron-down");
+    $(this)
+        .find('[data-fa-i2svg]')
+        .toggleClass('fa-chevron-up')
+        .toggleClass('fa-chevron-down');
     $("#options-form").slideToggle("slow");
 });
