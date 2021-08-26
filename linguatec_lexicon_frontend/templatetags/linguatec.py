@@ -93,9 +93,8 @@ def render_term(word, lexicon_code):
 
 
 def readspeaker_skip_variant_suffix(term):
-    # TODO(@slamora): fails if term contains HTML (matchs closing tag)
-    assert "</" not in term
-    return re.sub(r'([/]\w+)', '<span class="rs_skip">\g<0></span>', term)
+    # Match '/' excluding HTML closing tag: e.g. </span)
+    return re.sub(r'(?<!<)([/]\w+)', '<span class="rs_skip">\g<0></span>', term)
 
 
 # TODO unused???

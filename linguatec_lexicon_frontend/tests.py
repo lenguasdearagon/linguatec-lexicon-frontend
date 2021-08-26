@@ -86,7 +86,6 @@ class RenderTermTest(unittest.TestCase):
 
 
 class SkipVariantSuffixTest(unittest.TestCase):
-    @unittest.expectedFailure
     def test_htaml(self):
         value = "<span>escusón/ona</span>"
         output = linguatec.readspeaker_skip_variant_suffix(value)
