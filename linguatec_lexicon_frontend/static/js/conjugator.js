@@ -39,8 +39,7 @@ function load_conjugation(url){
     });
 }
 
-function init_default_options(){
-    $("#options-form").hide();
+function init_default_options() {
     $(".fa-caret-left").css('visibility', 'hidden');
     select_option("id_participio_0");
     select_option("id_tiempo_pasau_2");
