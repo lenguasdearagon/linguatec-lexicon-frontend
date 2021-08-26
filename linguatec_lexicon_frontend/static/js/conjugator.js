@@ -77,6 +77,9 @@ $('input[type=checkbox]').click(function() {
 });
 
 $("#options-button").click(function() {
+    // Font Awesome icon version
+    $(this).find("i").toggleClass("fa-chevron-up fa-chevron-down");
+    // Font Awesome SVG version
     $(this)
         .find('[data-fa-i2svg]')
         .toggleClass('fa-chevron-up')
