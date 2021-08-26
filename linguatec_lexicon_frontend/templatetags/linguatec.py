@@ -18,19 +18,19 @@ register = template.Library()
 
 
 @register.filter
+@mark_safe
 def render_entry(entry):
     """Parse entry content to apply weight to content."""
     value = entry.get('marked_translation') or entry['translation']
 
-    # [readspeaker] wrap & identify entry to be read
-    value = "<span id='word_" + str(entry['id']) + "'>" + value + "</span>"
-
     try:
         validators.validate_balanced_parenthesis(value)
     except ValidationError:
-        return value
+        # [readspeaker] wrap & identify entry to be read
+        return "<span id='word_{}'>{}</span>".format(entry['id'], value)
 
     # mark content in parenthesis & skip it to be read by readspeaker
+    value = mark_safe(readspeaker_skip_variant_suffix(value))
     value = value.replace("(", "<span class='rg-usecase-comment rs_skip'>(")
     value = value.replace(")", ")</span>")
 
@@ -40,7 +40,8 @@ def render_entry(entry):
     # Replace <trans> mark with links to wrapped words
     value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
 
-    return mark_safe(value)
+    # [readspeaker] wrap & identify entry to be read
+    return "<span id='word_{}'>{}</span>".format(entry['id'], value)
 
 
 def highlight_gramcats_inline(value):
@@ -79,6 +80,22 @@ def build_link(matchobj):
         'lexicon': matchobj.group(1),
         'word': matchobj.group(2),
     })
+
+
+@register.filter
+@mark_safe
+def render_term(word, lexicon_code):
+    term = word['term']
+    if lexicon_code == "ar-es":
+        term = readspeaker_skip_variant_suffix(term)
+
+    return '<span id="word_{}">{}</span>'.format(word['id'], term)
+
+
+def readspeaker_skip_variant_suffix(term):
+    # TODO(@slamora): fails if term contains HTML (matchs closing tag)
+    assert "</" not in term
+    return re.sub(r'([/]\w+)', '<span class="rs_skip">\g<0></span>', term)
 
 
 # TODO unused???

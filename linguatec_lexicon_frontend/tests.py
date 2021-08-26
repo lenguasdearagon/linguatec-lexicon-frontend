@@ -47,6 +47,55 @@ class RenderEntryTestCase(unittest.TestCase):
         self.assertEqual("<span id='word_1'>(foo)) invalid</span>", html)
 
 
+class RenderTermTest(unittest.TestCase):
+    def test_basecase_not_aragonese(self):
+        word = {
+            "id": 1,
+            "term": "casa",
+        }
+        output = linguatec.render_term(word, "es-ar")
+        self.assertEqual('<span id="word_1">casa</span>', output)
+
+    def test_basecase(self):
+        word = {
+            "id": 2,
+            "term": "boira",
+        }
+        output = linguatec.render_term(word, "ar-es")
+        self.assertEqual('<span id="word_2">boira</span>', output)
+
+    def test_term_with_gender_variant(self):
+        word = {
+            "id": 3,
+            "term": "ornicau/ada",
+        }
+        output = linguatec.render_term(word, "ar-es")
+        self.assertEqual('<span id="word_3">ornicau<span class="rs_skip">/ada</span></span>', output)
+
+    def test_term_with_gender_variant_multi_items(self):
+        word = {
+            "id": 3,
+            "term": "escusón/ona, forrón/ona",
+        }
+        output = linguatec.render_term(word, "ar-es")
+        self.assertEqual(
+            '<span id="word_3">'
+                'escusón<span class="rs_skip">/ona</span>, '
+                'forrón<span class="rs_skip">/ona</span>'
+            '</span>', output)
+
+
+class SkipVariantSuffixTest(unittest.TestCase):
+    @unittest.expectedFailure
+    def test_htaml(self):
+        value = "<span>escusón/ona</span>"
+        output = linguatec.readspeaker_skip_variant_suffix(value)
+        self.assertEqual(
+            '<span>escusón'
+                '<span class="rs_skip">/ona</span>'
+            '</span>', output)
+
+
 class IsRegularVerbTestCase(unittest.TestCase):
     def test_suffix_ar(self):
         word = {
