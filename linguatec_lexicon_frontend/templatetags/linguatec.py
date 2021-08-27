@@ -29,13 +29,13 @@ def render_entry(entry):
         # [readspeaker] wrap & identify entry to be read
         return "<span id='word_{}'>{}</span>".format(entry['id'], value)
 
-    # Replace <trans> mark with links to wrapped words
-    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
-
     # [readspeaker] mark content in parenthesis & skip it to be read
     value = mark_safe(readspeaker_skip_variant_suffix(value))
     value = value.replace("(", "<span class='rg-usecase-comment rs_skip'>(")
     value = value.replace(")", ")</span>")
+
+    # Replace <trans> mark with links to wrapped words
+    value = re.sub(r'<trans word=([0-9]+)>(.*?)</trans>', build_link, value)
 
     # mark keywords (inline gramcat)
     value = highlight_gramcats_inline(value)
@@ -75,9 +75,9 @@ def sort_by_abbr_len(gramcat):
 
 
 def build_link(matchobj):
-    return "<a class='{class}' href='/search/?q={word}&l={lexicon}'>{word}</a>".format_map({
+    return "<a class='{class}' href='/words/{id}/'>{word}</a>".format_map({
         'class': "rg-linked-word",
-        'lexicon': matchobj.group(1),
+        'id': matchobj.group(1),
         'word': matchobj.group(2),
     })
 
