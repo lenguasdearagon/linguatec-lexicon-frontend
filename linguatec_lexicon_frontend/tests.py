@@ -17,11 +17,11 @@ class RenderEntryTestCase(unittest.TestCase):
         entry = {}
         entry['id'] = 1
         entry['translation'] = "boira (lorem ipsum)"
-        entry['marked_translation'] = "<trans lex=ar-es>boira</trans> (lorem ipsum)"
+        entry['marked_translation'] = "<trans word=2>boira</trans> (lorem ipsum)"
         html = linguatec.render_entry(entry)
-        self.assertIn("<span class='rg-usecase-comment'>(lorem ipsum)</span>", html)
+        self.assertIn("<span class='rg-usecase-comment rs_skip'>(lorem ipsum)</span>", html)
         self.assertIn(
-            "<span id='word_1'><a class='rg-linked-word' href='/search/?q=boira&l=ar-es'>boira</a> </span>", html)
+            "<span id='word_1'><a class='rg-linked-word' href='/words/2/'>boira</a>", html)
 
     @mock.patch('linguatec_lexicon_frontend.utils.retrieve_gramcats')
     def test_render_begin(self, retrieve_gramcats):
@@ -29,12 +29,12 @@ class RenderEntryTestCase(unittest.TestCase):
         entry = {}
         entry['id'] = 1
         entry['translation'] = "(foo) boira grasa"
-        entry['marked_translation'] = "(foo) <trans lex=ar-es>boira</trans> <trans lex=ar-es>grasa</trans>"
+        entry['marked_translation'] = "(foo) <trans word=2>boira</trans> <trans word=3>grasa</trans>"
         html = linguatec.render_entry(entry)
-        self.assertIn("<span class='rg-usecase-comment'>(foo)</span>", html)
+        self.assertIn("<span class='rg-usecase-comment rs_skip'>(foo)</span>", html)
         self.assertIn(
-            "<span id='word_1'> <a class='rg-linked-word' href='/search/?q=boira&l=ar-es'>boira</a> "
-            "<a class='rg-linked-word' href='/search/?q=grasa&l=ar-es'>grasa</a></span>",
+            "<a class='rg-linked-word' href='/words/2/'>boira</a> "
+            "<a class='rg-linked-word' href='/words/3/'>grasa</a>",
             html
         )
 
