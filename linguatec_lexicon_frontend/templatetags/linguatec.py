@@ -29,16 +29,16 @@ def render_entry(entry):
         # [readspeaker] wrap & identify entry to be read
         return "<span id='word_{}'>{}</span>".format(entry['id'], value)
 
-    # mark content in parenthesis & skip it to be read by readspeaker
+    # Replace <trans> mark with links to wrapped words
+    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
+
+    # [readspeaker] mark content in parenthesis & skip it to be read
     value = mark_safe(readspeaker_skip_variant_suffix(value))
     value = value.replace("(", "<span class='rg-usecase-comment rs_skip'>(")
     value = value.replace(")", ")</span>")
 
     # mark keywords (inline gramcat)
     value = highlight_gramcats_inline(value)
-
-    # Replace <trans> mark with links to wrapped words
-    value = re.sub(r'<trans lex=([a-z]{2}-[a-z]{2})>(\b\S+\b)</trans>', build_link, value)
 
     # [readspeaker] wrap & identify entry to be read
     return "<span id='word_{}'>{}</span>".format(entry['id'], value)
