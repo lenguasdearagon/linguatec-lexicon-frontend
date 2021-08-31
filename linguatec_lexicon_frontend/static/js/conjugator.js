@@ -25,7 +25,12 @@ function load_conjugation(url){
     $.get( url, function( data ) {
         let data_html = $.parseHTML(data);
         let conjugation_table = $(data_html).filter('table');
+
+        // replace wirds to keep language more consistent
+        // NOTE: perfecto also matches imperfecto, pluscuamperfecto
+        conjugation_table = conjugation_table.html().replaceAll("perfecto", "perfeuto");
         $("#conjugation").html(conjugation_table);
+
         $("tfoot").remove();
         $("#conjugation").css("margin-top", "20px");
         $("table").addClass("table-responsive");

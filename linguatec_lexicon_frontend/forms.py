@@ -24,7 +24,7 @@ class ConjugatorForm(forms.Form):
         label="Rematanza d'os partizipios", choices=REMATANZA_CHOICES, widget=forms.RadioSelect
     )
     tiempo_pasau = forms.ChoiceField(
-        label="Tiempos d'os pasaus perfecto simple y anterior", choices=PASAUS_CHOICES, widget=forms.RadioSelect
+        label="Tiempos d'os pasaus perfeuto simple y anterior", choices=PASAUS_CHOICES, widget=forms.RadioSelect
     )
     primer_plural = forms.ChoiceField(
         label="Forma d'a primer persona plural", choices=PRIM_PERS_PLURAL_CHOICES, widget=forms.RadioSelect
