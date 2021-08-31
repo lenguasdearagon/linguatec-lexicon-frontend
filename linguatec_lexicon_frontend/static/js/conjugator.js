@@ -25,7 +25,12 @@ function load_conjugation(url){
     $.get( url, function( data ) {
         let data_html = $.parseHTML(data);
         let conjugation_table = $(data_html).filter('table');
+
+        // replace wirds to keep language more consistent
+        // NOTE: perfecto also matches imperfecto, pluscuamperfecto
+        conjugation_table = conjugation_table.html().replaceAll("perfecto", "perfeuto");
         $("#conjugation").html(conjugation_table);
+
         $("tfoot").remove();
         $("#conjugation").css("margin-top", "20px");
         $("table").addClass("table-responsive");
@@ -39,8 +44,7 @@ function load_conjugation(url){
     });
 }
 
-function init_default_options(){
-    $("#options-form").hide();
+function init_default_options() {
     $(".fa-caret-left").css('visibility', 'hidden');
     select_option("id_participio_0");
     select_option("id_tiempo_pasau_2");
@@ -67,7 +71,7 @@ init_default_options();
 load_conjugation(build_url());
 
 $('.rg-conjugator-options').click(function() {
-    id = $(this).find("input")[0].id;
+    let id = $(this).find("input")[0].id;
     unselect_options(id);
     select_option(id);
     load_conjugation(build_url());
@@ -78,6 +82,12 @@ $('input[type=checkbox]').click(function() {
 });
 
 $("#options-button").click(function() {
+    // Font Awesome icon version
     $(this).find("i").toggleClass("fa-chevron-up fa-chevron-down");
+    // Font Awesome SVG version
+    $(this)
+        .find('[data-fa-i2svg]')
+        .toggleClass('fa-chevron-up')
+        .toggleClass('fa-chevron-down');
     $("#options-form").slideToggle("slow");
 });

@@ -3,7 +3,8 @@
 <article>
     <header class="rg-word">
         <h2>
-          <span id="word_{{ word.id }}">{{ word.term }}</span>
+          {{ word|render_term:selected_lexicon }}
+          {# <!-- TODO @slamora: Move this include to filter (or create templatetag)--> #}
           {% if selected_lexicon == "ar-es" %}
             {% include "linguatec_lexicon_frontend/components/speaker-player.html" with wordid=word.id %}
           {% endif %}

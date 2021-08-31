@@ -17,11 +17,11 @@ class RenderEntryTestCase(unittest.TestCase):
         entry = {}
         entry['id'] = 1
         entry['translation'] = "boira (lorem ipsum)"
-        entry['marked_translation'] = "<trans lex=ar-es>boira</trans> (lorem ipsum)"
+        entry['marked_translation'] = "<trans word=2>boira</trans> (lorem ipsum)"
         html = linguatec.render_entry(entry)
-        self.assertIn("<span class='rg-usecase-comment'>(lorem ipsum)</span>", html)
+        self.assertIn("<span class='rg-usecase-comment rs_skip'>(lorem ipsum)</span>", html)
         self.assertIn(
-            "<span id='word_1'><a class='rg-linked-word' href='/search/?q=boira&l=ar-es'>boira</a> </span>", html)
+            "<span id='word_1'><a class='rg-linked-word' href='/words/2/'>boira</a>", html)
 
     @mock.patch('linguatec_lexicon_frontend.utils.retrieve_gramcats')
     def test_render_begin(self, retrieve_gramcats):
@@ -29,12 +29,12 @@ class RenderEntryTestCase(unittest.TestCase):
         entry = {}
         entry['id'] = 1
         entry['translation'] = "(foo) boira grasa"
-        entry['marked_translation'] = "(foo) <trans lex=ar-es>boira</trans> <trans lex=ar-es>grasa</trans>"
+        entry['marked_translation'] = "(foo) <trans word=2>boira</trans> <trans word=3>grasa</trans>"
         html = linguatec.render_entry(entry)
-        self.assertIn("<span class='rg-usecase-comment'>(foo)</span>", html)
+        self.assertIn("<span class='rg-usecase-comment rs_skip'>(foo)</span>", html)
         self.assertIn(
-            "<span id='word_1'> <a class='rg-linked-word' href='/search/?q=boira&l=ar-es'>boira</a> "
-            "<a class='rg-linked-word' href='/search/?q=grasa&l=ar-es'>grasa</a></span>",
+            "<a class='rg-linked-word' href='/words/2/'>boira</a> "
+            "<a class='rg-linked-word' href='/words/3/'>grasa</a>",
             html
         )
 
@@ -45,6 +45,54 @@ class RenderEntryTestCase(unittest.TestCase):
         entry['marked_translation'] = None
         html = linguatec.render_entry(entry)
         self.assertEqual("<span id='word_1'>(foo)) invalid</span>", html)
+
+
+class RenderTermTest(unittest.TestCase):
+    def test_basecase_not_aragonese(self):
+        word = {
+            "id": 1,
+            "term": "casa",
+        }
+        output = linguatec.render_term(word, "es-ar")
+        self.assertEqual('<span id="word_1">casa</span>', output)
+
+    def test_basecase(self):
+        word = {
+            "id": 2,
+            "term": "boira",
+        }
+        output = linguatec.render_term(word, "ar-es")
+        self.assertEqual('<span id="word_2">boira</span>', output)
+
+    def test_term_with_gender_variant(self):
+        word = {
+            "id": 3,
+            "term": "ornicau/ada",
+        }
+        output = linguatec.render_term(word, "ar-es")
+        self.assertEqual('<span id="word_3">ornicau<span class="rs_skip">/ada</span></span>', output)
+
+    def test_term_with_gender_variant_multi_items(self):
+        word = {
+            "id": 3,
+            "term": "escusón/ona, forrón/ona",
+        }
+        output = linguatec.render_term(word, "ar-es")
+        self.assertEqual(
+            '<span id="word_3">'
+                'escusón<span class="rs_skip">/ona</span>, '
+                'forrón<span class="rs_skip">/ona</span>'
+            '</span>', output)
+
+
+class SkipVariantSuffixTest(unittest.TestCase):
+    def test_htaml(self):
+        value = "<span>escusón/ona</span>"
+        output = linguatec.readspeaker_skip_variant_suffix(value)
+        self.assertEqual(
+            '<span>escusón'
+                '<span class="rs_skip">/ona</span>'
+            '</span>', output)
 
 
 class IsRegularVerbTestCase(unittest.TestCase):
