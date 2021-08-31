@@ -5,15 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## master
+
+## [0.5] - 2021-09-01
 - [added] Integration with read speaker.
 - [added] Support to conjugator options.
 - [changed] UI design.
 - [changed] Add links on entries to words of reverse lexicon.
 
-## [0.4.1] - 2020-04-12
+## [0.4.1] - 2021-04-12
 - [added] Integration with Chorche Pérez conjugator deployed on softaragonés server.
 
-## [0.4] - 2020-04-07
+## [0.4] - 2021-04-07
 - [added] Add support to multiple lexicons.
 
 ## [0.3] - 2020-01-03
