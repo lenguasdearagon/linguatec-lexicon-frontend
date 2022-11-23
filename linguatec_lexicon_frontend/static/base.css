@@ -338,8 +338,9 @@ footer.rg-footer {
   }
 
   .topic-menu-wrapper .topic-item-wrapper {
-    width: 100px;
-    height: 100px;
+    /** TODO it's ok this size??? **/
+    width: 90px;
+    height: 90px;
     aspect-ratio: auto;
     padding: 5px;
   }
@@ -348,6 +349,16 @@ footer.rg-footer {
   .topic-menu-wrapper .topic-item-wrapper .topic-item {
     background: #FC565B;
     color: #FFFFFF;
+  }
+
+  .rg-main {
+    margin: 0;
+    /** hidde overflow to allow scroll topic-menu-wrapper on small devices **/
+    overflow-x: hidden;
+  }
+
+  .topic-menu-wrapper {
+    overflow-x: scroll;
   }
 /** end topic lexicon menu **/
 
