@@ -329,12 +329,24 @@ footer.rg-footer {
     color: #FC565B;
     padding: 5px;
   }
-  #topic-selector {
 
+  .unfolded #topic-selector,
+  .topic-item.active,
+  .topic-menu-wrapper .topic-item-wrapper .topic-item.active {
+    background: #333333;
+    color: #FFFFFF;
   }
 
-  .unfolded #topic-selector, .topic-item.active {
-    background: #333333;
+  .topic-menu-wrapper .topic-item-wrapper {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: auto;
+    padding: 5px;
+  }
+
+  .topic-menu-wrapper #topic-selector,
+  .topic-menu-wrapper .topic-item-wrapper .topic-item {
+    background: #FC565B;
     color: #FFFFFF;
   }
 /** end topic lexicon menu **/

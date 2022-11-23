@@ -112,6 +112,36 @@
 
     <main class="{% block mainclass %}container-fluid{% endblock %} rg-main">
         {% block content %}
+        <div class="topic-menu-wrapper" style="overflow: hidden;">
+          <div id="topic-menu" class="d-inline-flex unfolded"><!-- TODO XXX remove unfloded classs -->
+            <div class="topic-item-wrapper">
+              <div id="topic-selector" class="topic-item">
+                <i class=""></i>
+                Áreas <br/>temáticas
+              </div>
+            </div>
+              <div class="topic-item-wrapper">
+                <div class="topic-item {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar">
+                  Diccionario general
+                </div>
+              </div>
+              <div class="topic-item-wrapper">
+                <div class="topic-item {% if 'es-ar@fauna' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@fauna">
+                  Faunístico
+                </div>
+              </div>
+              <div class="topic-item-wrapper">
+                <div class="topic-item {% if 'es-ar@flora' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@flora">
+                  Botánico
+                </div>
+              </div>
+              <div class="topic-item-wrapper">
+                <div class="topic-item {% if 'es-ar@law' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@law">
+                  Jurídico
+                </div>
+              </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12 col-md-9 col-lg-8 col-xl-7 ml-md-5" id="baseSearch">
               {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
