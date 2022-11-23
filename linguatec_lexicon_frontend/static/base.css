@@ -312,6 +312,33 @@ footer.rg-footer {
     background-image: url('lexicon-button-c-a-colour.svg');
 }
 
+/** topic lexicon menu **/
+.topic-item-wrapper {
+    width: 33.333333%;
+    aspect-ratio: 1 / 1;
+    /* background: black; */
+    padding: 10px;
+  }
+  .topic-item {
+    /* margin: 1.5%; */
+    height: 100%;
+    text-align: left;
+    font: normal normal 900 15px/15px Lato;
+
+    background: #FFFFFF;
+    color: #FC565B;
+    padding: 5px;
+  }
+  #topic-selector {
+
+  }
+
+  .unfolded #topic-selector {
+    background: #333333;
+    color: #FFFFFF;
+  }
+/** end topic lexicon menu **/
+
 .rg-search-results,
 .conjugation-block {
     margin-top: 1rem;

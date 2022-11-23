@@ -15,6 +15,36 @@
     <div class="col-sm-10 col-md-7 col-lg-5" id="homeSearch">
         {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
 
+        <div id="topic-menu" class="d-flex flex-wrap unfolded"><!-- TODO XXX remove unfloded classs -->
+          <div class="topic-item-wrapper">
+            <div id="topic-selector" class="topic-item">
+              <i class=""></i>
+              Áreas <br/>temáticas
+            </div>
+          </div>
+          <!-- <div id="topic-items d-flex"> -->
+            <div class="topic-item-wrapper">
+              <div class="topic-item">
+                Diccionario general
+              </div>
+            </div>
+            <div class="topic-item-wrapper">
+              <div class="topic-item">
+                Faunístico
+              </div>
+            </div>
+            <div class="topic-item-wrapper">
+              <div class="topic-item">
+                Botánico
+              </div>
+            </div>
+            <div class="topic-item-wrapper">
+              <div class="topic-item">
+                Jurídico
+              </div>
+            </div>
+          <!-- </div> -->
+        </div>
         <div class="d-none d-md-block navbar-light">
             <div class="navbar-nav">
                 {% include "linguatec_lexicon_frontend/components/external-links.html" with navbar=True %}
