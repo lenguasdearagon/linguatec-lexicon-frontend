@@ -22,6 +22,18 @@ $(function () {
         init_lexicon_button();
     });
 
+    $("#topic-menu .topic-item").click(function() {
+        let $topic = $(this);
+
+        $("#topic-menu .topic-item").removeClass("active");
+        $topic.addClass("active");
+
+        $("#selected_lex").val($topic.data("lexicode"));
+
+        // TODO(@slamora): update search input placeholder
+        // TODO(@slamora): update icon of button-lexicon-change
+    });
+
     $("#input-search").autocomplete({
         source: function (request, response) {
             $.getJSON({

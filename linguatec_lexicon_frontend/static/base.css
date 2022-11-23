@@ -333,7 +333,7 @@ footer.rg-footer {
 
   }
 
-  .unfolded #topic-selector {
+  .unfolded #topic-selector, .topic-item.active {
     background: #333333;
     color: #FFFFFF;
   }
