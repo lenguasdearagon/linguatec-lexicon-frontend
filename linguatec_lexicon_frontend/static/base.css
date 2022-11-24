@@ -329,10 +329,10 @@ footer.rg-footer {
 }
 
 /** topic lexicon menu **/
-.topic-item-wrapper:not(#topic-toggler-wrapper) {
+.home-content .topic-item-wrapper:not(#topic-toggler-wrapper) {
     display: none;
 }
-.unfolded .topic-item-wrapper:not(#topic-toggler-wrapper) {
+.home-content .unfolded .topic-item-wrapper:not(#topic-toggler-wrapper) {
     display: block;
 }
 
