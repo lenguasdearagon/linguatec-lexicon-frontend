@@ -42,6 +42,11 @@ $(function () {
         $("#topic-menu").toggleClass("unfolded");
     });
 
+    // scroll to active topic
+    $(".topic-menu-wrapper").animate({
+        scrollLeft: $(".topic-menu-wrapper .topic-item.active").offset().left
+    }, 2000);
+
     $("#input-search").autocomplete({
         source: function (request, response) {
             $.getJSON({
