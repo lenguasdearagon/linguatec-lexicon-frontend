@@ -375,6 +375,7 @@ footer.rg-footer {
     color: #FFFFFF;
 }
 
+#topicMenuContainer #topic-toggler-wrapper,
 .topic-menu-wrapper .topic-item-wrapper {
     /** TODO it's ok this size??? **/
     width: 90px;
@@ -383,7 +384,7 @@ footer.rg-footer {
     padding: 5px;
 }
 
-.topic-menu-wrapper #topic-toggler,
+#topicMenuContainer #topic-toggler,
 .topic-menu-wrapper .topic-item-wrapper .topic-item {
     background: #FC565B;
     color: #FFFFFF;
