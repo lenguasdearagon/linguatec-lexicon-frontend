@@ -38,6 +38,7 @@ h3 {
     color: #333;
     list-style-type: none;
 }
+
 .rg-list-help-variants {
     list-style-type: square;
 }
@@ -60,7 +61,8 @@ h3 {
 
 .rg-loading #rg_loading_flag {
     background-image: url('loading-header-bg.png');
-    background-position: right 10px top; /** $x/2 = 10px **/
+    background-position: right 10px top;
+    /** $x/2 = 10px **/
     background-repeat: no-repeat;
     height: 100%;
     padding-left: 0;
@@ -68,22 +70,27 @@ h3 {
 
 @media (min-width: 1200px) {
     .rg-loading #rg_loading_flag {
-        background-position: 0px top; /** $x/2 = 10px **/
+        background-position: 0px top;
+        /** $x/2 = 10px **/
     }
 }
 
 .rg-loading #rg_loading_logo_ga {
     padding-left: 0;
-    padding-right: 20px; /** $X is minium defined space in ga logo rules **/
+    padding-right: 20px;
+    /** $X is minium defined space in ga logo rules **/
 }
 
 
 .rg-loader-wrapper {
     width: 60px;
 }
-.rg-loader  {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #333333; /* Blue */
+
+.rg-loader {
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-top: 8px solid #333333;
+    /* Blue */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -91,8 +98,13 @@ h3 {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 body.home {
@@ -109,7 +121,8 @@ header.rg-header {
 
 .rg-header-bottom {
     background-image: url(header-bg-color.svg);
-    background-position-x: 38px; /* header-bg.width x (53/300) */
+    background-position-x: 38px;
+    /* header-bg.width x (53/300) */
     background-position-y: bottom;
     background-repeat: no-repeat;
     height: 18px;
@@ -153,6 +166,7 @@ header.rg-header .navbar-toggler .fa-bars {
 .rg-header .navbar-collapse.collapsing .rg-navbar-content {
     transition: none;
 }
+
 /* TODO menu transition right 0.35s ease;
 .rg-header .navbar-collapse {
 
@@ -174,7 +188,7 @@ header.rg-header .navbar-toggler .fa-bars {
 .rg-navbar-content {
     background: white;
     color: #333333;
-    box-shadow: -7px 4px 4px rgba(0,0,0,0.4);
+    box-shadow: -7px 4px 4px rgba(0, 0, 0, 0.4);
     /** playground **/
     position: absolute;
     top: 0;
@@ -189,7 +203,8 @@ header.rg-header .navbar-toggler .fa-bars {
 }
 
 .rg-main {
-    margin-bottom: calc(42px + 2rem); /** fixed footer height (42px) + real margin */
+    margin-bottom: calc(42px + 2rem);
+    /** fixed footer height (42px) + real margin */
     padding-left: 4rem;
 }
 
@@ -199,7 +214,7 @@ header.rg-header .navbar-toggler .fa-bars {
 
 footer.rg-footer {
     background: white;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.16);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.16);
 }
 
 #footer_collapse_button {
@@ -270,7 +285,8 @@ footer.rg-footer {
 }
 
 .rg-search #input-search {
-    background: #f0f0f0; /* same color than .rg-search background image */
+    background: #f0f0f0;
+    /* same color than .rg-search background image */
     border-width: 0;
     border-radius: 0;
     color: #333;
@@ -299,16 +315,16 @@ footer.rg-footer {
     min-width: 62px;
 }
 
-.ar-es, .es-ar{
+.ar-es, .es-ar {
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.ar-es{
+.ar-es {
     background-image: url('lexicon-button-a-c-colour.svg');
 }
 
-.es-ar{
+.es-ar {
     background-image: url('lexicon-button-c-a-colour.svg');
 }
 
@@ -316,11 +332,10 @@ footer.rg-footer {
 .topic-item-wrapper {
     width: 33.333333%;
     aspect-ratio: 1 / 1;
-    /* background: black; */
     padding: 10px;
-  }
-  .topic-item {
-    /* margin: 1.5%; */
+}
+
+.topic-item {
     height: 100%;
     text-align: left;
     font: normal normal 900 15px/15px Lato;
@@ -328,38 +343,45 @@ footer.rg-footer {
     background: #FFFFFF;
     color: #FC565B;
     padding: 5px;
-  }
 
-  .unfolded #topic-selector,
-  .topic-item.active,
-  .topic-menu-wrapper .topic-item-wrapper .topic-item.active {
+    position: relative;
+}
+
+.topic-item .fal,
+.topic-item .fas {
+    display: block;
+}
+
+.topic-item .topic-title {
+    position: absolute;
+    bottom: 5px;
+}
+
+.unfolded #topic-selector,
+.topic-item.active,
+.topic-menu-wrapper .topic-item-wrapper .topic-item.active {
     background: #333333;
     color: #FFFFFF;
-  }
+}
 
-  .topic-menu-wrapper .topic-item-wrapper {
+.topic-menu-wrapper .topic-item-wrapper {
     /** TODO it's ok this size??? **/
     width: 90px;
     height: 90px;
     aspect-ratio: auto;
     padding: 5px;
-  }
+}
 
-  .topic-menu-wrapper #topic-selector,
-  .topic-menu-wrapper .topic-item-wrapper .topic-item {
+.topic-menu-wrapper #topic-selector,
+.topic-menu-wrapper .topic-item-wrapper .topic-item {
     background: #FC565B;
     color: #FFFFFF;
-  }
+}
 
-  .rg-main {
-    margin: 0;
-    /** hidde overflow to allow scroll topic-menu-wrapper on small devices **/
-    overflow-x: hidden;
-  }
-
-  .topic-menu-wrapper {
+.topic-menu-wrapper {
     overflow-x: scroll;
-  }
+}
+
 /** end topic lexicon menu **/
 
 .rg-search-results,
@@ -421,20 +443,23 @@ footer.rg-footer {
 
 .rg-variation-content .rg-variation-region h4 {
     font-size: 1rem;
-    padding: 0.2rem  15px;
+    padding: 0.2rem 15px;
 }
 
 .rg-variation-content .rg-variation-entries {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .rg-variation-content .rg-variation-entries .rg-entry {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
+
 .rg-variation-content .rg-variation-name {
     font-weight: normal;
 }
+
 /*** end diatopic variations ***/
 
 .rg-search-results .rg-entries .rg-entry .rg-gramcat {
@@ -482,7 +507,7 @@ footer.rg-footer {
 }
 
 .rg-word-separator {
-    background:#e8e8e8;
+    background: #e8e8e8;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     margin-left: 6px;
@@ -501,7 +526,7 @@ footer.rg-footer {
 }
 
 .rg-conjugator-options {
-    background:#e8e8e8;
+    background: #e8e8e8;
     text-align: center;
     margin-bottom: 1px;
     overflow: overlay;
@@ -511,11 +536,11 @@ footer.rg-footer {
     line-height: 1.5rem;
 }
 
-#options-form{
+#options-form {
     color: #707070;
 }
 
-.fa-caret-left{
+.fa-caret-left {
     color: #FC565B;
 }
 
@@ -548,8 +573,8 @@ footer.rg-footer {
     left: 0;
     height: 25px;
     width: 25px;
-    background:white;
-    border:1px solid #c8c8c8;
+    background: white;
+    border: 1px solid #c8c8c8;
 }
 
 .checkmark:after {
@@ -558,7 +583,7 @@ footer.rg-footer {
     display: none;
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked~.checkmark:after {
     display: block;
 }
 
@@ -604,6 +629,7 @@ a.ref-external::after {
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
 .rg-creative-commons img {
     width: 62px;
     height: 62px;
@@ -618,6 +644,12 @@ a.ref-external::after {
 @media (max-width: 575.98px) {
     body {
         min-width: 420px;
+    }
+
+    .rg-main {
+        margin: 0;
+        /** hidde overflow to allow scroll topic-menu-wrapper on small devices **/
+        overflow-x: hidden;
     }
 
     #aragonarioLogo {
@@ -669,7 +701,7 @@ a.ref-external::after {
 }
 
 /** only sm rules **/
-@media (min-width: 576px) and (max-width: 767.98px ) {
+@media (min-width: 576px) and (max-width: 767.98px) {
     .rg-header-bottom {
         background-position-x: 85px
     }
@@ -691,11 +723,11 @@ a.ref-external::after {
         margin-right: 0;
     }
 
-    .home .rg-main .rg-search .ar-es{
+    .home .rg-main .rg-search .ar-es {
         background-image: url('lexicon-button-a-c-grey.svg');
     }
 
-    .home .rg-main .rg-search .es-ar{
+    .home .rg-main .rg-search .es-ar {
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 }
@@ -705,36 +737,38 @@ a.ref-external::after {
     .rg-header .navbar-brand .navbar-brand-logo {
         width: 282px;
     }
+
     .rg-search-results {
         padding-left: 2rem;
         margin-right: 5rem;
     }
-    .conjugation-block{
+
+    .conjugation-block {
         padding-left: 1rem;
         margin-right: 1rem;
     }
 }
 
 /** md rules and smaller **/
-@media (max-width: 991.98px ) {
-    .navbar .ar-es{
+@media (max-width: 991.98px) {
+    .navbar .ar-es {
         height: 32px;
         background-image: url('lexicon-button-a-c-grey.svg');
     }
 
-    .navbar .es-ar{
+    .navbar .es-ar {
         height: 32px;
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 
-    #baseSearch .button-lexicon-change{
+    #baseSearch .button-lexicon-change {
         display: none;
     }
 
 }
 
 /** only md rules **/
-@media (min-width: 768px) and (max-width: 991.98px ) {
+@media (min-width: 768px) and (max-width: 991.98px) {
     #homeSearch.col-md-7 {
         max-width: 52%;
     }
@@ -811,7 +845,7 @@ a.ref-external::after {
         margin-right: 3rem;
     }
 
-    .conjugation-block{
+    .conjugation-block {
         padding-left: 4rem;
     }
 
@@ -845,7 +879,8 @@ a.ref-external::after {
         left: 0;
         /*z-index: 1030;*/
         /*}*/
-        margin-bottom: calc(150px + 3rem); /** footer size + desired margin **/
+        margin-bottom: calc(150px + 3rem);
+        /** footer size + desired margin **/
         z-index: 1040;
     }
 
@@ -863,17 +898,21 @@ a.ref-external::after {
     .rg-variation-content .rg-variation-region-wrapper {
         padding-right: 0;
     }
+
     .rg-variation-content .rg-variation-region {
         height: 100%;
         display: flex;
         align-items: center;
     }
+
     .rg-variation-content .rg-variation-region h4 {
         margin-bottom: 0;
     }
+
     .rg-variation-name {
         display: inline-block;
     }
+
     .rg-variation-content .rg-variation-entries {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
@@ -885,7 +924,7 @@ a.ref-external::after {
         padding-left: 0;
     }
 
-    .conjugation-block{
+    .conjugation-block {
         padding-left: 5rem;
     }
 
@@ -932,6 +971,7 @@ a.ref-external::after {
     .footer-lg-nav {
         margin-left: 1rem;
     }
+
     .footer-lg-nav a {
         color: black;
         font-size: 0.75rem;
@@ -960,11 +1000,11 @@ a.ref-external::after {
         background-position-x: 90px;
     }
 
-    .rg-search-results{
+    .rg-search-results {
         margin-right: 20rem;
     }
 
-    #conjugation table{
+    #conjugation table {
         display: table;
     }
 }
