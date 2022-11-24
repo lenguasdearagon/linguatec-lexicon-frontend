@@ -329,6 +329,13 @@ footer.rg-footer {
 }
 
 /** topic lexicon menu **/
+.topic-item-wrapper:not(#topic-toggler-wrapper) {
+    display: none;
+}
+.unfolded .topic-item-wrapper:not(#topic-toggler-wrapper) {
+    display: block;
+}
+
 .topic-item-wrapper {
     width: 33.333333%;
     aspect-ratio: 1 / 1;
@@ -357,7 +364,11 @@ footer.rg-footer {
     bottom: 5px;
 }
 
-.unfolded #topic-selector,
+/** TODO: update colors with final UI design **/
+.unfolded #topic-toggler {
+    background: #868686;
+    color: #FFFFFF;
+}
 .topic-item.active,
 .topic-menu-wrapper .topic-item-wrapper .topic-item.active {
     background: #333333;
@@ -372,7 +383,7 @@ footer.rg-footer {
     padding: 5px;
 }
 
-.topic-menu-wrapper #topic-selector,
+.topic-menu-wrapper #topic-toggler,
 .topic-menu-wrapper .topic-item-wrapper .topic-item {
     background: #FC565B;
     color: #FFFFFF;

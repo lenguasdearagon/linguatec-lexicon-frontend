@@ -25,6 +25,10 @@ $(function () {
     $("#topic-menu .topic-item").click(function() {
         let $topic = $(this);
 
+        if( $topic.attr("id") == "topic-toggler") {
+            return; // is the menu toggler: nothing to do
+        }
+
         $("#topic-menu .topic-item").removeClass("active");
         $topic.addClass("active");
 
@@ -32,6 +36,10 @@ $(function () {
 
         // TODO(@slamora): update search input placeholder
         // TODO(@slamora): update icon of button-lexicon-change
+    });
+
+    $("#topic-toggler").click(function() {
+        $("#topic-menu").toggleClass("unfolded");
     });
 
     $("#input-search").autocomplete({
