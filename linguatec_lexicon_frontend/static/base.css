@@ -390,8 +390,17 @@ footer.rg-footer {
     color: #FFFFFF;
 }
 
-.topic-menu-wrapper {
+#topicMenuContainer .topic-menu-wrapper {
     overflow-x: scroll;
+
+    /** hidde scrollbar **/
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/** hidde scrollbar **/
+#topicMenuContainer .topic-menu-wrapper::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 /** end topic lexicon menu **/
