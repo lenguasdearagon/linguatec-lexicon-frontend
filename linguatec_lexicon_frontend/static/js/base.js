@@ -34,7 +34,7 @@ $(function () {
 
         $("#selected_lex").val($topic.data("lexicode"));
 
-        // TODO(@slamora): update search input placeholder
+        $('#input-search').attr('placeholder', $topic.data("lexidesc"));
         // TODO(@slamora): update icon of button-lexicon-change
     });
 

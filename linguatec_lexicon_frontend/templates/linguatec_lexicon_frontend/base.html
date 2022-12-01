@@ -124,32 +124,7 @@
        </div>
        <div class="col-9">
         <div class="topic-menu-wrapper">
-          <div id="topic-menu" class="d-inline-flex">
-            <div class="topic-item-wrapper">
-              <div class="topic-item {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar">
-                <i class="{{ fa_class }} fa-arrow-left fa-2x"></i>
-                <div class="topic-title">Diccionario general</div>
-              </div>
-            </div>
-            <div class="topic-item-wrapper">
-              <div class="topic-item {% if 'es-ar@fauna' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@fauna">
-                <i class="{{ fa_class }} fa-paw fa-2x"></i>
-                <div class="topic-title">Faunístico</div>
-              </div>
-            </div>
-            <div class="topic-item-wrapper">
-              <div class="topic-item {% if 'es-ar@flora' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@flora">
-                <i class="{{ fa_class }} fa-flower fa-2x"></i>
-                <div class="topic-title">Botánico</div>
-              </div>
-            </div>
-            <div class="topic-item-wrapper">
-              <div class="topic-item {% if 'es-ar@law' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@law">
-                <i class="{{ fa_class }} fa-balance-scale fa-2x"></i>
-                <div class="topic-title">Jurídico</div>
-              </div>
-            </div>
-          </div>
+          {% include "linguatec_lexicon_frontend/components/topic-menu-base.html" %}
         </div>
        </div>
       </div>
