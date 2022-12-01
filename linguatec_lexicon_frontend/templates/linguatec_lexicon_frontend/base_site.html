@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block branding %}
-<img class="navbar-brand-logo" alt="Aragonario: Diccionario castellano - aragonés"
+<a href="{% url 'home' %}">
+  <img class="navbar-brand-logo" alt="Aragonario: Diccionario castellano - aragonés"
     src="{% static 'aragonario-wide-white.svg' %}" width="528" height="auto" />
+</a>
 {% endblock %}
