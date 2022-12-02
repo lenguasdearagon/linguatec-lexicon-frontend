@@ -9,6 +9,7 @@
 {% block content %}
 {{ block.super }}
 
+{% block subcontent %}
 <div class="row">
   <div class="col-12 rg-search-results">
       {% for word in results %}
@@ -32,4 +33,5 @@
       {% endfor %}
   </div>
 </div>
+{% endblock %}
 {% endblock %}
