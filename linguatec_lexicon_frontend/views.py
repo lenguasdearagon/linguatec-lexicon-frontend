@@ -64,6 +64,40 @@ class LinguatecBaseView(TemplateView):
         else:
             context['fa_class'] = 'fas'
 
+        # TODO(@slamora): replace hardcoded list
+        context['topic_list'] = [
+            {
+                "id": 17,
+                "code": "es-ar",
+                "name": "Botánico",
+                "src_language": "es",
+                "dst_language": "ar",
+                "topic": "flora",
+                "slug": "es-ar@flora",
+                "icon": "fa-flower",
+            },
+            {
+                "id": 18,
+                "code": "es-ar",
+                "name": "Faunístico",
+                "src_language": "es",
+                "dst_language": "ar",
+                "topic": "fauna",
+                "slug": "es-ar@fauna",
+                "icon": "fa-paw",
+            },
+            {
+                "id": 19,
+                "code": "es-ar",
+                "name": "Jurídico",
+                "src_language": "es",
+                "dst_language": "ar",
+                "topic": "law",
+                "slug": "es-ar@law",
+                "icon": "fa-balance-scale",
+            }
+        ]
+
         return context
 
     def generate_menu_items(self, current_url_name):

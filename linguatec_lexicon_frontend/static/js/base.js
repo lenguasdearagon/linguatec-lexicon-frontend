@@ -4,29 +4,54 @@ $(function () {
 
     function init_lexicon_button(){
         var selected_lexicon = $("#selected_lex").val();
-        var lexicon_button = $(".button-lexicon-change")
-        if (selected_lexicon == 'es-ar'){
+        var lexicon_button = $(".button-lexicon-change");
+
+        if (selected_lexicon == 'es-ar') {
             lexicon_button.removeClass('ar-es');
             lexicon_button.addClass('es-ar');
             $('#input-search').attr('placeholder', 'castellano-aragonés');
-        } else {
+        } else if (selected_lexicon == 'ar-es') {
             lexicon_button.removeClass('es-ar');
             lexicon_button.addClass('ar-es');
             $('#input-search').attr('placeholder', 'aragonés-castellano');
+        } else {
+            // do nothing on other lexicons
         }
     }
 
     $(".button-lexicon-change").click(function() {
         var current_lexicon = $("#selected_lex").val();
-        $("#selected_lex").val(current_lexicon == 'es-ar' ? 'ar-es' : 'es-ar');
+
+        switch (current_lexicon) {
+            case 'es-ar':
+                new_lex = 'ar-es';
+                break;
+
+            case 'ar-es':
+                new_lex = 'es-ar';
+                break;
+
+            default:
+                // don't toggle lexicon direction
+                new_lex = current_lexicon;
+        }
+
+        $("#selected_lex").val(new_lex);
         init_lexicon_button();
     });
 
     $("#topic-menu .topic-item").click(function() {
         let $topic = $(this);
 
-        if( $topic.attr("id") == "topic-toggler") {
-            return; // is the menu toggler: nothing to do
+        let button_lexicon_toggle = $(".button-lexicon-change");
+        let button_topic = $("#button-topic");
+
+        switch($topic.attr("id")) {
+            case "topic-toggler":
+                return; // is the menu toggler: nothing to do
+            case "topic-general":
+                button_lexicon_toggle.removeClass('d-none');
+                button_topic.addClass('d-none');
         }
 
         $("#topic-menu .topic-item").removeClass("active");
@@ -35,7 +60,30 @@ $(function () {
         $("#selected_lex").val($topic.data("lexicode"));
 
         $('#input-search').attr('placeholder', $topic.data("lexidesc"));
-        // TODO(@slamora): update icon of button-lexicon-change
+
+        // update icon of button-lexicon-change
+        /* TODO(@slamora): differentiate
+            TOP) .rg-header .button-lexicon-change
+            SEARCH BAR) .rg-search .button-lexicon-change
+        */
+        button_lexicon_toggle.addClass('d-none');
+
+        let current_topic_icon = $topic.data("fa-icon");
+
+        button_topic.removeClass("d-none");
+
+        // remove other fa-icon
+        let all_classes = [];
+        $(".topic-item").each(function () {
+            if ($(this).data("fa-icon")) {
+                all_classes.push($(this).data("fa-icon"));
+            }
+        });
+        button_topic.find('[data-fa-i2svg]')
+            .removeClass(all_classes)
+            .addClass(current_topic_icon);
+
+
     });
 
     $("#topic-toggler").click(function() {

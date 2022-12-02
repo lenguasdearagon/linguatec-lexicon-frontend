@@ -294,12 +294,14 @@ footer.rg-footer {
     height: 62px;
 }
 
-.home .rg-main .rg-search #button-search {
+.home .rg-main .rg-search #button-search,
+.home .rg-main .rg-search #button-topic {
     background: #333333;
     color: white;
 }
 
-.rg-main .rg-search #button-search {
+.rg-main .rg-search #button-search,
+.rg-main .rg-search #button-topic {
     background: #FC565B;
     border-radius: 0;
     border-width: 0;
@@ -313,6 +315,7 @@ footer.rg-footer {
     border-radius: 0;
     border-width: 0;
     min-width: 62px;
+    color: white;
 }
 
 .ar-es, .es-ar {
@@ -704,11 +707,17 @@ a.ref-external::after {
     }
 
     .rg-search #input-search {
-        height: 52px;
+        height: 56px;
     }
 
-    .rg-main .rg-search #button-search {
-        width: 52px;
+    .rg-main .rg-search #button-search,
+    .rg-main .rg-search #button-topic {
+        width: 56px;
+    }
+
+    .rg-main .rg-search #button-topic .svg-inline--fa {
+        width: 32px;
+        margin-top: 3px;
     }
 
     .rg-search-results {
@@ -832,7 +841,8 @@ a.ref-external::after {
         background: #f0f0f0;
     }
 
-    .home .rg-main .rg-search #button-search {
+    .home .rg-main .rg-search #button-search,
+    .home .rg-main .rg-search #button-topic {
         background: #fc565b;
     }
 

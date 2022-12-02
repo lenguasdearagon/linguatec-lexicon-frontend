@@ -6,31 +6,19 @@
     </div>
   </div>
   <div class="topic-item-wrapper">
-    <div class="topic-item {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}active{% endif %}"
+    <div id="topic-general" class="topic-item {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}active{% endif %}"
       data-lexicode="es-ar" data-lexidesc="castellano-aragonés">
       <i class="{{ fa_class }} fa-arrow-left fa-3x"></i>
       <div class="topic-title">Diccionario general</div>
     </div>
   </div>
+  {% for topic in topic_list %}
   <div class="topic-item-wrapper">
-    <div class="topic-item {% if 'es-ar@fauna' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@fauna"
-      data-lexidesc="fauna">
-      <i class="{{ fa_class }} fa-paw fa-3x"></i>
-      <div class="topic-title">Faunístico</div>
+    <div class="topic-item {% if topic.slug == selected_lexicon %}active{% endif %}" data-lexicode="{{ topic.slug }}"
+      data-lexidesc="{{ topic.name }}" data-fa-icon="{{ topic.icon }}">
+      <i class="{{ fa_class }} {{ topic.icon }} fa-3x"></i>
+      <div class="topic-title">{{ topic.name }}</div>
     </div>
   </div>
-  <div class="topic-item-wrapper">
-    <div class="topic-item {% if 'es-ar@flora' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@flora"
-      data-lexidesc="flora">
-      <i class="{{ fa_class }} fa-flower fa-3x"></i>
-      <div class="topic-title">Botánico</div>
-    </div>
-  </div>
-  <div class="topic-item-wrapper">
-    <div class="topic-item {% if 'es-ar@law' == selected_lexicon %}active{% endif %}" data-lexicode="es-ar@law"
-      data-lexidesc="jurídico">
-      <i class="{{ fa_class }} fa-balance-scale fa-3x"></i>
-      <div class="topic-title">Jurídico</div>
-    </div>
-  </div>
+  {% endfor %}
 </div>

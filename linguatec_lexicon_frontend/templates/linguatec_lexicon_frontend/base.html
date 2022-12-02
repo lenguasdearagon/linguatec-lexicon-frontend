@@ -28,12 +28,13 @@
     <!-- Font Awesome Free -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
 
     {% elif fa_class == 'fal' %}
     <!-- Font Awesome PRO SVG -->
     <script defer src="{% static 'fontawesome/js/light.js' %}"></script>
     <script defer src="{% static 'fontawesome/js/fontawesome.js' %}"></script>
-    <script data-search-pseudo-elements defer src="{% static 'fontawesome/js/all.js' %}"></script>
+    <script data-search-pseudo-elements defer src="{% static 'fontawesome/js/all.js' %}" data-auto-replace-svg="nest"></script>
     {% endif %}
 
     <!-- JQuery UI -->
