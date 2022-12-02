@@ -52,6 +52,11 @@ $(function () {
             case "topic-general":
                 button_lexicon_toggle.removeClass('d-none');
                 button_topic.addClass('d-none');
+                break;
+
+            default:
+                button_lexicon_toggle.addClass('d-none');
+                button_topic.removeClass("d-none");
         }
 
         $("#topic-menu .topic-item").removeClass("active");
@@ -66,11 +71,6 @@ $(function () {
             TOP) .rg-header .button-lexicon-change
             SEARCH BAR) .rg-search .button-lexicon-change
         */
-        button_lexicon_toggle.addClass('d-none');
-
-        let current_topic_icon = $topic.data("fa-icon");
-
-        button_topic.removeClass("d-none");
 
         // remove other fa-icon
         let all_classes = [];
@@ -79,11 +79,10 @@ $(function () {
                 all_classes.push($(this).data("fa-icon"));
             }
         });
+        let current_topic_icon = $topic.data("fa-icon");
         button_topic.find('[data-fa-i2svg]')
             .removeClass(all_classes)
             .addClass(current_topic_icon);
-
-
     });
 
     $("#topic-toggler").click(function() {
