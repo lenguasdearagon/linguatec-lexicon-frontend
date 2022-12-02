@@ -90,9 +90,13 @@ $(function () {
     });
 
     // scroll to active topic
-    if($(".topic-menu-wrapper .topic-item.active").offset()) {
+    if($(".topic-menu-wrapper .topic-item.active").length) {
+        let wrapper_offset = $(".topic-menu-wrapper .topic-item.active").parent().parent().offset()
+        let active_topic_offset = $(".topic-menu-wrapper .topic-item.active").parent().offset();
+        let diff = active_topic_offset.left - wrapper_offset.left;
+
         $(".topic-menu-wrapper").animate({
-            scrollLeft: $(".topic-menu-wrapper .topic-item.active").offset().left
+            scrollLeft: diff
         }, 2000);
     }
 
