@@ -44,7 +44,7 @@ $(function () {
         let $topic = $(this);
 
         let button_lexicon_toggle = $(".button-lexicon-change");
-        let button_topic = $("#button-topic");
+        let button_topic = $(".button-topic");
 
         switch($topic.attr("id")) {
             case "topic-toggler":

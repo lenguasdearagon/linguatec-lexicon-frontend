@@ -797,6 +797,18 @@ a.ref-external::after {
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 
+    .navbar .button-topic {
+        background: #333333;
+        color: #333333;
+        color: white;
+    }
+
+    header.rg-header .navbar-toggler.button-topic {
+        padding: 5px;
+        font-size: 1.8rem;
+    }
+
+    #baseSearch #button-topic,
     #baseSearch .button-lexicon-change {
         display: none;
     }
