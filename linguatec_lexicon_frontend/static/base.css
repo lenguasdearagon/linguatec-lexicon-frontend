@@ -710,6 +710,11 @@ a.ref-external::after {
         height: 56px;
     }
 
+    .rg-search .button-lexicon-change {
+        min-width: auto;
+        width: 56px;
+    }
+
     .rg-main .rg-search #button-search,
     .rg-main .rg-search #button-topic {
         width: 56px;
