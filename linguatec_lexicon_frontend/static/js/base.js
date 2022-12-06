@@ -1,6 +1,7 @@
 $(function () {
 
     init_lexicon_button();
+    init_topic_button($(".topic-item.active"));
 
     function init_lexicon_button(){
         var selected_lexicon = $("#selected_lex").val();
@@ -40,8 +41,7 @@ $(function () {
         init_lexicon_button();
     });
 
-    $("#topic-menu .topic-item").click(function() {
-        let $topic = $(this);
+    function init_topic_button($topic) {
 
         let button_lexicon_toggle = $(".button-lexicon-change");
         let button_topic = $(".button-topic");
@@ -66,12 +66,6 @@ $(function () {
 
         $('#input-search').attr('placeholder', $topic.data("lexidesc"));
 
-        // update icon of button-lexicon-change
-        /* TODO(@slamora): differentiate
-            TOP) .rg-header .button-lexicon-change
-            SEARCH BAR) .rg-search .button-lexicon-change
-        */
-
         // remove other fa-icon
         let all_classes = [];
         $(".topic-item").each(function () {
@@ -83,6 +77,11 @@ $(function () {
         button_topic.find('[data-fa-i2svg]')
             .removeClass(all_classes)
             .addClass(current_topic_icon);
+
+    }
+
+    $("#topic-menu .topic-item").click(function() {
+        init_topic_button($(this));
     });
 
     $("#topic-toggler").click(function() {
