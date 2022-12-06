@@ -203,7 +203,7 @@ header.rg-header .navbar-toggler .fa-bars {
 }
 
 .rg-main {
-    margin-bottom: calc(42px + 2rem);
+    margin-bottom: calc(42px + 8rem);
     /** fixed footer height (42px) + real margin */
     padding-left: 4rem;
 }
@@ -997,6 +997,7 @@ a.ref-external::after {
     .footer-lg-separator {
         background: #fc565b;
         height: 2px;
+        margin-bottom: 1rem;
     }
 
     .footer-lg-external-links {
