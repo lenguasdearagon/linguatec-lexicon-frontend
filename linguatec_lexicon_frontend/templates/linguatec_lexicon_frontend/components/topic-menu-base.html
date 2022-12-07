@@ -1,7 +1,8 @@
 <div id="topic-menu" class="d-inline-flex">
   <div class="topic-item-wrapper">
     <div id="topic-general" class="topic-item {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}active{% endif %}"
-      data-lexicode="es-ar" data-lexidesc="castellano-aragonés">
+      data-lexicode="{{ selected_lexicon }}"
+      data-lexidesc="{% if 'es-ar' == selected_lexicon %}castellano-aragonés{% else %}aragonés-castellano{% endif %}">
       <i class="{{ fa_class }} fa-arrow-left fa-2x"></i>
       <div class="topic-title">Diccionario general</div>
     </div>
