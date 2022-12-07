@@ -791,13 +791,18 @@ a.ref-external::after {
 
 /** md rules and smaller **/
 @media (max-width: 991.98px) {
+    .navbar .ar-es,
+    .navbar .es-ar {
+        height: 34px;
+        min-width: 34px;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+    }
     .navbar .ar-es {
-        height: 32px;
         background-image: url('lexicon-button-a-c-grey.svg');
     }
 
     .navbar .es-ar {
-        height: 32px;
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 
@@ -809,7 +814,7 @@ a.ref-external::after {
 
     header.rg-header .navbar-toggler.button-topic {
         padding: 5px;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     #baseSearch #button-topic,
@@ -851,6 +856,10 @@ a.ref-external::after {
 
     .rg-header-bottom {
         background-position-x: 125px;
+    }
+
+    #topicMenuContainer {
+        margin-bottom: 2rem;
     }
 
     .rg-search {
