@@ -335,6 +335,25 @@ footer.rg-footer {
     background-image: url('lexicon-button-c-a-colour.svg');
 }
 
+.lexicon-general-icon {
+    display: inline-block;
+    background-image: url("lexicon-general-icon-white.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2em;
+    height: 2em;
+}
+
+.home-content #topic-general:not(.active) .lexicon-general-icon {
+    background-image: url("lexicon-general-icon-colour.png");
+}
+
+.home-content .lexicon-general-icon {
+    width: 3em;
+    height: 3em;
+}
+
 /** topic lexicon menu **/
 .home-content .topic-item-wrapper:not(#topic-toggler-wrapper) {
     display: none;
