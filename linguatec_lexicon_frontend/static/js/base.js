@@ -82,6 +82,7 @@ $(function () {
 
     $("#topic-menu .topic-item").click(function() {
         init_topic_button($(this));
+        $("#input-search").val("");
     });
 
     $("#topic-toggler").click(function() {
