@@ -52,10 +52,15 @@ $(function () {
                 button_topic.removeClass("d-none");
                 $('#input-search').attr('placeholder', 'Selecciona área temática')
                 $("#topic-toggler").removeClass("some-topic-active");
+
+                $("#logo-caption").html("Diccionario<br>\npor áreas temáticas");
+
                 return; // is the menu toggler: nothing else to do
             case "topic-general":
                 button_lexicon_toggle.removeClass('d-none');
                 button_topic.addClass('d-none');
+
+                $("#logo-caption").html("Diccionario<br>\ncastellano/aragonés<br>\naragonés/castellano");
                 break;
 
             default:
@@ -70,6 +75,7 @@ $(function () {
         $("#selected_lex").val($topic.data("lexicode"));
 
         $('#input-search').attr('placeholder', $topic.data("lexidesc"));
+        $("#logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
 
         // remove other fa-icon
         let all_classes = [];
