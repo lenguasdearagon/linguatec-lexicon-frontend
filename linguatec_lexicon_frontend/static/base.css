@@ -398,10 +398,12 @@ footer.rg-footer {
     bottom: 5px;
 }
 
-/** TODO: update colors with final UI design **/
 .unfolded #topic-toggler {
-    background: #868686;
+    background: #333333;
     color: #FFFFFF;
+}
+.unfolded #topic-toggler.some-topic-active {
+    background: #d9484d;
 }
 .topic-item.active,
 .topic-menu-wrapper .topic-item-wrapper .topic-item.active {

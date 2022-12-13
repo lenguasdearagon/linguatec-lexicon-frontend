@@ -48,7 +48,11 @@ $(function () {
 
         switch($topic.attr("id")) {
             case "topic-toggler":
-                return; // is the menu toggler: nothing to do
+                button_lexicon_toggle.addClass('d-none');
+                button_topic.removeClass("d-none");
+                $('#input-search').attr('placeholder', 'Selecciona área temática')
+                $("#topic-toggler").removeClass("some-topic-active");
+                return; // is the menu toggler: nothing else to do
             case "topic-general":
                 button_lexicon_toggle.removeClass('d-none');
                 button_topic.addClass('d-none');
@@ -57,6 +61,7 @@ $(function () {
             default:
                 button_lexicon_toggle.addClass('d-none');
                 button_topic.removeClass("d-none");
+                $("#topic-toggler").addClass("some-topic-active");
         }
 
         $("#topic-menu .topic-item").removeClass("active");
@@ -73,7 +78,7 @@ $(function () {
                 all_classes.push($(this).data("fa-icon"));
             }
         });
-        let current_topic_icon = $topic.data("fa-icon");
+        let current_topic_icon = $topic.data("fa-icon") || "fa-ellipsis-v";
         button_topic.find('[data-fa-i2svg]')
             .removeClass(all_classes)
             .addClass(current_topic_icon);
@@ -87,6 +92,20 @@ $(function () {
 
     $("#topic-toggler").click(function() {
         $("#topic-menu").toggleClass("unfolded");
+        if($("#topic-menu").hasClass("unfolded")) {
+            init_topic_button($(this));
+        } else {
+            init_topic_button($("#topic-general"));
+        }
+    });
+
+    // if the user goes to input search without choosing a topic
+    // perform search to general dictionary.
+    $("#input-search").focus(function() {
+        if(!$("#topic-toggler").hasClass("some-topic-active")) {
+            init_topic_button($("#topic-general"));
+            $("#topic-menu").removeClass("unfolded");
+        }
     });
 
     // scroll to active topic
