@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Charter-Bold';
+    src: url('fonts/Charter-Bold.eot');
+    src: url('fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Charter-Bold.woff2') format('woff2'),
+         url('fonts/Charter-Bold.woff') format('woff'),
+         url('fonts/Charter-Bold.ttf')  format('truetype'),
+         url('fonts/Charter-Bold.svg#Charter') format('svg');
+}
+
 body {
     font-family: 'Lato', sans-serif;
 }
@@ -208,8 +218,22 @@ header.rg-header .navbar-toggler .fa-bars {
     padding-left: 4rem;
 }
 
+#aragonarioLogo {
+    padding-top: 2rem;
+}
+
 .home .rg-main #aragonarioLogo img {
-    width: 330px;
+    height: auto;
+    width: 360px;
+}
+
+#aragonarioLogo #logo-caption {
+    margin-left: 136px;
+    line-height: 1em;
+    font-family: 'Charter-Bold', serif;
+    margin-top: 0.65em;
+    font-size: 1.4rem;
+    color: #333333;
 }
 
 footer.rg-footer {
@@ -710,16 +734,6 @@ a.ref-external::after {
         overflow-x: hidden;
     }
 
-    #aragonarioLogo {
-        padding-top: 2rem;
-        text-align: center;
-    }
-
-    .home .rg-main #aragonarioLogo img {
-        height: auto;
-        width: 360px;
-    }
-
     .external-links {
         padding-top: 10rem;
     }
@@ -803,6 +817,10 @@ a.ref-external::after {
 
 /** sm rules **/
 @media (min-width: 576px) {
+    #aragonarioLogo img {
+        width: 330px;
+    }
+
     .rg-header .navbar-brand .navbar-brand-logo {
         width: 282px;
     }
