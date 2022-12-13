@@ -204,12 +204,12 @@ class SearchView(LinguatecBaseView):
         """Search and show results. If none, show near words."""
         context = self.get_context_data(**kwargs)
         query = request.GET.get('q', None)
-        lex_code = request.GET.get('l', '')
+        lex_slug = request.GET.get('l', '')
         if query is not None:
             client = coreapi.Client()
             schema = client.get(settings.LINGUATEC_LEXICON_API_URL)
 
-            querystring_args = {'q': query, 'l': lex_code}
+            querystring_args = {'q': query, 'l': lex_slug}
             url = schema['words'] + 'search/?' + \
                 urllib.parse.urlencode(querystring_args)
             response = client.get(url)
@@ -221,12 +221,13 @@ class SearchView(LinguatecBaseView):
             context.update({
                 'query': query,
                 'results': results,
-                'selected_lexicon': lex_code,
+                'selected_lexicon': lex_slug,
+                'selected_lexicon_code': lex_slug.split("@")[0],
                 'lexicons': get_lexicons(),
             })
 
             if response["count"] == 0:
-                context["near_words"] = utils.retrieve_near_words(query, lex_code)
+                context["near_words"] = utils.retrieve_near_words(query, lex_slug)
 
         return TemplateResponse(request, 'linguatec_lexicon_frontend/search_results.html', context)
 
