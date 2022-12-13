@@ -380,7 +380,7 @@ footer.rg-footer {
 
 /** topic lexicon menu **/
 #topic-toggler-wrapper {
-    z-index: 999;
+    z-index: 5;
 }
 .home-content .topic-item-wrapper:not(#topic-toggler-wrapper) {
     position: absolute;
