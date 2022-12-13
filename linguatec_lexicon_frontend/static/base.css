@@ -355,11 +355,19 @@ footer.rg-footer {
 }
 
 /** topic lexicon menu **/
+#topic-toggler-wrapper {
+    z-index: 999;
+}
 .home-content .topic-item-wrapper:not(#topic-toggler-wrapper) {
-    display: none;
+    position: absolute;
+    opacity: 0;
 }
 .home-content .unfolded .topic-item-wrapper:not(#topic-toggler-wrapper) {
-    display: block;
+    /* replace display by visibility to be able to apply transitions */
+    position: static;
+    z-index: initial;
+    opacity: 1;
+    transition: opacity 1s ease-out;
 }
 
 .topic-item-wrapper {
