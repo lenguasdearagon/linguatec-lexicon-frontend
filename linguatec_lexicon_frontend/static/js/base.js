@@ -51,22 +51,23 @@ $(function () {
                 button_lexicon_toggle.addClass('d-none');
                 button_topic.removeClass("d-none");
                 $('#input-search').attr('placeholder', 'Selecciona área temática')
-                $("#topic-toggler").removeClass("some-topic-active");
+                $(".topic-toggler").removeClass("some-topic-active");
                 $("#logo-caption").html("Diccionario<br>\npor áreas temáticas");
 
                 return; // is the menu toggler: nothing else to do
             case "topic-general":
                 button_lexicon_toggle.removeClass('d-none');
                 button_topic.addClass('d-none');
-
+                $(".topic-toggler").removeClass("some-topic-active");
                 $("#logo-caption").html("Diccionario<br>\ncastellano/aragonés<br>\naragonés/castellano");
                 break;
 
             default:
                 button_lexicon_toggle.addClass('d-none');
                 button_topic.removeClass("d-none");
-                $("#topic-toggler").addClass("some-topic-active");
+                $(".topic-toggler").addClass("some-topic-active");
                 $("#logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
+                $("#topic-general").removeClass("active");
         }
 
         $("#topic-menu .topic-item").removeClass("active");
@@ -90,6 +91,11 @@ $(function () {
 
     }
 
+    $("#topic-general").click(function() {
+        init_topic_button($(this));
+        $("#input-search").val("");
+    });
+
     $("#topic-menu .topic-item").click(function() {
         init_topic_button($(this));
         $("#input-search").val("");
@@ -106,7 +112,7 @@ $(function () {
 
     // if the user goes to input search without choosing a topic
     // perform search to general dictionary.
-    $("#input-search").focus(function() {
+    $(".home #input-search").focus(function() {
         if(!$("#topic-toggler").hasClass("some-topic-active")) {
             init_topic_button($("#topic-general"));
             $("#topic-menu").removeClass("unfolded");

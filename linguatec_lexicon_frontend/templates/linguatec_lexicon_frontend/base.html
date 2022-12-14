@@ -114,20 +114,27 @@
 
     <main class="{% block mainclass %}container-fluid{% endblock %} rg-main">
         {% block content %}
-      <div id="topicMenuContainer" class="row">
-       <div class="col" style="max-width: 90px;">
+      <div id="topicMenuContainer" class="d-inline-flex">
+       <div class="d-inline-flex" style="max-width: 210px;">
+        <div class="topic-item-wrapper">
+          <div id="topic-general" class="topic-item {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}active{% endif %}"
+            data-lexicode="es-ar" data-lexidesc="castellano-aragonés">
+            <span class="lexicon-general-icon"></span>
+            <div class="topic-title">Diccionario general</div>
+          </div>
+        </div>
         <div id="topic-toggler-wrapper" class="topic-item-wrapper">
-          <div id="topic-toggler-base" class="topic-item">
+          <div id="topic-toggler-base" class="topic-item topic-toggler">
             <i class="{{ fa_class }} fa-ellipsis-v fa-2x"></i>
             <div class="topic-title">Áreas <br/>temáticas</div>
           </div>
         </div>
        </div>
-       <div class="col-9">
+
         <div class="topic-menu-wrapper">
           {% include "linguatec_lexicon_frontend/components/topic-menu-base.html" %}
         </div>
-       </div>
+
       </div>
         <div class="row">
           <div class="col-12 col-md-9 col-lg-8 col-xl-7 ml-md-5" id="baseSearch">

@@ -426,16 +426,15 @@ footer.rg-footer {
     background: #333333;
     color: #FFFFFF;
 }
-.unfolded #topic-toggler.some-topic-active {
-    background: #d9484d;
-}
+
 .topic-item.active,
-.topic-menu-wrapper .topic-item-wrapper .topic-item.active {
+#topicMenuContainer .topic-item-wrapper .topic-item.active {
     background: #333333;
     color: #FFFFFF;
 }
 
 #topicMenuContainer #topic-toggler-wrapper,
+#topicMenuContainer .topic-item-wrapper,
 .topic-menu-wrapper .topic-item-wrapper {
     /** TODO it's ok this size??? **/
     width: 90px;
@@ -444,15 +443,23 @@ footer.rg-footer {
     padding: 5px;
 }
 
-#topicMenuContainer #topic-toggler-base,
-.topic-menu-wrapper .topic-item-wrapper .topic-item {
+#topicMenuContainer .topic-item .topic-title {
+    font-size: 0.875rem;
+}
+
+#topicMenuContainer .topic-toggler,
+#topicMenuContainer .topic-item-wrapper .topic-item {
     background: #FC565B;
     color: #FFFFFF;
 }
 
+#topicMenuContainer .topic-toggler.some-topic-active {
+    background: #d9484d;
+}
+
 #topicMenuContainer .topic-menu-wrapper {
     overflow-x: scroll;
-
+    max-width: 222px;
     /** hidde scrollbar **/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
@@ -819,6 +826,10 @@ a.ref-external::after {
 @media (min-width: 576px) {
     #aragonarioLogo img {
         width: 330px;
+    }
+
+    #topicMenuContainer .topic-menu-wrapper {
+        max-width: calc(100vw - 200px);
     }
 
     .rg-header .navbar-brand .navbar-brand-logo {
