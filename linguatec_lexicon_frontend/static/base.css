@@ -397,7 +397,7 @@ footer.rg-footer {
 .topic-item-wrapper {
     width: 33.333333%;
     aspect-ratio: 1 / 1;
-    padding: 10px;
+    padding: 8px;
 }
 
 .topic-item {
@@ -407,7 +407,7 @@ footer.rg-footer {
 
     background: #FFFFFF;
     color: #FC565B;
-    padding: 5px;
+    padding: 10px;
 
     position: relative;
 }
@@ -419,7 +419,7 @@ footer.rg-footer {
 
 .topic-item .topic-title {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
 }
 
 .unfolded #topic-toggler {
@@ -443,7 +443,14 @@ footer.rg-footer {
     padding: 5px;
 }
 
+
+
+#topicMenuContainer .topic-item {
+    padding: 6px;
+}
+
 #topicMenuContainer .topic-item .topic-title {
+    bottom: 5px;
     font-size: 0.875rem;
 }
 
