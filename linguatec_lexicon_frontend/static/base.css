@@ -444,7 +444,7 @@ footer.rg-footer {
     padding: 5px;
 }
 
-#topicMenuContainer #topic-toggler,
+#topicMenuContainer #topic-toggler-base,
 .topic-menu-wrapper .topic-item-wrapper .topic-item {
     background: #FC565B;
     color: #FFFFFF;

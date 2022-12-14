@@ -52,7 +52,6 @@ $(function () {
                 button_topic.removeClass("d-none");
                 $('#input-search').attr('placeholder', 'Selecciona área temática')
                 $("#topic-toggler").removeClass("some-topic-active");
-
                 $("#logo-caption").html("Diccionario<br>\npor áreas temáticas");
 
                 return; // is the menu toggler: nothing else to do
@@ -67,6 +66,7 @@ $(function () {
                 button_lexicon_toggle.addClass('d-none');
                 button_topic.removeClass("d-none");
                 $("#topic-toggler").addClass("some-topic-active");
+                $("#logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
         }
 
         $("#topic-menu .topic-item").removeClass("active");
@@ -75,7 +75,6 @@ $(function () {
         $("#selected_lex").val($topic.data("lexicode"));
 
         $('#input-search').attr('placeholder', $topic.data("lexidesc"));
-        $("#logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
 
         // remove other fa-icon
         let all_classes = [];
