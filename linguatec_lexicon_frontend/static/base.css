@@ -411,6 +411,7 @@ footer.rg-footer {
     width: 33.333333%;
     aspect-ratio: 1 / 1;
     padding: 8px;
+    max-width: 120px;
 }
 
 .topic-item {
@@ -906,7 +907,7 @@ a.ref-external::after {
 /** only md rules **/
 @media (min-width: 768px) and (max-width: 991.98px) {
     #homeSearch.col-md-7 {
-        max-width: 52%;
+        max-width: 57%;
     }
 }
 
@@ -921,6 +922,7 @@ a.ref-external::after {
     }
 
     .home .rg-main {
+        padding: 0 15px; /** restore BS container style **/
         margin-top: 4rem;
     }
 
@@ -937,6 +939,23 @@ a.ref-external::after {
         background-position-x: 125px;
     }
 
+    .home #topic-toggler,
+    .home .topic-item {
+        background: #FC565B;
+        color: #FFFFFF;
+    }
+
+    .home .unfolded #topic-toggler,
+    .home .topic-item.active,
+    .home .rg-main .rg-search #button-topic {
+        background: #333333;
+        color: #FFFFFF;
+    }
+
+    .home .unfolded #topic-toggler.topic-toggler.some-topic-active {
+        background: #d9484d;
+    }
+
     #topicMenuContainer {
         margin-bottom: 2rem;
     }
@@ -946,13 +965,24 @@ a.ref-external::after {
         margin-right: 10rem;
     }
 
+    .rg-search #input-search {
+        margin-right: 0;
+    }
+
+    .rg-search .input-group-append {
+        padding-left: 0;
+    }
+
     .home .rg-main .rg-search #input-search {
         background: #f0f0f0;
     }
 
-    .home .rg-main .rg-search #button-search,
-    .home .rg-main .rg-search #button-topic {
+    .home .rg-main .rg-search #button-search {
         background: #fc565b;
+    }
+
+    .home #topic-menu {
+        margin-top: 1.5em;
     }
 
     .home .rg-main .navbar-nav .nav-item {
