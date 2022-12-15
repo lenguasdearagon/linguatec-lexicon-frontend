@@ -140,6 +140,7 @@ body.home {
     background-position-y: bottom;
     background-repeat: no-repeat;
     height: 18px;
+    margin-top: -1px; /** avoid white line on render **/
 }
 
 header.rg-header .navbar {
@@ -455,7 +456,10 @@ footer.rg-footer {
     padding: 5px;
 }
 
-
+#topicMenuContainer {
+    /** balance out topic-item-wrapper.padding (we want to be aligned with logo & search bar  **/
+    margin-left: -5px;
+}
 
 #topicMenuContainer .topic-item {
     padding: 6px;
@@ -479,7 +483,7 @@ footer.rg-footer {
 
 #topicMenuContainer .topic-menu-wrapper {
     overflow-x: scroll;
-    max-width: 222px;
+    max-width: calc(100% - 230px);
     /** hidde scrollbar **/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
