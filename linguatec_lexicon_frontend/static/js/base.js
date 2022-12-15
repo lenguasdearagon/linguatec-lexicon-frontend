@@ -110,6 +110,10 @@ $(function () {
         }
     });
 
+    $("#topic-toggler-base").click(function() {
+        $(".topic-menu-wrapper").toggleClass("collapsed");
+    });
+
     // if the user goes to input search without choosing a topic
     // perform search to general dictionary.
     $(".home #input-search").focus(function() {

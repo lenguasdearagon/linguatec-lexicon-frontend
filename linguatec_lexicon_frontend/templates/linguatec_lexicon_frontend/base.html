@@ -131,7 +131,7 @@
         </div>
        </div>
 
-        <div class="topic-menu-wrapper">
+        <div class="topic-menu-wrapper {% if 'es-ar' == selected_lexicon or 'ar-es' == selected_lexicon %}collapsed{% endif %}">
           {% include "linguatec_lexicon_frontend/components/topic-menu-base.html" %}
         </div>
 

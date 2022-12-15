@@ -487,7 +487,14 @@ footer.rg-footer {
     /** hidde scrollbar **/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    transition: all 1s ease-out;
+    flex: 1;
 }
+
+#topicMenuContainer .topic-menu-wrapper.collapsed {
+    flex: 0;
+}
+
 
 /** hidde scrollbar **/
 #topicMenuContainer .topic-menu-wrapper::-webkit-scrollbar {
