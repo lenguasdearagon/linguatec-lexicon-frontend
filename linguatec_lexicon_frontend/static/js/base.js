@@ -66,7 +66,7 @@ $(function () {
                 button_lexicon_toggle.addClass('d-none');
                 button_topic.removeClass("d-none");
                 $(".topic-toggler").addClass("some-topic-active");
-                $("#logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
+                $("#logo-caption").html("Diccionario<br>\npor áreas temáticas<br>\n" + $topic.data("lexidesc"));
                 $("#topic-general").removeClass("active");
         }
 

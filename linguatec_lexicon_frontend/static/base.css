@@ -472,6 +472,7 @@ footer.rg-footer {
     color: #FFFFFF;
 }
 
+#topic-toggler.topic-toggler.some-topic-active,
 #topicMenuContainer .topic-toggler.some-topic-active {
     background: #d9484d;
 }
