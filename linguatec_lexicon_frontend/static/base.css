@@ -121,8 +121,12 @@ body.home {
     background: #FC565B;
 }
 
-header.rg-header {
-    margin-bottom: 1.5rem;
+.home .rg-header {
+    padding: 1rem 2rem 0;
+}
+
+.home .rg-main {
+    padding: 0 2rem;
 }
 
 .rg-header-content {
@@ -218,22 +222,19 @@ header.rg-header .navbar-toggler .fa-bars {
     padding-left: 4rem;
 }
 
-#aragonarioLogo {
-    padding-top: 2rem;
-}
-
 .home .rg-main #aragonarioLogo img {
     height: auto;
-    width: 360px;
+    width: 100%;
 }
 
 #aragonarioLogo #logo-caption {
-    margin-left: 136px;
+    margin-left: 37.777777778%;
     line-height: 1em;
     font-family: 'Charter-Bold', serif;
     margin-top: 0.65em;
     font-size: 1.4rem;
     color: #333333;
+    height: 3em;  /** keep space although # lines change **/
 }
 
 footer.rg-footer {
@@ -298,6 +299,10 @@ footer.rg-footer {
 
 .home .rg-search {
     background-position: 32px bottom;
+}
+
+.home .external-links {
+    padding-top: 9rem;
 }
 
 .home .external-links .col {
@@ -382,6 +387,13 @@ footer.rg-footer {
 #topic-toggler-wrapper {
     z-index: 5;
 }
+
+.home #topic-menu {
+    /** balance out topic-item-wrapper.padding (we want to be aligned with logo & search bar  **/
+    margin-left: -8px;
+    width: calc(100% + 16px);
+}
+
 .home-content .topic-item-wrapper:not(#topic-toggler-wrapper) {
     position: absolute;
     opacity: 0;
@@ -748,22 +760,12 @@ a.ref-external::after {
         overflow-x: hidden;
     }
 
-    .external-links {
-        padding-top: 10rem;
-    }
-
-    header.rg-header {
-        margin-bottom: 0;
-    }
-
     .rg-header-bottom {
         background-position-x: 68px
     }
 
     .rg-search {
         padding-bottom: 14px;
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
         background-position: 36px bottom;
     }
 
