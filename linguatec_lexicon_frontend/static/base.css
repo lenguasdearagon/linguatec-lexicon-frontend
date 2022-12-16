@@ -947,7 +947,8 @@ a.ref-external::after {
 
     .home .unfolded #topic-toggler,
     .home .topic-item.active,
-    .home .rg-main .rg-search #button-topic {
+    .home .rg-main .rg-search #button-topic,
+    .base .rg-main .rg-search #button-topic {
         background: #333333;
         color: #FFFFFF;
     }
@@ -957,8 +958,10 @@ a.ref-external::after {
     }
 
     #topicMenuContainer {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
+
+
 
     .rg-search {
         margin-top: 0px;
@@ -1013,8 +1016,8 @@ a.ref-external::after {
     }
 
     .rg-search-results {
-        padding-left: 6rem;
-        margin-right: 3rem;
+        padding-left: 3rem;
+        padding-right: 2rem;
     }
 
     .conjugation-block {
@@ -1032,6 +1035,12 @@ a.ref-external::after {
     .rg-footer #logo-mcd .logo-title {
         line-height: 1.5em;
     }
+
+    .rg-main {
+        margin-top: 0.5em;
+        padding-left: 72px;
+    }
+
 }
 
 /** lg rules **/
@@ -1067,6 +1076,10 @@ a.ref-external::after {
     .rg-search-results,
     .conjugation-block {
         padding-bottom: 5rem;
+    }
+
+    .base .rg-main {
+        padding-left: 156px;
     }
 
     /** diatopic variations **/
@@ -1156,12 +1169,6 @@ a.ref-external::after {
 
     #rg-fondos-feder {
         margin-top: -1rem;
-    }
-}
-
-@media (max-width: 1200px) {
-    .rg-main {
-        padding-left: 1rem;
     }
 }
 

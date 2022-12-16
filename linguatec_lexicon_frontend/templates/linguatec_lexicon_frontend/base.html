@@ -61,7 +61,7 @@
     </script>
 </head>
 
-<body class="{% block bodyclass %}{% endblock %}">
+<body class="{% block bodyclass %}base{% endblock %}">
     <header class="container-fluid rg-header">
         <div class="rg-header-container row">
             <div class="rg-header-content col-12">
@@ -138,7 +138,7 @@
 
       </div>
         <div class="row">
-          <div class="col-12 col-md-9 col-lg-8 col-xl-7 ml-md-5" id="baseSearch">
+          <div class="col-12 col-md-11 col-lg-8 col-xl-7" id="baseSearch">
               {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
           </div>
         </div>
