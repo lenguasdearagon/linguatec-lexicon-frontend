@@ -10,10 +10,9 @@
 {% block mainclass %}container{% endblock %}
 
 {% block home_header %}
-<!-- TODO XXX should be only rendered at home???? -->
 <!-- open sidebar menu -->
 <a class="btn open-menu" href="#" role="button">
-  <i class="{{ fa_class }} fa-bars fa-3x"></i>
+  <i class="{{ fa_class }} fa-bars fa-2x"></i>
 </a>
 
 <!-- sidebar menu -->
@@ -22,7 +21,7 @@
   <div class="d-none d-md-block navbar-light">
     <!-- close sidebar menu -->
     <button type="button" class="btn dismiss">
-      <i class="{{ fa_class }} fa-times fa-3x"></i>
+      <i class="{{ fa_class }} fa-times fa-2x"></i>
     </button>
     <div class="navbar-nav menu-elements">
       {% include "linguatec_lexicon_frontend/components/external-links.html" with navbar=True %}
