@@ -2,8 +2,37 @@
 {% load static %}
 
 
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
+
 {% block bodyclass %}home{% endblock %}
 {% block mainclass %}container{% endblock %}
+
+{% block home_header %}
+<!-- TODO XXX should be only rendered at home???? -->
+<!-- open sidebar menu -->
+<a class="btn open-menu" href="#" role="button">
+  <i class="{{ fa_class }} fa-bars fa-3x"></i>
+</a>
+
+<!-- sidebar menu -->
+<!-- external links (for md & larger)-->
+<nav class="sidebar">
+  <div class="d-none d-md-block navbar-light">
+    <!-- close sidebar menu -->
+    <button type="button" class="btn dismiss">
+      <i class="{{ fa_class }} fa-times fa-3x"></i>
+    </button>
+    <div class="navbar-nav menu-elements">
+      {% include "linguatec_lexicon_frontend/components/external-links.html" with navbar=True %}
+      {% include "linguatec_lexicon_frontend/components/navbar-menu.html" %}
+    </div>
+  </div>
+</nav>
+<!-- end of external links -->
+{% endblock %}
+
 {% block content %}
 
 <div class="home-content row justify-content-center">
@@ -21,14 +50,7 @@
 
     <div class="col-sm-10 col-md-7 col-lg-7" id="homeSearch">
         {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
-
         {% include "linguatec_lexicon_frontend/components/topic-menu-home.html" %}
-        <div class="d-none d-md-block navbar-light">
-            <div class="navbar-nav">
-                {% include "linguatec_lexicon_frontend/components/external-links.html" with navbar=True %}
-                {% include "linguatec_lexicon_frontend/components/navbar-menu.html" %}
-            </div>
-        </div>
     </div>
 </div>
 

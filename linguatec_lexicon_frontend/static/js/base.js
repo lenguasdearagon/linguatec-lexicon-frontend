@@ -1,5 +1,21 @@
 $(function () {
 
+    /* home external links sidebar menu */
+    $('.dismiss').on('click', function() {
+        $('.sidebar').removeClass('active');
+        $('.open-menu').removeClass('d-none');
+    });
+
+    $('.open-menu').on('click', function(e) {
+        e.preventDefault();
+        $('.sidebar').addClass('active');
+        $('.open-menu').addClass('d-none');
+        // close opened sub-menus
+        $('.collapse.show').toggleClass('show');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+    /** end home external links sidebar menu */
+
     init_lexicon_button();
     init_topic_button($(".topic-item.active"));
 
