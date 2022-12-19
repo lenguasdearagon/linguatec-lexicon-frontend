@@ -76,6 +76,8 @@ $(function () {
                 button_topic.addClass('d-none');
                 $(".topic-toggler").removeClass("some-topic-active");
                 $(".logo-caption").html("Diccionario<br>\ncastellano/aragonés<br>\naragonés/castellano");
+
+                search_placeholder = $topic.data("lexidesc");
                 break;
 
             default:
@@ -84,6 +86,8 @@ $(function () {
                 $(".topic-toggler").addClass("some-topic-active");
                 $(".logo-caption").html("Diccionario<br>\npor áreas temáticas<br>\n" + $topic.data("lexidesc"));
                 $("#topic-general").removeClass("active");
+
+                search_placeholder = $topic.data("lexidesc") + " (es-ar)";
         }
 
         $("#topic-menu .topic-item").removeClass("active");
@@ -91,7 +95,7 @@ $(function () {
 
         $("#selected_lex").val($topic.data("lexicode"));
 
-        $('#input-search').attr('placeholder', $topic.data("lexidesc"));
+        $('#input-search').attr('placeholder', search_placeholder);
 
         // remove other fa-icon
         let all_classes = [];
