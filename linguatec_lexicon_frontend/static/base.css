@@ -223,12 +223,12 @@ header.rg-header .navbar-toggler .fa-bars {
     padding-left: 4rem;
 }
 
-.home .rg-main #aragonarioLogo img {
+.home .rg-main #aragonarioLogoMobile img {
     height: auto;
     width: 100%;
 }
 
-#aragonarioLogo #logo-caption {
+.home .rg-main .logo-caption {
     margin-left: 37.777777778%;
     line-height: 1em;
     font-family: 'Charter-Bold', serif;
@@ -927,8 +927,13 @@ a.ref-external::after {
     }
 
     #aragonarioLogo {
-        height: 149px;
-        background: url(aragonario-color-dos-sentidos.svg) no-repeat right top;
+        height: 80px;
+        background: url(aragonario-color-only-logo.svg) no-repeat right top;
+    }
+
+    #aragonarioLogo .logo-caption {
+        margin-top: 90px;
+        font-size: 1em;
     }
 
     .rg-header .navbar-brand .navbar-brand-logo {
@@ -1059,6 +1064,10 @@ a.ref-external::after {
         text-decoration: underline;
     }
 
+    #aragonarioLogo .logo-caption {
+        margin-left: 40%;
+    }
+
     .home .rg-main {
         position: fixed;
         right: 0;
@@ -1181,6 +1190,10 @@ a.ref-external::after {
 
     .rg-header-bottom {
         background-position-x: 90px;
+    }
+
+    #aragonarioLogo .logo-caption {
+        margin-left: 50%;
     }
 
     .rg-search-results {

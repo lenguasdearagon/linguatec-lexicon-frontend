@@ -68,21 +68,21 @@ $(function () {
                 button_topic.removeClass("d-none");
                 $('#input-search').attr('placeholder', 'Selecciona área temática')
                 $(".topic-toggler").removeClass("some-topic-active");
-                $("#logo-caption").html("Diccionario<br>\npor áreas temáticas");
+                $(".logo-caption").html("Diccionario<br>\npor áreas temáticas");
 
                 return; // is the menu toggler: nothing else to do
             case "topic-general":
                 button_lexicon_toggle.removeClass('d-none');
                 button_topic.addClass('d-none');
                 $(".topic-toggler").removeClass("some-topic-active");
-                $("#logo-caption").html("Diccionario<br>\ncastellano/aragonés<br>\naragonés/castellano");
+                $(".logo-caption").html("Diccionario<br>\ncastellano/aragonés<br>\naragonés/castellano");
                 break;
 
             default:
                 button_lexicon_toggle.addClass('d-none');
                 button_topic.removeClass("d-none");
                 $(".topic-toggler").addClass("some-topic-active");
-                $("#logo-caption").html("Diccionario<br>\npor áreas temáticas<br>\n" + $topic.data("lexidesc"));
+                $(".logo-caption").html("Diccionario<br>\npor áreas temáticas<br>\n" + $topic.data("lexidesc"));
                 $("#topic-general").removeClass("active");
         }
 

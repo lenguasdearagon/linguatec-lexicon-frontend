@@ -35,17 +35,22 @@
 {% block content %}
 
 <div class="home-content row justify-content-center">
-    <div class="col-12 col-sm-10 col-md col-lg-4 justify-content-end" id="aragonarioLogo">
-      <div class="d-md-none">
+    <div class="d-none d-md-block col-md col-lg-4 justify-content-end" id="aragonarioLogo">
+      <div class="logo-caption">
+        Diccionario<br>
+        castellano/aragonés<br>
+        aragonés/castellano
+      </div>
+    </div>
+    <div class="col-12 col-sm-10 d-md-none" id="aragonarioLogoMobile">
         <img alt="Aragonario: Diccionario castellano - aragonés"
             src="{% static 'aragonario-darkgray-only-logo.svg' %}" width="330" height="139" />
-        <div id="logo-caption">
+        <div class="logo-caption">
           Diccionario<br>
           castellano/aragonés<br>
           aragonés/castellano
         </div>
       </div>
-    </div>
 
     <div class="col-sm-10 col-md-7 col-lg-7" id="homeSearch">
         {% include "linguatec_lexicon_frontend/components/search-tools.html" %}
