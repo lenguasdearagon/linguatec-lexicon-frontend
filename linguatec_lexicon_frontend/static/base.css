@@ -1204,3 +1204,26 @@ a.ref-external::after {
         display: table;
     }
 }
+
+/** xxl rules (custom RG breakpoint) **/
+@media (min-width: 1440px) {
+    .d-xxl-none {
+        display: none!important;
+    }
+
+    .home .rg-header {
+        display: block;
+    }
+
+    .home .rg-header-bottom {
+        display: none;
+    }
+
+    .home .rg-header-content {
+        background: white;
+    }
+
+    .home .rg-header .navbar-light .navbar-nav .nav-link {
+        color: #333;
+    }
+}
