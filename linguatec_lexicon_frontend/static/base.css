@@ -218,9 +218,8 @@ header.rg-header .navbar-toggler .fa-bars {
 }
 
 .rg-main {
-    margin-bottom: calc(42px + 8rem);
     /** fixed footer height (42px) + real margin */
-    padding-left: 4rem;
+    margin-bottom: calc(42px + 8rem);
 }
 
 .home .rg-main #aragonarioLogoMobile img {
@@ -1194,6 +1193,10 @@ a.ref-external::after {
 
     #aragonarioLogo .logo-caption {
         margin-left: 50%;
+    }
+
+    .base .rg-main {
+        padding-left: 120px;
     }
 
     .rg-search-results {
