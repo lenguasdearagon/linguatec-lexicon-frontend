@@ -1203,6 +1203,21 @@ a.ref-external::after {
     #conjugation table {
         display: table;
     }
+
+    #topicMenuContainer {
+        margin-top: -5px;
+    }
+
+    #topicMenuContainer .topic-menu-wrapper {
+        width: 200px;
+        transition: width 2s;
+        flex: 1;
+    }
+
+    #topicMenuContainer  .topic-menu-wrapper.collapsed {
+        width: 0;
+        flex: 1;
+    }
 }
 
 /** xxl rules (custom RG breakpoint) **/
@@ -1225,5 +1240,9 @@ a.ref-external::after {
 
     .home .rg-header .navbar-light .navbar-nav .nav-link {
         color: #333;
+    }
+
+    #topicMenuContainer .topic-menu-wrapper {
+        width: 270px;
     }
 }
