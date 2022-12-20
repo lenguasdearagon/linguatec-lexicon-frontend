@@ -196,8 +196,12 @@ header.rg-header .navbar-toggler .fa-bars {
     margin: 0 auto;
 }
 
-.rg-main {
+.home.rg-main {
     /** fixed footer height (42px) + real margin */
+    margin-bottom: calc(42px + 2rem);
+}
+
+.rg-main {
     margin-bottom: calc(42px + 8rem);
 }
 
@@ -281,7 +285,7 @@ footer.rg-footer {
 }
 
 .home .external-links {
-    padding-top: 9rem;
+    padding-top: 4rem;
 }
 
 .home .external-links .col {
@@ -438,6 +442,9 @@ footer.rg-footer {
 #topicMenuContainer {
     /** balance out topic-item-wrapper.padding (we want to be aligned with logo & search bar  **/
     margin-left: -5px;
+    /** all the space available + padding of parent (col-12) **/
+    max-width: calc(100% + 15px);
+    overflow: hidden;
 }
 
 #topicMenuContainer .topic-item {
@@ -462,7 +469,6 @@ footer.rg-footer {
 
 #topicMenuContainer .topic-menu-wrapper {
     overflow-x: scroll;
-    max-width: calc(100% - 230px);
     /** hidde scrollbar **/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
@@ -743,12 +749,6 @@ a.ref-external::after {
 @media (max-width: 575.98px) {
     body {
         min-width: 420px;
-    }
-
-    .rg-main {
-        margin: 0;
-        /** hidde overflow to allow scroll topic-menu-wrapper on small devices **/
-        overflow-x: hidden;
     }
 
     .rg-header-bottom {
@@ -1040,6 +1040,10 @@ a.ref-external::after {
     .rg-header .navbar-light .navbar-nav .nav-link:hover,
     .rg-header .navbar-light .navbar-nav .active .nav-link {
         text-decoration: underline;
+    }
+
+    .rg-navbar-separator {
+        display: none;
     }
 
     #aragonarioLogo .logo-caption {
