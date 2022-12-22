@@ -180,7 +180,7 @@ header.rg-header .navbar-toggler .fa-bars {
     box-shadow: -7px 4px 4px rgba(0, 0, 0, 0.4);
     padding: 0;
     z-index: 1060;  /** greater than fixed bottom logos **/
-    overflow: scroll;
+    overflow-y: scroll;
     max-height: 100%;
 }
 
