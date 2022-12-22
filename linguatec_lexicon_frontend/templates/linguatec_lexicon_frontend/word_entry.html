@@ -28,6 +28,11 @@
     </div>
     {% endif %}
 
+    {# <!-- labels --> #}
+    {% if entry.labels %}
+    <p class="mt-2 text-secondary">{{ entry.labels|join:", " }}</p>
+    {% endif %}
+
     {# <!-- verbal conjugation --> #}
     {% if entry.conjugation %}{# is a verb! #}
     <div class="rg-entry-conjugation">
