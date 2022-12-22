@@ -5,6 +5,7 @@ import urllib.parse
 from collections import OrderedDict
 
 from django.conf import settings
+from django.http import Http404
 from django.template.response import TemplateResponse
 from django.views.generic.base import TemplateView
 from django.urls import resolve
@@ -246,7 +247,11 @@ class WordDetailView(LinguatecBaseView):
         schema = client.get(api_url)
         url = schema['words'] + '{pk}/'.format(pk=pk)
 
-        word = client.get(url)
+        try:
+            word = client.get(url)
+        except coreapi.exceptions.ErrorMessage:
+            raise Http404("Word doesn't exist.")
+
         self.groupby_word_entries(word)
 
         lexicons = get_lexicons()
