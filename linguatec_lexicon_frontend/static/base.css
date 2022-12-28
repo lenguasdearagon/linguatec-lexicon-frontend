@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Charter-Bold';
+    src: url('fonts/Charter-Bold.eot');
+    src: url('fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Charter-Bold.woff2') format('woff2'),
+         url('fonts/Charter-Bold.woff') format('woff'),
+         url('fonts/Charter-Bold.ttf')  format('truetype'),
+         url('fonts/Charter-Bold.svg#Charter') format('svg');
+}
+
 body {
     font-family: 'Lato', sans-serif;
 }
@@ -38,6 +48,7 @@ h3 {
     color: #333;
     list-style-type: none;
 }
+
 .rg-list-help-variants {
     list-style-type: square;
 }
@@ -60,7 +71,8 @@ h3 {
 
 .rg-loading #rg_loading_flag {
     background-image: url('loading-header-bg.png');
-    background-position: right 10px top; /** $x/2 = 10px **/
+    background-position: right 10px top;
+    /** $x/2 = 10px **/
     background-repeat: no-repeat;
     height: 100%;
     padding-left: 0;
@@ -68,22 +80,27 @@ h3 {
 
 @media (min-width: 1200px) {
     .rg-loading #rg_loading_flag {
-        background-position: 0px top; /** $x/2 = 10px **/
+        background-position: 0px top;
+        /** $x/2 = 10px **/
     }
 }
 
 .rg-loading #rg_loading_logo_ga {
     padding-left: 0;
-    padding-right: 20px; /** $X is minium defined space in ga logo rules **/
+    padding-right: 20px;
+    /** $X is minium defined space in ga logo rules **/
 }
 
 
 .rg-loader-wrapper {
     width: 60px;
 }
-.rg-loader  {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #333333; /* Blue */
+
+.rg-loader {
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-top: 8px solid #333333;
+    /* Blue */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -91,16 +108,25 @@ h3 {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 body.home {
     background: #FC565B;
 }
 
-header.rg-header {
-    margin-bottom: 1.5rem;
+.home .rg-header {
+    padding: 1rem 2rem 0;
+}
+
+.home .rg-main {
+    padding: 0 2rem;
 }
 
 .rg-header-content {
@@ -109,10 +135,12 @@ header.rg-header {
 
 .rg-header-bottom {
     background-image: url(header-bg-color.svg);
-    background-position-x: 38px; /* header-bg.width x (53/300) */
+    background-position-x: 38px;
+    /* header-bg.width x (53/300) */
     background-position-y: bottom;
     background-repeat: no-repeat;
     height: 18px;
+    margin-top: -1px; /** avoid white line on render **/
 }
 
 header.rg-header .navbar {
@@ -146,60 +174,55 @@ header.rg-header .navbar-toggler .fa-bars {
     color: #333333;
 }
 
-.rg-header .navbar-collapse.collapsing {
-    position: initial;
-}
-
-.rg-header .navbar-collapse.collapsing .rg-navbar-content {
-    transition: none;
-}
-/* TODO menu transition right 0.35s ease;
-.rg-header .navbar-collapse {
-
-}
-
-.rg-header .collapse:not(.show) {
-    display: block;
-}
-
-.rg-header .collapse:not(.show) .rg-navbar-content {
-    right: -100%;
-    height: 0;
-}
-
-.show .rg-navbar-content {
-    height: auto;
-}*/
-
-.rg-navbar-content {
+.navbar.rg-navbar-content {
     background: white;
     color: #333333;
-    box-shadow: -7px 4px 4px rgba(0,0,0,0.4);
-    /** playground **/
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-    /** endplayground **/
+    box-shadow: -7px 4px 4px rgba(0, 0, 0, 0.4);
+    padding: 0;
+    z-index: 1060;  /** greater than fixed bottom logos **/
+    overflow-y: scroll;
+    max-height: 100%;
+}
+
+.navbar.rg-navbar-content .navbar-toggler {
+    color: #333333;
+    margin-top: 1.5rem;
+    margin-right: 2.25rem;
 }
 
 .rg-navbar-separator {
     border-bottom: 1px solid #C8C8C8;
-    margin-right: 15px;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.home.rg-main {
+    /** fixed footer height (42px) + real margin */
+    margin-bottom: calc(42px + 2rem);
 }
 
 .rg-main {
-    margin-bottom: calc(42px + 2rem); /** fixed footer height (42px) + real margin */
-    padding-left: 4rem;
+    margin-bottom: calc(42px + 8rem);
 }
 
-.home .rg-main #aragonarioLogo img {
-    width: 330px;
+.home .rg-main #aragonarioLogoMobile img {
+    height: auto;
+    width: 100%;
+}
+
+.home .rg-main .logo-caption {
+    margin-left: 37.777777778%;
+    line-height: 1em;
+    font-family: 'Charter-Bold', serif;
+    margin-top: 0.65em;
+    font-size: 1.4rem;
+    color: #333333;
+    height: 3em;  /** keep space although # lines change **/
 }
 
 footer.rg-footer {
     background: white;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.16);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.16);
 }
 
 #footer_collapse_button {
@@ -224,6 +247,10 @@ footer.rg-footer {
 
 .rg-logo {
     margin-bottom: 30px;
+}
+
+.rg-logo .logo-title {
+    color: #707070;
 }
 
 .rg-logos-container,
@@ -257,6 +284,10 @@ footer.rg-footer {
     background-position: 32px bottom;
 }
 
+.home .external-links {
+    padding-top: 4rem;
+}
+
 .home .external-links .col {
     padding-right: 0;
     padding-left: 0;
@@ -270,7 +301,8 @@ footer.rg-footer {
 }
 
 .rg-search #input-search {
-    background: #f0f0f0; /* same color than .rg-search background image */
+    background: #f0f0f0;
+    /* same color than .rg-search background image */
     border-width: 0;
     border-radius: 0;
     color: #333;
@@ -278,12 +310,14 @@ footer.rg-footer {
     height: 62px;
 }
 
-.home .rg-main .rg-search #button-search {
+.home .rg-main .rg-search #button-search,
+.home .rg-main .rg-search #button-topic {
     background: #333333;
     color: white;
 }
 
-.rg-main .rg-search #button-search {
+.rg-main .rg-search #button-search,
+.rg-main .rg-search #button-topic {
     background: #FC565B;
     border-radius: 0;
     border-width: 0;
@@ -297,20 +331,162 @@ footer.rg-footer {
     border-radius: 0;
     border-width: 0;
     min-width: 62px;
+    color: white;
 }
 
-.ar-es, .es-ar{
+.ar-es, .es-ar {
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.ar-es{
+.ar-es {
     background-image: url('lexicon-button-a-c-colour.svg');
 }
 
-.es-ar{
+.es-ar {
     background-image: url('lexicon-button-c-a-colour.svg');
 }
+
+.lexicon-general-icon {
+    display: inline-block;
+    background-image: url("lexicon-general-icon-white.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2em;
+    height: 2em;
+}
+
+.home-content #topic-general:not(.active) .lexicon-general-icon {
+    background-image: url("lexicon-general-icon-colour.png");
+}
+
+.home-content .lexicon-general-icon {
+    width: 3em;
+    height: 3em;
+}
+
+/** topic lexicon menu **/
+#topic-toggler-wrapper {
+    z-index: 5;
+}
+
+.home #topic-menu {
+    /** balance out topic-item-wrapper.padding (we want to be aligned with logo & search bar  **/
+    margin-left: -8px;
+    width: calc(100% + 16px);
+}
+
+.home-content .topic-item-wrapper:not(#topic-toggler-wrapper) {
+    position: absolute;
+    opacity: 0;
+}
+.home-content .unfolded .topic-item-wrapper:not(#topic-toggler-wrapper) {
+    /* replace display by visibility to be able to apply transitions */
+    position: static;
+    z-index: initial;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.topic-item-wrapper {
+    width: 33.333333%;
+    aspect-ratio: 1 / 1;
+    padding: 8px;
+    max-width: 120px;
+}
+
+.topic-item {
+    height: 100%;
+    text-align: left;
+    font: normal normal 900 15px/15px Lato;
+
+    background: #FFFFFF;
+    color: #FC565B;
+    padding: 10px;
+
+    position: relative;
+}
+
+.topic-item .fal,
+.topic-item .fas {
+    display: block;
+}
+
+.topic-item .topic-title {
+    position: absolute;
+    bottom: 10px;
+}
+
+.unfolded #topic-toggler {
+    background: #333333;
+    color: #FFFFFF;
+}
+
+.topic-item.active,
+#topicMenuContainer .topic-item-wrapper .topic-item.active {
+    background: #333333;
+    color: #FFFFFF;
+}
+
+#topicMenuContainer #topic-toggler-wrapper,
+#topicMenuContainer .topic-item-wrapper,
+.topic-menu-wrapper .topic-item-wrapper {
+    /** TODO it's ok this size??? **/
+    width: 90px;
+    height: 90px;
+    aspect-ratio: auto;
+    padding: 5px;
+}
+
+#topicMenuContainer {
+    /** balance out topic-item-wrapper.padding (we want to be aligned with logo & search bar  **/
+    margin-left: -5px;
+    /** all the space available + padding of parent (col-12) **/
+    max-width: calc(100% + 15px);
+    overflow: hidden;
+}
+
+#topicMenuContainer .topic-item {
+    padding: 6px;
+}
+
+#topicMenuContainer .topic-item .topic-title {
+    bottom: 5px;
+    font-size: 0.875rem;
+}
+
+#topicMenuContainer .topic-toggler,
+#topicMenuContainer .topic-item-wrapper .topic-item {
+    background: #FC565B;
+    color: #FFFFFF;
+}
+
+#topic-toggler.topic-toggler.some-topic-active,
+#topicMenuContainer .topic-toggler.some-topic-active {
+    background: #d9484d;
+}
+
+#topicMenuContainer .topic-menu-wrapper {
+    overflow-x: scroll;
+    /** hidde scrollbar **/
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    transition: all 1s ease-out;
+    flex: 1;
+}
+
+#topicMenuContainer .topic-menu-wrapper.collapsed {
+    flex: 0;
+}
+
+
+/** hidde scrollbar **/
+#topicMenuContainer .topic-menu-wrapper::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+/** end topic lexicon menu **/
 
 .rg-search-results,
 .conjugation-block {
@@ -371,20 +547,23 @@ footer.rg-footer {
 
 .rg-variation-content .rg-variation-region h4 {
     font-size: 1rem;
-    padding: 0.2rem  15px;
+    padding: 0.2rem 15px;
 }
 
 .rg-variation-content .rg-variation-entries {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .rg-variation-content .rg-variation-entries .rg-entry {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
+
 .rg-variation-content .rg-variation-name {
     font-weight: normal;
 }
+
 /*** end diatopic variations ***/
 
 .rg-search-results .rg-entries .rg-entry .rg-gramcat {
@@ -397,6 +576,7 @@ footer.rg-footer {
 
 .rg-search-results .rg-entry-example {
     font-style: italic;
+    font-weight: normal;
 }
 
 .rg-search-results .rg-entry-conjugation {
@@ -432,7 +612,7 @@ footer.rg-footer {
 }
 
 .rg-word-separator {
-    background:#e8e8e8;
+    background: #e8e8e8;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     margin-left: 6px;
@@ -451,7 +631,7 @@ footer.rg-footer {
 }
 
 .rg-conjugator-options {
-    background:#e8e8e8;
+    background: #e8e8e8;
     text-align: center;
     margin-bottom: 1px;
     overflow: overlay;
@@ -461,11 +641,11 @@ footer.rg-footer {
     line-height: 1.5rem;
 }
 
-#options-form{
+#options-form {
     color: #707070;
 }
 
-.fa-caret-left{
+.fa-caret-left {
     color: #FC565B;
 }
 
@@ -498,8 +678,8 @@ footer.rg-footer {
     left: 0;
     height: 25px;
     width: 25px;
-    background:white;
-    border:1px solid #c8c8c8;
+    background: white;
+    border: 1px solid #c8c8c8;
 }
 
 .checkmark:after {
@@ -508,7 +688,7 @@ footer.rg-footer {
     display: none;
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked~.checkmark:after {
     display: block;
 }
 
@@ -554,6 +734,7 @@ a.ref-external::after {
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
 .rg-creative-commons img {
     width: 62px;
     height: 62px;
@@ -570,41 +751,32 @@ a.ref-external::after {
         min-width: 420px;
     }
 
-    #aragonarioLogo {
-        padding-top: 2rem;
-        text-align: center;
-    }
-
-    .home .rg-main #aragonarioLogo img {
-        height: auto;
-        width: 360px;
-    }
-
-    .external-links {
-        padding-top: 10rem;
-    }
-
-    header.rg-header {
-        margin-bottom: 0;
-    }
-
     .rg-header-bottom {
         background-position-x: 68px
     }
 
     .rg-search {
         padding-bottom: 14px;
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
         background-position: 36px bottom;
     }
 
     .rg-search #input-search {
-        height: 52px;
+        height: 56px;
     }
 
-    .rg-main .rg-search #button-search {
-        width: 52px;
+    .rg-search .button-lexicon-change {
+        min-width: auto;
+        width: 56px;
+    }
+
+    .rg-main .rg-search #button-search,
+    .rg-main .rg-search #button-topic {
+        width: 56px;
+    }
+
+    .rg-main .rg-search #button-topic .svg-inline--fa {
+        width: 32px;
+        margin-top: 3px;
     }
 
     .rg-search-results {
@@ -619,7 +791,7 @@ a.ref-external::after {
 }
 
 /** only sm rules **/
-@media (min-width: 576px) and (max-width: 767.98px ) {
+@media (min-width: 576px) and (max-width: 767.98px) {
     .rg-header-bottom {
         background-position-x: 85px
     }
@@ -641,52 +813,79 @@ a.ref-external::after {
         margin-right: 0;
     }
 
-    .home .rg-main .rg-search .ar-es{
+    .home .rg-main .rg-search .ar-es {
         background-image: url('lexicon-button-a-c-grey.svg');
     }
 
-    .home .rg-main .rg-search .es-ar{
+    .home .rg-main .rg-search .es-ar {
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 }
 
 /** sm rules **/
 @media (min-width: 576px) {
+    #aragonarioLogo img {
+        width: 330px;
+    }
+
+    #topicMenuContainer .topic-menu-wrapper {
+        max-width: calc(100vw - 200px);
+    }
+
     .rg-header .navbar-brand .navbar-brand-logo {
         width: 282px;
     }
+
     .rg-search-results {
         padding-left: 2rem;
         margin-right: 5rem;
     }
-    .conjugation-block{
+
+    .conjugation-block {
         padding-left: 1rem;
         margin-right: 1rem;
     }
 }
 
 /** md rules and smaller **/
-@media (max-width: 991.98px ) {
-    .navbar .ar-es{
-        height: 32px;
+@media (max-width: 991.98px) {
+    .navbar .ar-es,
+    .navbar .es-ar {
+        height: 34px;
+        min-width: 34px;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+    }
+    .navbar .ar-es {
         background-image: url('lexicon-button-a-c-grey.svg');
     }
 
-    .navbar .es-ar{
-        height: 32px;
+    .navbar .es-ar {
         background-image: url('lexicon-button-c-a-grey.svg');
     }
 
-    #baseSearch .button-lexicon-change{
+    .navbar .button-topic {
+        background: #333333;
+        color: #333333;
+        color: white;
+    }
+
+    header.rg-header .navbar-toggler.button-topic {
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+
+    #baseSearch #button-topic,
+    #baseSearch .button-lexicon-change {
         display: none;
     }
 
 }
 
 /** only md rules **/
-@media (min-width: 768px) and (max-width: 991.98px ) {
+@media (min-width: 768px) and (max-width: 991.98px) {
     #homeSearch.col-md-7 {
-        max-width: 52%;
+        max-width: 57%;
     }
 }
 
@@ -701,12 +900,18 @@ a.ref-external::after {
     }
 
     .home .rg-main {
+        padding: 0 15px; /** restore BS container style **/
         margin-top: 4rem;
     }
 
     #aragonarioLogo {
-        height: 149px;
-        background: url(aragonario-color-dos-sentidos.svg) no-repeat right top;
+        height: 80px;
+        background: url(aragonario-color-only-logo.svg) no-repeat right top;
+    }
+
+    #aragonarioLogo .logo-caption {
+        margin-top: 90px;
+        font-size: 1em;
     }
 
     .rg-header .navbar-brand .navbar-brand-logo {
@@ -717,9 +922,41 @@ a.ref-external::after {
         background-position-x: 125px;
     }
 
+    .home #topic-toggler,
+    .home .topic-item {
+        background: #FC565B;
+        color: #FFFFFF;
+    }
+
+    .home .unfolded #topic-toggler,
+    .home .topic-item.active,
+    .home .rg-main .rg-search #button-topic,
+    .base .rg-main .rg-search #button-topic {
+        background: #333333;
+        color: #FFFFFF;
+    }
+
+    .home .unfolded #topic-toggler.topic-toggler.some-topic-active {
+        background: #d9484d;
+    }
+
+    #topicMenuContainer {
+        margin-bottom: 1rem;
+    }
+
+
+
     .rg-search {
         margin-top: 0px;
         margin-right: 10rem;
+    }
+
+    .rg-search #input-search {
+        margin-right: 0;
+    }
+
+    .rg-search .input-group-append {
+        padding-left: 0;
     }
 
     .home .rg-main .rg-search #input-search {
@@ -730,17 +967,22 @@ a.ref-external::after {
         background: #fc565b;
     }
 
-    .home .rg-main .navbar-nav .nav-item {
-        padding-left: 2rem;
+    .home #topic-menu {
+        margin-top: 1.5em;
     }
 
-    .home .rg-main .navbar-nav .nav-item.active {
+    .home .navbar-nav .nav-item {
+        /* padding-left: 0.5rem; */
+        margin-left: -0.5rem;
+    }
+
+    .home .navbar-nav .nav-item.active {
         display: none;
     }
 
-    .home .rg-main .navbar-nav .nav-item a::before {
+    .home .navbar-nav .nav-item a::before {
         content: " ";
-        width: 1rem;
+        width: 2rem;
         display: inline-block;
         line-height: 1rem;
         position: relative;
@@ -748,26 +990,40 @@ a.ref-external::after {
         left: 0.5rem;
     }
 
-    .home .rg-main .navbar-nav .nav-item:hover a::before {
+    .home .navbar-nav .nav-item:hover a::before {
         border-bottom: 2px solid #fc565b;
     }
 
-    .home .rg-main .navbar-nav .nav-item a.nav-link:hover {
+    .home .navbar-nav .nav-item a.nav-link:hover {
         color: #fc565b;
     }
 
     .rg-search-results {
-        padding-left: 6rem;
-        margin-right: 3rem;
+        padding-left: 3rem;
+        padding-right: 2rem;
     }
 
-    .conjugation-block{
+    .conjugation-block {
         padding-left: 4rem;
     }
 
     .home .rg-navbar-separator {
         display: none;
     }
+
+    .rg-footer #logo-mcd {
+        position: relative;
+        top: -2em; /** -0.5em extra **/
+    }
+    .rg-footer #logo-mcd .logo-title {
+        line-height: 1.5em;
+    }
+
+    .rg-main {
+        margin-top: 0.5em;
+        padding-left: 72px;
+    }
+
 }
 
 /** lg rules **/
@@ -786,17 +1042,21 @@ a.ref-external::after {
         text-decoration: underline;
     }
 
+    .rg-navbar-separator {
+        display: none;
+    }
+
+    #aragonarioLogo .logo-caption {
+        margin-left: 40%;
+    }
+
     .home .rg-main {
-        /** TODO test in different devices and browsers **/
-        /*.fixed-bottom {*/
         position: fixed;
         right: 0;
         bottom: 0;
         left: 0;
-        /*z-index: 1030;*/
-        /*}*/
-        margin-bottom: calc(150px + 3rem); /** footer size + desired margin **/
-        z-index: 1040;
+        margin-bottom: 50vh;
+        z-index: 1020;
     }
 
     .home .ui-widget.ui-widget-content.ui-autocomplete {
@@ -809,21 +1069,29 @@ a.ref-external::after {
         padding-bottom: 5rem;
     }
 
+    .base .rg-main {
+        padding-left: 156px;
+    }
+
     /** diatopic variations **/
     .rg-variation-content .rg-variation-region-wrapper {
         padding-right: 0;
     }
+
     .rg-variation-content .rg-variation-region {
         height: 100%;
         display: flex;
         align-items: center;
     }
+
     .rg-variation-content .rg-variation-region h4 {
         margin-bottom: 0;
     }
+
     .rg-variation-name {
         display: inline-block;
     }
+
     .rg-variation-content .rg-variation-entries {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
@@ -835,7 +1103,7 @@ a.ref-external::after {
         padding-left: 0;
     }
 
-    .conjugation-block{
+    .conjugation-block {
         padding-left: 5rem;
     }
 
@@ -847,6 +1115,7 @@ a.ref-external::after {
     .footer-lg-separator {
         background: #fc565b;
         height: 2px;
+        margin-bottom: 1rem;
     }
 
     .footer-lg-external-links {
@@ -882,6 +1151,7 @@ a.ref-external::after {
     .footer-lg-nav {
         margin-left: 1rem;
     }
+
     .footer-lg-nav a {
         color: black;
         font-size: 0.75rem;
@@ -890,12 +1160,6 @@ a.ref-external::after {
 
     #rg-fondos-feder {
         margin-top: -1rem;
-    }
-}
-
-@media (max-width: 1200px) {
-    .rg-main {
-        padding-left: 1rem;
     }
 }
 
@@ -910,11 +1174,61 @@ a.ref-external::after {
         background-position-x: 90px;
     }
 
-    .rg-search-results{
+    #aragonarioLogo .logo-caption {
+        margin-left: 50%;
+    }
+
+    .base .rg-main {
+        padding-left: 120px;
+    }
+
+    .rg-search-results {
         margin-right: 20rem;
     }
 
-    #conjugation table{
+    #conjugation table {
         display: table;
+    }
+
+    #topicMenuContainer {
+        margin-top: -5px;
+    }
+
+    #topicMenuContainer .topic-menu-wrapper {
+        width: 200px;
+        transition: width 2s;
+        flex: 1;
+    }
+
+    #topicMenuContainer  .topic-menu-wrapper.collapsed {
+        width: 0;
+        flex: 1;
+    }
+}
+
+/** xxl rules (custom RG breakpoint) **/
+@media (min-width: 1440px) {
+    .d-xxl-none {
+        display: none!important;
+    }
+
+    .home .rg-header {
+        display: block;
+    }
+
+    .home .rg-header-bottom {
+        display: none;
+    }
+
+    .home .rg-header-content {
+        background: white;
+    }
+
+    .home .rg-header .navbar-light .navbar-nav .nav-link {
+        color: #333;
+    }
+
+    #topicMenuContainer .topic-menu-wrapper {
+        width: 270px;
     }
 }

@@ -1,0 +1,11 @@
+<div id="topic-menu" class="d-inline-flex">
+  {% for topic in topic_list %}
+  <div class="topic-item-wrapper">
+    <div class="topic-item {% if topic.slug == selected_lexicon %}active{% endif %}" data-lexicode="{{ topic.slug }}"
+      data-lexidesc="{{ topic.name }}" data-fa-icon="{{ topic.icon }}">
+      <i class="{{ fa_class }} {{ topic.icon }} fa-2x"></i>
+      <div class="topic-title">{{ topic.name }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

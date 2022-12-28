@@ -5,6 +5,7 @@ import urllib.parse
 from collections import OrderedDict
 
 from django.conf import settings
+from django.http import Http404
 from django.template.response import TemplateResponse
 from django.views.generic.base import TemplateView
 from django.urls import resolve
@@ -63,6 +64,40 @@ class LinguatecBaseView(TemplateView):
             context['fa_class'] = 'fal'
         else:
             context['fa_class'] = 'fas'
+
+        # TODO(@slamora): replace hardcoded list
+        context['topic_list'] = [
+            {
+                "id": 17,
+                "code": "es-ar",
+                "name": "Botánico",
+                "src_language": "es",
+                "dst_language": "ar",
+                "topic": "flora",
+                "slug": "es-ar@flora",
+                "icon": "fa-flower",
+            },
+            {
+                "id": 18,
+                "code": "es-ar",
+                "name": "Faunístico",
+                "src_language": "es",
+                "dst_language": "ar",
+                "topic": "fauna",
+                "slug": "es-ar@fauna",
+                "icon": "fa-paw",
+            },
+            {
+                "id": 19,
+                "code": "es-ar",
+                "name": "Jurídico",
+                "src_language": "es",
+                "dst_language": "ar",
+                "topic": "law",
+                "slug": "es-ar@law",
+                "icon": "fa-balance-scale",
+            }
+        ]
 
         return context
 
@@ -170,12 +205,12 @@ class SearchView(LinguatecBaseView):
         """Search and show results. If none, show near words."""
         context = self.get_context_data(**kwargs)
         query = request.GET.get('q', None)
-        lex_code = request.GET.get('l', '')
+        lex_slug = request.GET.get('l', '')
         if query is not None:
             client = coreapi.Client()
             schema = client.get(settings.LINGUATEC_LEXICON_API_URL)
 
-            querystring_args = {'q': query, 'l': lex_code}
+            querystring_args = {'q': query, 'l': lex_slug}
             url = schema['words'] + 'search/?' + \
                 urllib.parse.urlencode(querystring_args)
             response = client.get(url)
@@ -187,12 +222,13 @@ class SearchView(LinguatecBaseView):
             context.update({
                 'query': query,
                 'results': results,
-                'selected_lexicon': lex_code,
+                'selected_lexicon': lex_slug,
+                'selected_lexicon_code': lex_slug.split("@")[0],
                 'lexicons': get_lexicons(),
             })
 
             if response["count"] == 0:
-                context["near_words"] = utils.retrieve_near_words(query, lex_code)
+                context["near_words"] = utils.retrieve_near_words(query, lex_slug)
 
         return TemplateResponse(request, 'linguatec_lexicon_frontend/search_results.html', context)
 
@@ -211,7 +247,11 @@ class WordDetailView(LinguatecBaseView):
         schema = client.get(api_url)
         url = schema['words'] + '{pk}/'.format(pk=pk)
 
-        word = client.get(url)
+        try:
+            word = client.get(url)
+        except coreapi.exceptions.ErrorMessage:
+            raise Http404("Word doesn't exist.")
+
         self.groupby_word_entries(word)
 
         lexicons = get_lexicons()
