@@ -57,6 +57,20 @@ $(function () {
         init_lexicon_button();
     });
 
+    function responsive_search_placeholder(topic) {
+        let viewport_width = $( window ).width();
+
+        if (viewport_width < 576) {
+            suffix = " (c ➜ a)";
+        } else if (viewport_width < 992) {
+            suffix = " (cast. ➜ arg.)";
+        } else {
+            suffix = " (castellano-aragonés)";
+        }
+
+        return topic + suffix;
+    }
+
     function init_topic_button($topic) {
 
         let button_lexicon_toggle = $(".button-lexicon-change");
@@ -87,7 +101,7 @@ $(function () {
                 $(".logo-caption").html("Diccionario<br>\npor áreas temáticas<br>\n" + $topic.data("lexidesc"));
                 $("#topic-general").removeClass("active");
 
-                search_placeholder = $topic.data("lexidesc") + " (es-ar)";
+                search_placeholder = responsive_search_placeholder($topic.data("lexidesc"));
         }
 
         $("#topic-menu .topic-item").removeClass("active");
