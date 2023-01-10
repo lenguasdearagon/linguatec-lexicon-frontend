@@ -249,10 +249,6 @@ footer.rg-footer {
     margin-bottom: 30px;
 }
 
-.rg-logo .logo-title {
-    color: #707070;
-}
-
 .rg-logos-container,
 .rg-footer #collapseLogos {
     margin-top: 32px;
@@ -1009,14 +1005,6 @@ a.ref-external::after {
 
     .home .rg-navbar-separator {
         display: none;
-    }
-
-    .rg-footer #logo-mcd {
-        position: relative;
-        top: -2em; /** -0.5em extra **/
-    }
-    .rg-footer #logo-mcd .logo-title {
-        line-height: 1.5em;
     }
 
     .rg-main {
