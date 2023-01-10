@@ -62,8 +62,6 @@ $(function () {
 
         if (viewport_width < 576) {
             suffix = " (c ➜ a)";
-        } else if (viewport_width < 992) {
-            suffix = " (cast. ➜ arg.)";
         } else {
             suffix = " (castellano-aragonés)";
         }
