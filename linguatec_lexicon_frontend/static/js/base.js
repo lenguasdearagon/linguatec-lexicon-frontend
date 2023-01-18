@@ -23,9 +23,6 @@ $(function () {
         var selected_lexicon = $("#selected_lex").val();
         var lexicon_button = $(".button-lexicon-change");
 
-        // topic-general has two ways: ar-es & es-ar update active way
-        $("#topic-general").data("lexicode", selected_lexicon);
-
         if (selected_lexicon == 'es-ar') {
             lexicon_button.removeClass('ar-es');
             lexicon_button.addClass('es-ar');
