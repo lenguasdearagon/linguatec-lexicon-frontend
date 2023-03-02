@@ -239,12 +239,28 @@ class WordDetailView(LinguatecBaseView):
 
     def dispatch(self, request, *args, **kwargs):
         """Retrieve and display a word by ID."""
-        pk = kwargs.get('pk')
         context = self.get_context_data(**kwargs)
 
+        self.lexicons = get_lexicons()
+
+        word = self.get_word()
+        self.groupby_word_entries(word)
+        selected_lexicon = word['lexicon']
+
+        context.update({
+            'results': [word],
+            'selected_lexicon': selected_lexicon,
+            'lexicons': self.lexicons,
+        })
+
+        return TemplateResponse(request, self.template_name, context)
+
+    def get_word(self):
         api_url = settings.LINGUATEC_LEXICON_API_URL
         client = coreapi.Client()
         schema = client.get(api_url)
+
+        pk = self.kwargs['pk']
         url = schema['words'] + '{pk}/'.format(pk=pk)
 
         try:
@@ -252,18 +268,7 @@ class WordDetailView(LinguatecBaseView):
         except coreapi.exceptions.ErrorMessage:
             raise Http404("Word doesn't exist.")
 
-        self.groupby_word_entries(word)
-
-        lexicons = get_lexicons()
-        selected_lexicon = word['lexicon']
-
-        context.update({
-            'results': [word],
-            'selected_lexicon': selected_lexicon,
-            'lexicons': lexicons,
-        })
-
-        return TemplateResponse(request, self.template_name, context)
+        return word
 
 
 class ConjugationDetailView(LinguatecBaseView):
