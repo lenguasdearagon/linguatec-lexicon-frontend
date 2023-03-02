@@ -271,6 +271,30 @@ class WordDetailView(LinguatecBaseView):
         return word
 
 
+class WordByURIDetailView(WordDetailView):
+    def get_word(self):
+        lexicon = self.clean_lexicon(self.kwargs['lexicon'])
+        word = self.kwargs['word']
+
+        api_url = settings.LINGUATEC_LEXICON_API_URL
+        client = coreapi.Client()
+        schema = client.get(api_url)
+
+        url = f"{schema['words']}exact/?l={lexicon}&q={word}"
+        try:
+            word = client.get(url)
+        except coreapi.exceptions.ErrorMessage:
+            raise Http404("Word doesn't exist.")
+
+        return word
+
+    def clean_lexicon(self, value):
+        valid_slugs = [lexicon['slug'] for lexicon in self.lexicons]
+        if value not in valid_slugs:
+            raise Http404("Lexicon doesn't exist.")
+        return value
+
+
 class ConjugationDetailView(LinguatecBaseView):
     template_name = "linguatec_lexicon_frontend/word_entry_conjugation.html"
 
