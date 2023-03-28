@@ -499,6 +499,16 @@ footer.rg-footer {
     font-variant: normal;
 }
 
+.rg-search-results .rg-word .anchorjs-link {
+    opacity: 0;
+    padding-left: 0.375em;
+}
+
+.rg-search-results .rg-word:hover .anchorjs-link,
+.rg-search-results .rg-word:active .anchorjs-link {
+    opacity: 1;
+}
+
 .rg-search-results .rg-gramcat,
 .rg-search-results .rg-entry-keyword {
     color: #C8C8C8;

@@ -4,13 +4,13 @@ The views.
 import urllib.parse
 from collections import OrderedDict
 
+import coreapi
 from django.conf import settings
 from django.http import Http404
 from django.template.response import TemplateResponse
-from django.views.generic.base import TemplateView
-from django.urls import resolve
+from django.urls import resolve, reverse
+from django.views.generic.base import RedirectView, TemplateView
 
-import coreapi
 from linguatec_lexicon_frontend import utils
 from linguatec_lexicon_frontend.forms import ConjugatorForm
 
@@ -239,12 +239,28 @@ class WordDetailView(LinguatecBaseView):
 
     def dispatch(self, request, *args, **kwargs):
         """Retrieve and display a word by ID."""
-        pk = kwargs.get('pk')
         context = self.get_context_data(**kwargs)
 
+        self.lexicons = get_lexicons()
+
+        word = self.get_word()
+        self.groupby_word_entries(word)
+        selected_lexicon = word['lexicon']
+
+        context.update({
+            'results': [word],
+            'selected_lexicon': selected_lexicon,
+            'lexicons': self.lexicons,
+        })
+
+        return TemplateResponse(request, self.template_name, context)
+
+    def get_word(self):
         api_url = settings.LINGUATEC_LEXICON_API_URL
         client = coreapi.Client()
         schema = client.get(api_url)
+
+        pk = self.kwargs['pk']
         url = schema['words'] + '{pk}/'.format(pk=pk)
 
         try:
@@ -252,18 +268,54 @@ class WordDetailView(LinguatecBaseView):
         except coreapi.exceptions.ErrorMessage:
             raise Http404("Word doesn't exist.")
 
-        self.groupby_word_entries(word)
+        return word
 
-        lexicons = get_lexicons()
-        selected_lexicon = word['lexicon']
 
-        context.update({
-            'results': [word],
-            'selected_lexicon': selected_lexicon,
-            'lexicons': lexicons,
-        })
+class WordDetailBySlug(RedirectView):
+    permanent = False
 
-        return TemplateResponse(request, self.template_name, context)
+    def get_redirect_url(self, *args, **kwargs):
+        word = self.get_word()
+        return reverse('word-detail-uri', args=(word['lexicon'], word['term']))
+
+    def get_word(self):
+        api_url = settings.LINGUATEC_LEXICON_API_URL
+        client = coreapi.Client()
+        schema = client.get(api_url)
+
+        slug = self.kwargs['slug']
+        url = schema['words'] + 'slug/{slug}/'.format(slug=slug)
+
+        try:
+            word = client.get(url)
+        except coreapi.exceptions.ErrorMessage:
+            raise Http404("Word doesn't exist.")
+
+        return word
+
+
+class WordByURIDetailView(WordDetailView):
+    def get_word(self):
+        lexicon = self.clean_lexicon(self.kwargs['lexicon'])
+        word = self.kwargs['word']
+
+        api_url = settings.LINGUATEC_LEXICON_API_URL
+        client = coreapi.Client()
+        schema = client.get(api_url)
+
+        url = f"{schema['words']}exact/?l={lexicon}&q={word}"
+        try:
+            word = client.get(url)
+        except coreapi.exceptions.ErrorMessage:
+            raise Http404("Word doesn't exist.")
+
+        return word
+
+    def clean_lexicon(self, value):
+        valid_slugs = [lexicon['slug'] for lexicon in self.lexicons]
+        if value not in valid_slugs:
+            raise Http404("Lexicon doesn't exist.")
+        return value
 
 
 class ConjugationDetailView(LinguatecBaseView):
