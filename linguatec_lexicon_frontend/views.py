@@ -4,13 +4,13 @@ The views.
 import urllib.parse
 from collections import OrderedDict
 
+import coreapi
 from django.conf import settings
 from django.http import Http404
 from django.template.response import TemplateResponse
-from django.views.generic.base import TemplateView
-from django.urls import resolve
+from django.urls import resolve, reverse
+from django.views.generic.base import RedirectView, TemplateView
 
-import coreapi
 from linguatec_lexicon_frontend import utils
 from linguatec_lexicon_frontend.forms import ConjugatorForm
 
@@ -262,6 +262,29 @@ class WordDetailView(LinguatecBaseView):
 
         pk = self.kwargs['pk']
         url = schema['words'] + '{pk}/'.format(pk=pk)
+
+        try:
+            word = client.get(url)
+        except coreapi.exceptions.ErrorMessage:
+            raise Http404("Word doesn't exist.")
+
+        return word
+
+
+class WordDetailBySlug(RedirectView):
+    permanent = False
+
+    def get_redirect_url(self, *args, **kwargs):
+        word = self.get_word()
+        return reverse('word-detail-uri', args=(word['lexicon'], word['term']))
+
+    def get_word(self):
+        api_url = settings.LINGUATEC_LEXICON_API_URL
+        client = coreapi.Client()
+        schema = client.get(api_url)
+
+        slug = self.kwargs['slug']
+        url = schema['words'] + 'slug/{slug}/'.format(slug=slug)
 
         try:
             word = client.get(url)
