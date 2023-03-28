@@ -2,7 +2,7 @@
 
 <article>
     <header class="rg-word">
-        <h2>
+        <h2 id="word-{{ word.slug }}">
           {{ word|render_term:selected_lexicon }}
           {# <!-- TODO @slamora: Move this include to filter (or create templatetag)--> #}
           {% if selected_lexicon == "ar-es" %}
@@ -10,6 +10,8 @@
           {% endif %}
           {% if word.is_regular_verb %}<a class="btn btn-outline-secondary ml-3" href="{% url 'word-conjugation' word.term %}">Conjugar</a>{% endif %}
           {% if word.admin_panel_url %}<a href= {{ word.admin_panel_url }}> (edit) </a>{% endif %}
+          <a class="anchorjs-link" aria-label="Anchor" title="Enlace permanente" href="{% url 'word-detail-uri' word.lexicon word.term %}">
+            <i class="{{ fa_class }} fa-link"></i></a>
         </h2>
 
     </header>
