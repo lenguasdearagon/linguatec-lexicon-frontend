@@ -276,7 +276,8 @@ class WordDetailBySlug(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         word = self.get_word()
-        return reverse('word-detail-uri', args=(word['lexicon'], word['term']))
+        term = urllib.parse.quote_plus(word['term'])
+        return reverse('word-detail-uri', args=(word['lexicon'], term))
 
     def get_word(self):
         api_url = settings.LINGUATEC_LEXICON_API_URL
