@@ -1,13 +1,8 @@
 # linguatec lexicon frontend
-Frontend website based on vue.js
+Frontend website based Django.
 
 ## Development
 ``TODO``
-
-node.js and npm
-```
-sudo apt-get install --no-install-recommends nodejs npm
-```
 
 ### Run tests
 The tests included are build using Python [unittest](https://docs.python.org/3/library/unittest.html) library.
