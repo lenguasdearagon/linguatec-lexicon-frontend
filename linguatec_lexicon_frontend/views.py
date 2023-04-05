@@ -233,27 +233,13 @@ class SearchView(LinguatecBaseView):
         return TemplateResponse(request, 'linguatec_lexicon_frontend/search_results.html', context)
 
 
-class WordDetailView(LinguatecBaseView):
-    """Display a word."""
-    template_name = "linguatec_lexicon_frontend/search_results.html"
+class WordDetailView(RedirectView):
+    permanent = False
 
-    def dispatch(self, request, *args, **kwargs):
-        """Retrieve and display a word by ID."""
-        context = self.get_context_data(**kwargs)
-
-        self.lexicons = get_lexicons()
-
+    def get_redirect_url(self, *args, **kwargs):
         word = self.get_word()
-        self.groupby_word_entries(word)
-        selected_lexicon = word['lexicon']
-
-        context.update({
-            'results': [word],
-            'selected_lexicon': selected_lexicon,
-            'lexicons': self.lexicons,
-        })
-
-        return TemplateResponse(request, self.template_name, context)
+        term = urllib.parse.quote_plus(word['term'])
+        return reverse('word-detail-uri', args=(word['lexicon'], term))
 
     def get_word(self):
         api_url = settings.LINGUATEC_LEXICON_API_URL
@@ -295,7 +281,27 @@ class WordDetailBySlug(RedirectView):
         return word
 
 
-class WordByURIDetailView(WordDetailView):
+class WordByURIDetailView(LinguatecBaseView):
+    """Display a word."""
+    template_name = "linguatec_lexicon_frontend/search_results.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        self.lexicons = get_lexicons()
+
+        word = self.get_word()
+        self.groupby_word_entries(word)
+        selected_lexicon = word['lexicon']
+
+        context.update({
+            'results': [word],
+            'selected_lexicon': selected_lexicon,
+            'lexicons': self.lexicons,
+        })
+
+        return context
+
     def get_word(self):
         lexicon = self.clean_lexicon(self.kwargs['lexicon'])
         word = self.kwargs['word']

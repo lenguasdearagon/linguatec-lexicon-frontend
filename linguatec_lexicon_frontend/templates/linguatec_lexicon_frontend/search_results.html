@@ -24,7 +24,7 @@
           <div class="row near-words">
               {% for word in near_words %}
               <div class="col-3">
-                  <a href="{% url 'word-detail' word.id %}">{{ word.term }}</a>
+                  <a href="{% url 'word-detail-by-slug' word.slug %}">{{ word.term }}</a>
               </div>
               {% endfor %}
           </div>
