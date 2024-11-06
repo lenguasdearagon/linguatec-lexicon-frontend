@@ -188,6 +188,12 @@ $(function () {
                 $("#topic-general").removeClass("active");
 
                 search_placeholder = responsive_search_placeholder($topic.data("lexidesc"));
+
+                if ($topic.data("lexicode") === "an-an") {
+                    $(".logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
+                    search_placeholder = "Definiciones en aragonés";
+                    // TODO replace elipsis with an-an icon
+                }
         }
 
         $("#topic-menu .topic-item").removeClass("active");
