@@ -187,15 +187,6 @@ $(function () {
         $(".topic-menu-wrapper").toggleClass("collapsed");
     });
 
-    // if the user goes to input search without choosing a topic
-    // perform search to general dictionary.
-    $(".home #input-search").focus(function () {
-        if (!$("#topic-toggler").hasClass("some-topic-active")) {
-            init_topic_button($("#topic-general"));
-            $("#topic-menu").removeClass("unfolded");
-        }
-    });
-
     // scroll to active topic
     if ($(".topic-menu-wrapper .topic-item.active").length) {
         let wrapper_offset = $(".topic-menu-wrapper .topic-item.active").parent().parent().offset()
