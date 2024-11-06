@@ -97,7 +97,7 @@ $(function () {
 
         // TODO handle for monolingual lexicon (it doesn't have topic-general value)
         if ($topic.length === 0) {
-            search_placeholder = "Definiciones en aragonés"
+            search_placeholder = "Definición en aragonés"
             return;
         }
 
@@ -110,12 +110,20 @@ $(function () {
                 $(".logo-caption").html("Diccionario<br>\npor áreas temáticas");
 
                 return; // is the menu toggler: nothing else to do
+
+            case "topic-definition":
+                button_lexicon_toggle.addClass('d-none');
+                button_topic.removeClass("d-none");
+                $(".topic-toggler").removeClass("some-topic-active");
+                $(".logo-caption").html($topic.data("logo-caption"));
+                search_placeholder = $topic.data("lexidesc");
+                break;
+
             case "topic-general":
                 button_lexicon_toggle.removeClass('d-none');
                 button_topic.addClass('d-none');
                 $(".topic-toggler").removeClass("some-topic-active");
-                $(".logo-caption").html("Diccionario<br>\ncastellano/aragonés<br>\naragonés/castellano");
-
+                $(".logo-caption").html($topic.data("logo-caption"));
                 search_placeholder = $topic.data("lexidesc");
                 break;
 
@@ -130,7 +138,7 @@ $(function () {
 
                 if ($topic.data("lexicode") === "an-an") {
                     $(".logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
-                    search_placeholder = "Definiciones en aragonés";
+                    search_placeholder = "Definición en aragonés";
                     // TODO replace elipsis with an-an icon
                 }
         }
