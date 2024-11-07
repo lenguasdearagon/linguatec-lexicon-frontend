@@ -336,6 +336,7 @@ footer.rg-footer {
     border-width: 0;
     min-width: 62px;
     color: white;
+    background: #fc565b;
 }
 
 .ar-es,
@@ -834,6 +835,10 @@ a.ref-external::after {
     .home .rg-main .rg-search #input-search {
         background: white;
         margin-right: 0;
+    }
+
+    .home .rg-main .button-lexicon-change {
+        background: #333333;
     }
 
     .home .rg-main .rg-search .ar-es {
