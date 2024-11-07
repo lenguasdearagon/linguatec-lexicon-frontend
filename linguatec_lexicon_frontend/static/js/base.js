@@ -23,17 +23,13 @@ $(function () {
         var selected_lexicon = $("#selected_lex").val();
         var lexicon_button = $(".button-lexicon-change");
 
-        if (selected_lexicon == 'es-ar') {
-            lexicon_button.removeClass('ar-es');
-            lexicon_button.addClass('es-ar');
-            lexicon_button.data("way", 'es-ar')
-            $('#input-search').attr('placeholder', 'castellano-aragonés');
-        } else if (selected_lexicon == 'ar-es') {
-            lexicon_button.removeClass('es-ar');
-            lexicon_button.addClass('ar-es');
-            lexicon_button.data("way", 'ar-es')
-            $('#input-search').attr('placeholder', 'aragonés-castellano');
-        } else {
+        if (['es-ar', 'ar-es', 'an-an'].includes(selected_lexicon)) {
+            let current = lexicon_button.data("way");
+            lexicon_button.removeClass(current);
+            lexicon_button.addClass(selected_lexicon);
+            lexicon_button.data("way", selected_lexicon)
+        }
+        else {
             // do nothing on other lexicons
         }
 
@@ -46,13 +42,15 @@ $(function () {
         var lexicon_button = $(".button-lexicon-change");
 
         switch (lexicon_button.data("way")) {
-            case 'es-ar':
-                topic_general.data("lexicode", 'es-ar');
-                topic_general.data("lexidesc", "castellano-aragonés")
-                break;
             case 'ar-es':
                 topic_general.data("lexicode", 'ar-es');
                 topic_general.data("lexidesc", "aragonés-castellano");
+                break;
+
+            case 'es-ar':
+            default:
+                topic_general.data("lexicode", 'es-ar');
+                topic_general.data("lexidesc", "castellano-aragonés")
                 break;
         }
     }
@@ -143,11 +141,11 @@ $(function () {
                 }
         }
 
-        $("#topic-menu .topic-item").removeClass("active");
+        $(".topic-item").removeClass("active");
         $topic.addClass("active");
 
         $("#selected_lex").val($topic.data("lexicode"));
-
+        init_lexicon_button();
         $('#input-search').attr('placeholder', search_placeholder);
 
         // remove other fa-icon
@@ -164,7 +162,13 @@ $(function () {
 
     }
 
+    // initialize onclick event for topic buttons
     $("#topic-general").click(function () {
+        init_topic_button($(this));
+        $("#input-search").val("");
+    });
+
+    $("#topic-definition").click(function () {
         init_topic_button($(this));
         $("#input-search").val("");
     });
