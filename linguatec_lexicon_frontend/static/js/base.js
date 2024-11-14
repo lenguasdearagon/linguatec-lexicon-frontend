@@ -173,13 +173,13 @@ $(function () {
         $("#input-search").val("");
     });
 
-    $("#topic-definition").click(function () {
+    $("#topic-menu .topic-item").click(function () {
         init_topic_button($(this));
         $("#input-search").val("");
     });
 
-    $("#topic-menu .topic-item").click(function () {
-        init_topic_button($(this));
+    $("#topic-definition").click(function () {
+        $("#button-topic").addClass("d-none");
         $("#input-search").val("");
     });
 
@@ -187,8 +187,6 @@ $(function () {
         $("#topic-menu").toggleClass("unfolded");
         if ($("#topic-menu").hasClass("unfolded")) {
             init_topic_button($(this));
-        } else {
-            init_topic_button($("#topic-general"));
         }
     });
 
