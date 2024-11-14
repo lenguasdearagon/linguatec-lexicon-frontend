@@ -100,7 +100,7 @@ $(function () {
 
         // TODO handle for monolingual lexicon (it doesn't have topic-general value)
         if ($topic.length === 0) {
-            search_placeholder = "Definición en aragonés"
+            search_placeholder = "Definizión en aragonés"
             return;
         }
 
@@ -141,7 +141,7 @@ $(function () {
 
                 if ($topic.data("lexicode") === "an-an") {
                     $(".logo-caption").html("Diccionario<br>\n" + $topic.data("lexidesc"));
-                    search_placeholder = "Definición en aragonés";
+                    search_placeholder = "Definizión en aragonés";
                     // TODO replace elipsis with an-an icon
                 }
         }
