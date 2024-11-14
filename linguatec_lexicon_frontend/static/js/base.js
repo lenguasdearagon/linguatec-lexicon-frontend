@@ -74,6 +74,11 @@ $(function () {
 
         $("#selected_lex").val(new_lex);
         init_lexicon_button();
+
+        let search_placeholder = $("#topic-general").data("lexidesc");
+        $("#input-search").attr('placeholder', search_placeholder);
+        $("#input-search").val("");
+
     });
 
     function responsive_search_placeholder(topic) {
