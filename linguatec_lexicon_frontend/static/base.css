@@ -343,14 +343,15 @@ footer.rg-footer {
 .es-ar {
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .ar-es {
-    background-image: url('lexicon-button-a-c-colour.svg');
+    background-image: url('lexicon-button-ara-cast.png');
 }
 
 .es-ar {
-    background-image: url('lexicon-button-c-a-colour.svg');
+    background-image: url('lexicon-button-cast-ara.png');
 }
 
 .lexicon-general-icon {
@@ -838,16 +839,9 @@ a.ref-external::after {
     }
 
     .home .rg-main .button-lexicon-change {
-        background: #333333;
+        background-color: #333333;
     }
 
-    .home .rg-main .rg-search .ar-es {
-        background-image: url('lexicon-button-a-c-grey.svg');
-    }
-
-    .home .rg-main .rg-search .es-ar {
-        background-image: url('lexicon-button-c-a-grey.svg');
-    }
 }
 
 /** sm rules **/
@@ -884,19 +878,11 @@ a.ref-external::after {
         min-width: 34px;
         border-radius: 5px;
         margin-right: 0.5rem;
-    }
-
-    .navbar .ar-es {
-        background-image: url('lexicon-button-a-c-grey.svg');
-    }
-
-    .navbar .es-ar {
-        background-image: url('lexicon-button-c-a-grey.svg');
+        background-color: #333333;
     }
 
     .navbar .button-topic {
         background: #333333;
-        color: #333333;
         color: white;
     }
 
