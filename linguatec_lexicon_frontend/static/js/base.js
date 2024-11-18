@@ -98,12 +98,6 @@ $(function () {
         let button_lexicon_toggle = $(".button-lexicon-change");
         let button_topic = $(".button-topic");
 
-        // TODO handle for monolingual lexicon (it doesn't have topic-general value)
-        if ($topic.length === 0) {
-            search_placeholder = "Definizión en aragonés"
-            return;
-        }
-
         switch ($topic.attr("id")) {
             case "topic-toggler":
                 button_lexicon_toggle.addClass('d-none');
@@ -116,7 +110,7 @@ $(function () {
 
             case "topic-definition":
                 button_lexicon_toggle.addClass('d-none');
-                button_topic.removeClass("d-none");
+                button_topic.addClass("d-none");
                 $(".topic-toggler").removeClass("some-topic-active");
                 $(".logo-caption").html($topic.data("logo-caption"));
                 search_placeholder = $topic.data("lexidesc");
@@ -179,7 +173,7 @@ $(function () {
     });
 
     $("#topic-definition").click(function () {
-        $("#button-topic").addClass("d-none");
+        init_topic_button($(this));
         $("#input-search").val("");
     });
 
