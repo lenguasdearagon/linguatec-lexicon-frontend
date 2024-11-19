@@ -17,7 +17,7 @@
         </h2>
         {% if word.etimol %}
         <span class="rg-word-etimology">
-            {{ word.etimol }}
+            {{ word.etimol|safe }}
         </span>
         {% endif %}
     </header>
