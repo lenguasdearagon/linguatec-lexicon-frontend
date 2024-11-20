@@ -122,6 +122,9 @@ class IsRegularVerbTestCase(unittest.TestCase):
     return_value=[
         {"abbreviation": "s.", "title": "sustantivo"},
         {"abbreviation": "s. f.", "title": "sustantivo femenino"},
+        {"abbreviation": "s. m.", "title": "sustantivo masculino"},
+        {"abbreviation": "v. tr.", "title": "verbo transitivo"},
+        {"abbreviation": "v. intr.", "title": "verbo intransitivo"},
     ]
 )
 class HightlightInlineGramCats(unittest.TestCase):
@@ -137,6 +140,22 @@ class HightlightInlineGramCats(unittest.TestCase):
         # an-an: au
         input = "... tiene amnios y alantoides."
         expected = "... tiene amnios y alantoides."
+
+        output = linguatec.highlight_gramcats_inline(input)
+        self.assertEqual(expected, output)
+
+    def test_three(self, retrieve_gramcats):
+        # es-ar: destacar |	v. tr. // v. intr. | (resaltar, poner de relieve) acobaltar // v. intr. (sobresalir, decollar) sobrexir, estar siñalero/a // v. tr. (adelantar una porción de tropa, separándola del cuerpo principal) abanzar (del lat. vulgar abantiare)
+        input = "v. intr. (sobresalir, decollar) sobrexir, estar siñalero/a"
+        expected = "<span class='rg-gramcat' title='verbo intransitivo'>v. intr.</span> (sobresalir, decollar) sobrexir, estar siñalero/a"
+
+        output = linguatec.highlight_gramcats_inline(input)
+        self.assertEqual(expected, output)
+
+    def test_four(self, retrieve_gramcats):
+        # es-ar: bandurria común
+        input = "iba cuelliblanca (s. f.), ibis cuelliblanco (s. m.)"
+        expected = "iba cuelliblanca (<span class='rg-gramcat' title='sustantivo femenino'>s. f.</span>), ibis cuelliblanco (<span class='rg-gramcat' title='sustantivo masculino'>s. m.</span>)"
 
         output = linguatec.highlight_gramcats_inline(input)
         self.assertEqual(expected, output)
